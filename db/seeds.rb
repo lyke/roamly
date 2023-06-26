@@ -35,7 +35,7 @@ user2.save!
 
 
 
-eiffel_tower = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1687688111/development/2brzkap7a8teh7jg8yeu3eh31163.jpg")
+eiffel_tower = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1687788252/development/6men4efzsrk3jv0wmaooost68n7h.jpg")
 place1 = Place.new(
   name: "Eiffel Tower",
   description: "La tour Eiffel est une tour de fer puddlé de 330 m2 de hauteur (avec antennes) située à Paris, à l’extrémité nord-ouest du parc du Champ-de-Mars en bordure de la Seine dans le 7e arrondissement. Son adresse officielle est 5, avenue Anatole-France.
