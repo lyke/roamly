@@ -10,9 +10,13 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+
   </head>
 
+
   <body>
+    <%= render "layouts/navbardown" %>
     <%= yield %>
   </body>
 </html>
