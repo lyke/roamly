@@ -55,6 +55,7 @@ gem "devise"
 gem "sassc-rails"
 gem "cloudinary"
 gem "dotenv-rails", groups: [:development, :test]
+gem "geocoder"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

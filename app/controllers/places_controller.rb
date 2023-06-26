@@ -12,6 +12,7 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @marker = [{ lat: @place.latitude, lng: @place.longitude }]
   end
 
   def create
