@@ -1,6 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
-<%= cl_image_tag @place.photos.key, height: 00, width: 400, crop: :fill, class: "card-img" %>
+<% @place.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill, class: "card-img" %>
+  <% end %>
 <h1><%= @place.name %></h1>
   <div class="d-flex justify-content-around">
     <h3 class="place-caracteristiques">Duration : <%= @place.duration %>min</h3>

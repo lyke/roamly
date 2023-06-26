@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_26_130043) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_26_144406) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,7 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_130043) do
     t.string "name"
     t.text "description"
     t.float "price"
-    t.string "photo"
     t.integer "duration"
     t.boolean "secret_spot", default: false
     t.integer "min_temp"
@@ -73,7 +72,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_130043) do
     t.string "nickname"
     t.string "first_name"
     t.string "last_name"
-    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
