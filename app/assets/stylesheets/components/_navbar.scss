@@ -7,6 +7,11 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.line-navbar {
+  border: 2px solid #59BCB6;
+  margin: -3px;
+}
+
+.fa-messages, fa-house {
+  color: #59BCB6;
 }
