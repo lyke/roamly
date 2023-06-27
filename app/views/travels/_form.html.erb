@@ -1,0 +1,68 @@
+  <div class="calendar">
+  <%= simple_form_for [@travel], data: { controller: 'flatpickr' } do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.label :Que_voudrais_tu_faire_? %>
+    <%# créer une collection de tags, chacuns de ces tags %>
+    <div>
+      <% 12.times do %>
+      <%= f.button :submit %>
+    <% end %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.input :beginning_date, label: "Voyage du :", as: :string, input_html: { data: { flatpickr_target: "startTime" } }%>
+    <%= f.input :ending_date, label: "au :", as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
+  </div>
+
+  <div class="d-flex">
+    <div class="form-inputs">
+      <%= f.label :Début_du_voyage %>
+      <%= f.text_field :beginning_date, class: "form-control" %>
+    </div>
+
+    <div class="form-inputs">
+      <%= f.label :Fin_du_voyage %>
+      <%= f.text_field :ending_date, class: "form-control" %>
+    </div>
+  </div>
+
+  <div>
+      <%= f.input :start_hour, label: "Visites de :", as: :string, input_html: { data: { flatpickr_target: "startTime" } }%>
+      <%= f.input :end_hour, label: "à :", as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.label :Adresse_de_départ %>
+    <%= f.text_field :starting_point, class: "form-control" %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.label :nombre_de_voyageur, placeholder: "20"%>
+    <p class="d-flex"><%= f.text_field :nb_traveler, class: "form-control", placeholder: "ex: 5" %>°C</p>
+  </div>
+
+  <div class="form-inputs">
+    <p>Inclure des secret spots?</p>
+    <%= f.label :Inclure_des_secret_spots, for: "check_toggle", class: "tag"%>
+    <%= f.check_box :incl_secret, checked: true, id: "check_toggle", style: "visibility: hidden" %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.label :budget %>
+    <p class="d-flex"><%= f.text_field :budget, class: "form-control", placeholder: "ex :35" %>°C</p>
+  </div>
+
+    <div class="form-inputs">
+    <%= f.label :Touristic_? %>
+    <p class="d-flex"><%= f.text_field :touristic, class: "form-control", placeholder: "ex :35" %>°C</p>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+
+<% end %>

@@ -8,7 +8,9 @@
     <% end %>
 
     <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <% if current_user %>
             <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu", crop: :fill %>
+            <% end %>
           </a>
 
 
@@ -41,12 +43,3 @@
   </div>
 </div>
  <hr class="line-navbar">
-
-
-
-
-
-
-
-
-

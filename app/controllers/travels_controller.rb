@@ -26,5 +26,17 @@ class TravelsController < ApplicationController
 
   def destroy
   end
-  
+
+  private
+
+  def set_travel
+    @travel = Travel.find(params[:id])
+  end
+
+  def travel_params
+    params.require(:travel).permit(:beginning_date, :ending_date, :nb_traveler, :incl_secret, :budget, :touristic, :starting_point, :start_hour, :end_hour)
+  end
+
+
+
 end
