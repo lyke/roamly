@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_093748) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_101744) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,6 +91,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_093748) do
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 
+  create_table "travels", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "beginning_date"
+    t.date "ending_date"
+    t.float "longitude"
+    t.float "latitude"
+    t.integer "nb_traveler"
+    t.boolean "incl_secret"
+    t.float "budget"
+    t.integer "touristic"
+    t.string "starting_point"
+    t.integer "local_temperature"
+    t.datetime "start_hour"
+    t.datetime "end_hour"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_travels_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -113,4 +132,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_093748) do
   add_foreign_key "place_trav_taggings", "place_traveler_type_tags"
   add_foreign_key "place_trav_taggings", "places"
   add_foreign_key "places", "users"
+  add_foreign_key "travels", "users"
 end
