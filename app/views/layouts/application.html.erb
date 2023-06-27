@@ -10,16 +10,25 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
 
   </head>
 
 
   <body>
+
     <%= render "layouts/navbardown" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= render "shared/navbar" %>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= render "shared/navbar" %>
+    <%= render "layouts/navbardown" %>
+
     <%= yield %>
   </body>
 </html>

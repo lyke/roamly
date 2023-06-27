@@ -1,22 +1,32 @@
 <p style="color: green"><%= notice %></p>
 
 
+<% @place.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill, class: "card-img" %>
+<% end %>
 
 <h1><%= @place.name %></h1>
-  <div class="d-flex justify-content-around">
-    <h3 class="place-caracteristiques">Duration : <%= @place.duration %>min</h3>
-    <h3 class="place-caracteristiques">Temperature : <%= @place.min_temp %> to <%= @place.max_temp %> °C</h3>
-  </div>
+<div class="d-flex justify-content-around">
+  <h3 class="place-caracteristiques">Duration : <%= @place.duration %>min</h3>
+  <h3 class="place-caracteristiques">Temperature : <%= @place.min_temp %> to <%= @place.max_temp %> °C</h3>
+</div>
 
-  <div class="d-flex justify-content-around">
-    <h3 class="place-caracteristiques">Price : <%= @place.price %>€</h3>
-    <h3 class="place-caracteristiques">Address : <%= @place.address %></h3>
-  </div>
-  <p><%= @place.description %></p>
+<div class="d-flex justify-content-around">
+  <h3 class="place-caracteristiques">Price : <%= @place.price %>€</h3>
+  <h3 class="place-caracteristiques">Address : <%= @place.address %></h3>
+</div>
+<p><%= @place.description %></p>
 
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @marker.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
 <div>
-  <%= link_to "Edit this place", edit_place_path(@place) %> |
+  <%= link_to "Edit", edit_place_path(@place) %>
+  <%= link_to "Destroy", @place, method: :delete %>
   <%= link_to "Back to places", places_path %>
 
   <%= button_to "Destroy this place", @place, method: :delete %>
