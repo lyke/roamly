@@ -85,3 +85,36 @@ place_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente e
 place_tags.each do |place_tag|
   PlaceTag.create(name: place_tag)
 end
+
+travel1 = Travel.create(
+  user: User.first,
+  beginning_date:,
+  ending_date:,
+  starting_point: "1 avenue des champs elysées, Paris",
+  nb_traveler: 2,
+  budget: 150,
+  local_temperature: 30,
+  start_hour:,
+  end_hour:,
+
+)
+
+
+# create_table "travels", force: :cascade do |t|
+#   t.bigint "user_id", null: false
+#   t.date "beginning_date"
+#   t.date "ending_date"
+#   t.float "longitude"
+#   t.float "latitude"
+#   t.integer "nb_traveler"
+#   t.boolean "incl_secret"
+#   t.float "budget"
+#   t.integer "touristic"
+#   t.string "starting_point"
+#   t.integer "local_temperature"
+#   t.datetime "start_hour"
+#   t.datetime "end_hour"
+#   t.datetime "created_at", null: false
+#   t.datetime "updated_at", null: false
+#   t.index ["user_id"], name: "index_travels_on_user_id"
+# end
