@@ -1,0 +1,53 @@
+#carouselExampleIndicators {
+  height: 400px;
+  margin-top: 40px;
+}
+
+/* Style the carousel indicators */
+.carousel-indicators li {
+  background-color: #ccc;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  margin-right: 5px;
+  width: 10px;
+}
+
+.carousel-indicators .active {
+  background-color: #888;
+}
+
+/* Style the carousel images */
+.carousel-item {
+  height: 400px;
+}
+
+.carousel-item img {
+  // height: 100%;
+  object-fit: cover;
+  // width: 100%;
+  padding: 0 10%;
+}
+
+/* Style the carousel controls */
+.carousel-control-prev, .carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  height: 50px;
+  margin-top: 10%;
+  width: 50px;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-control-prev {
+  left: 25%;
+}
+
+.carousel-control-next {
+  right: 25%;
+}
