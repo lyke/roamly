@@ -1,0 +1,37 @@
+<%# <p style="color: green"><%= notice %></p> %>
+
+<h1>Places</h1>
+
+<div id="places">
+  <div class="index-grid places-card">
+    <% @places.each do |place| %>
+      <div class="card" style="width: 29rem";>
+        <div class="container">
+          <div >
+              <div class="card-img-top card_places pt-2 p-auto">
+                <% if place.photos.attached? %>
+                    <% place.photos.each do |photo| %>
+                      <%= cl_image_tag photo.key, height: 00, width: 400, crop: :fill, class: "card-img" %>
+                    <% end %>
+                <% end %>
+              </div>
+
+              <div class="card-title">
+              <%= link_to place.name, place_path(place) %>
+              </div>
+              <div class="card-text">
+                <%= place.description.first(300) + "..." %>
+              </div>
+
+              <h2 class="card-price"><%= place.price %>€</h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+</div>
+<%= link_to "New place", new_place_path %>

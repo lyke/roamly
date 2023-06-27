@@ -22,8 +22,7 @@
 </div>
 
 <div>
-  <%= link_to "Edit this place", edit_place_path(@place) %> |
+  <%= link_to "Edit", edit_place_path(@place) %>
+  <%= link_to "Destroy", @place, method: :delete %>
   <%= link_to "Back to places", places_path %>
-
-  <%= button_to "Destroy this place", @place, method: :delete %>
 </div>

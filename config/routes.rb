@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get "dashboards", to: "pages#dashboard"
   devise_for :users
   resources :places
+  resources :place_traveler_type_tags, only: [:index, :new, :create, :destroy]
+  resources :place_tags, only: [:index, :new, :create, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
