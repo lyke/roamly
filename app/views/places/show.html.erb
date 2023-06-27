@@ -24,20 +24,20 @@
 
 <div class="grey-box">
 <h1 class="name"><%= @place.name %></h1>
-<div class="d-flex align-content-center flex-wrap">
-  <h3 class="place-caracteristiques">Duration : <%= @place.duration %>min</h3>
-  <h3 class="place-caracteristiques">Temperature : <%= @place.min_temp %> to <%= @place.max_temp %> °C</h3>
+<div class="d-flex align-content-center icons-box">
+  <i class="fa-solid fa-clock place"></i> <%= @place.duration %>min</h3>
+  <i class="fa-solid fa-temperature-three-quarters place"></i> <%= @place.min_temp %> to <%= @place.max_temp %> °C</h3>
+  <i class="fa-solid fa-money-bill place"></i> <%= @place.price %>€</h3>
 </div>
 
-<div class="d-flex justify-content-around">
-  <h3 class="place-caracteristiques">Price : <%= @place.price %>€</h3>
+<div class="address">
   <h3 class="place-caracteristiques">Address : <%= @place.address %></h3>
 </div>
 <p class="text-justify"><%= @place.description %></p>
 </div>
 
 
-<div class="map" style="width: 100%; height: 400px;"
+<div class="map" style="width: 370px; height: 400px;"
   data-controller="map"
   data-map-markers-value="<%= @marker.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
