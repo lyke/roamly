@@ -1,0 +1,5 @@
+<h1>Mes Tags de Type de Lieux : </h1>
+<% @tags.each do |tag| %>
+<div><%= tag.name %></div>
+<% end %>
+<%= link_to "Nouveau Tag", new_place_traveler_type_tag_path %>

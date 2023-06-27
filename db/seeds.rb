@@ -1,6 +1,8 @@
 require "open-uri"
 Place.destroy_all
 User.destroy_all
+PlaceTravelerTypeTag.destroy_all
+PlaceTag.destroy_all
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -73,3 +75,13 @@ place2 = Place.new(
 place2.photos.attach([{io: cascade, filename: "cascade picture", content_type: "image/jpg"},
                       {io: cascade2, filename: "eiffel tower picture", content_type: "image/jpg"}])
 place2.save!
+
+pl_tr_ty_tags = ["Seul", "En Couple", "En Famille", "Entre Amis"]
+pl_tr_ty_tags.each do |tag|
+  PlaceTravelerTypeTag.create(tag: tag)
+end
+
+place_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente et Spa", "Histoire", "Aventure", "Nourriture", "Nature", "Spectacle", "Escapade Romantique", "Parc d'attraction"]
+place_tags.each do |place_tag|
+  PlaceTag.create(name: place_tag)
+end

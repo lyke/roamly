@@ -12,17 +12,24 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @marker = [{ lat: @place.latitude, lng: @place.longitude }]
+  end
+
+  def new
+    @place = Place.new
   end
 
   def create
     @place = Place.new(place_params)
     @place.user = current_user
-    @place.touristic = false
     if @place.save!
       redirect_to place_path(@place), notice: "Place was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
   end
 
   def update
