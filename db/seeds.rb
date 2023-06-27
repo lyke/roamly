@@ -1,8 +1,10 @@
 require "open-uri"
+
+Travel.destroy_all
+PlaceTag.destroy_all
+PlaceTravelerTypeTag.destroy_all
 Place.destroy_all
 User.destroy_all
-PlaceTravelerTypeTag.destroy_all
-PlaceTag.destroy_all
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -85,3 +87,34 @@ place_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente e
 place_tags.each do |place_tag|
   PlaceTag.create(name: place_tag)
 end
+
+Travel.create(
+  user: User.first,
+  beginning_date: "2023-06-27",
+  ending_date: "2023-06-27",
+  starting_point: "1 avenue des champs elysées, Paris",
+  nb_traveler: 2,
+  budget: 150,
+  local_temperature: 30,
+  start_hour: "2023-06-27.10:00:00",
+  end_hour: "2023-06-27.20:00:00"
+)
+
+# create_table "travels", force: :cascade do |t|
+#   t.bigint "user_id", null: false
+#   t.date "beginning_date"
+#   t.date "ending_date"
+#   t.float "longitude"
+#   t.float "latitude"
+#   t.integer "nb_traveler"
+#   t.boolean "incl_secret"
+#   t.float "budget"
+#   t.integer "touristic"
+#   t.string "starting_point"
+#   t.integer "local_temperature"
+#   t.datetime "start_hour"
+#   t.datetime "end_hour"
+#   t.datetime "created_at", null: false
+#   t.datetime "updated_at", null: false
+#   t.index ["user_id"], name: "index_travels_on_user_id"
+# end

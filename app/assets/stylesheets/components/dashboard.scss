@@ -1,0 +1,58 @@
+.btn-voyage {
+  background-color: #59BCB6;
+  width: 187px;
+  height: 47px;
+  display: inline-block;
+  margin-left: 10px;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+.btn-histo {
+  background-color: rgba(89, 188, 182, 0.30) ;
+  width: 187px;
+  height: 47px;
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+h6 {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.passés {
+ color: #979797;
+}
+
+.rectangle {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  height: 150px;
+  background-color: rgba(217, 217, 217, 0.30);
+  margin-bottom: 10px;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 3px;
+}
+
+.rectangle img {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  border-radius: 5px;
+}

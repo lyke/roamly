@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_26_214059) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_101744) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_214059) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "place_taggings", force: :cascade do |t|
+    t.bigint "place_tag_id", null: false
+    t.bigint "place_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_place_taggings_on_place_id"
+    t.index ["place_tag_id"], name: "index_place_taggings_on_place_tag_id"
   end
 
   create_table "place_tags", force: :cascade do |t|
@@ -82,6 +91,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_214059) do
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 
+  create_table "travels", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "beginning_date"
+    t.date "ending_date"
+    t.float "longitude"
+    t.float "latitude"
+    t.integer "nb_traveler"
+    t.boolean "incl_secret"
+    t.float "budget"
+    t.integer "touristic"
+    t.string "starting_point"
+    t.integer "local_temperature"
+    t.datetime "start_hour"
+    t.datetime "end_hour"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_travels_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -99,7 +127,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_214059) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "place_taggings", "place_tags"
+  add_foreign_key "place_taggings", "places"
   add_foreign_key "place_trav_taggings", "place_traveler_type_tags"
   add_foreign_key "place_trav_taggings", "places"
   add_foreign_key "places", "users"
+  add_foreign_key "travels", "users"
 end
