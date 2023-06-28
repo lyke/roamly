@@ -8,8 +8,8 @@
 }
 
 .line-navbar {
-  border: 2px solid #59BCB6;
-  margin: -3px;
+  border: 1px solid #59BCB6;
+  margin: -2px;
 }
 
 .fa-messages, fa-house {
@@ -25,4 +25,9 @@
 .navbar-nav li {
   display: flex;
   justify-content: left;
+}
+
+.navbar-toggler {
+  color: #59BCB6;
+  border: 0px solid;
 }
