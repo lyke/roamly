@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_101744) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_28_095951) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,6 +91,36 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_101744) do
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 
+  create_table "trav_trav_taggings", force: :cascade do |t|
+    t.bigint "trav_trav_type_tag_id", null: false
+    t.bigint "travel_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trav_trav_type_tag_id"], name: "index_trav_trav_taggings_on_trav_trav_type_tag_id"
+    t.index ["travel_id"], name: "index_trav_trav_taggings_on_travel_id"
+  end
+
+  create_table "trav_trav_type_tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "travel_taggings", force: :cascade do |t|
+    t.bigint "travel_id", null: false
+    t.bigint "travel_tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["travel_id"], name: "index_travel_taggings_on_travel_id"
+    t.index ["travel_tag_id"], name: "index_travel_taggings_on_travel_tag_id"
+  end
+
+  create_table "travel_tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "travels", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.date "beginning_date"
@@ -132,5 +162,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_101744) do
   add_foreign_key "place_trav_taggings", "place_traveler_type_tags"
   add_foreign_key "place_trav_taggings", "places"
   add_foreign_key "places", "users"
+  add_foreign_key "trav_trav_taggings", "trav_trav_type_tags"
+  add_foreign_key "trav_trav_taggings", "travels"
+  add_foreign_key "travel_taggings", "travel_tags"
+  add_foreign_key "travel_taggings", "travels"
   add_foreign_key "travels", "users"
 end

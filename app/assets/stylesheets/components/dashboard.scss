@@ -1,6 +1,6 @@
 .btn-voyage {
   background-color: #59BCB6;
-  width: 187px;
+  width: 182px;
   height: 47px;
   display: inline-block;
   margin-left: 10px;
@@ -13,7 +13,7 @@
 
 .btn-histo {
   background-color: rgba(89, 188, 182, 0.30) ;
-  width: 187px;
+  width: 182px;
   height: 47px;
   display: inline-block;
   margin-right: 10px;
@@ -41,12 +41,13 @@ h6 {
 .rectangle {
   display: flex;
   align-items: center;
-  width: 400px;
+  width: 370px;
   height: 150px;
   background-color: rgba(217, 217, 217, 0.30);
   margin-bottom: 10px;
   padding: 10px;
   margin-left: 10px;
+  margin-right:80px;
   border-radius: 3px;
 }
 
