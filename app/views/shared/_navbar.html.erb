@@ -1,26 +1,28 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-           <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/dwl5s1v4k/image/upload/v1687711356/Rectangle_11_pbq5cu.png", class: "logo" %>
+         <i onclick="history.back()" class="fa-solid fa-chevron-left nav-icon"></i>
+    <%= link_to dashboards_path, class: "navbar-brand" do %>
+        <%= image_tag "https://res.cloudinary.com/dwl5s1v4k/image/upload/v1687711356/Rectangle_11_pbq5cu.png", class: "logo" %>
     <% end %>
 
-    <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <% if current_user %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu", crop: :fill %>
-          <% end %>
-
-          </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+           <li class="nav-item">
+           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <% if current_user %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu", crop: :fill %>
+          <% end %>
+          </a>
+          </li>
           <li class="nav-item active">
           <i class="fa-solid fa-house nav-icon"></i>
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "Home", dashboards_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <i class="fa-solid fa-message nav-icon"></i> <%= link_to "Messages", "#", class: "nav-link" %>
@@ -43,4 +45,3 @@
     </div>
   </div>
 </div>
- <hr class="line-navbar">

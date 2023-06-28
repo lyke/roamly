@@ -14,7 +14,6 @@ class CreateTravels < ActiveRecord::Migration[7.0]
       t.integer :local_temperature
       t.datetime :start_hour
       t.datetime :end_hour
-
       t.timestamps
     end
   end

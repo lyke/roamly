@@ -20,11 +20,11 @@
 
   <body>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= render "layouts/navbardown" %>
+    <%# <p class="notice"><%= notice %>
+    <%# <p class="alert"><%= alert %>
     <%= render "shared/navbar" %>
+      <%= yield %>
+    <%= render "layouts/navbardown" %>
 
-    <%= yield %>
   </body>
 </html>
