@@ -6,6 +6,9 @@
   // opacity: 35%;
 }
 
+.fixed-bottom {
+  max-height: 10vh ;
+}
 
 .d-flex {
   justify-content: space-evenly;
@@ -14,12 +17,13 @@
 }
 .navbar-titre {
   color: white;
-  font-size: 15px;
+  font-size: 13px;
+  text-decoration: none;
 }
 
 .fa-solid {
   color: white;
-  font-size: 30px;
+  font-size: 25px;
   align-items: center;
 }
 
@@ -42,8 +46,8 @@ li {
 .nav-item {
   width: 33%;
   text-align: center;
-  opacity: 0.8;
   align-items: center;
+  padding: 10px;
 }
 
 
