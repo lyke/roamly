@@ -10,8 +10,7 @@ class TravelsController < ApplicationController
   def create
     @travel = Travel.new(travel_params)
     @travel.user_id = current_user.id
-    # price
-    if @travel.save
+    if @travel.save!
       redirect_to dashboards_path
     else
       render :new, status: :unprocessable_entity
