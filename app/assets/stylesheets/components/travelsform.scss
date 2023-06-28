@@ -34,8 +34,8 @@ font-weight: normal;
   border-radius: 50px;
   color: white;
   background-color: #59BCB6 !important;
-  text-align: center;
-  justify-content: center !important;
+  text-align: center !important;
+  margin: 69px;
 }
 
 .btn-create {
@@ -47,4 +47,13 @@ font-weight: normal;
   width: 200px;
   height: 42px;
   margin: 76px;
+}
+
+.visit {
+  display: flex;
+  align-items: center;
+}
+
+h1{
+  margin-bottom: 30px;
 }
