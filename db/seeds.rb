@@ -1,5 +1,7 @@
 require "open-uri"
-
+TravelTagging.destroy_all
+PlaceTag.destroy_all
+TravelTag.destroy_all
 Travel.destroy_all
 PlaceTag.destroy_all
 PlaceTravelerTypeTag.destroy_all
@@ -12,6 +14,8 @@ User.destroy_all
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+# User :
 
 kevin_picture = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1687640247/IMG_1373_2_erzt1v.jpg")
 user1 = User.new(
@@ -37,7 +41,7 @@ user2.save!
  puts "user finished"
  puts "starting creating places"
 
-
+# Travel :
 
 eiffel_tower = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1687788252/development/6men4efzsrk3jv0wmaooost68n7h.jpg")
 place1 = Place.new(
@@ -100,21 +104,42 @@ Travel.create(
   end_hour: "2023-06-27.20:00:00"
 )
 
-# create_table "travels", force: :cascade do |t|
-#   t.bigint "user_id", null: false
-#   t.date "beginning_date"
-#   t.date "ending_date"
-#   t.float "longitude"
-#   t.float "latitude"
-#   t.integer "nb_traveler"
-#   t.boolean "incl_secret"
-#   t.float "budget"
-#   t.integer "touristic"
-#   t.string "starting_point"
-#   t.integer "local_temperature"
-#   t.datetime "start_hour"
-#   t.datetime "end_hour"
-#   t.datetime "created_at", null: false
-#   t.datetime "updated_at", null: false
-#   t.index ["user_id"], name: "index_travels_on_user_id"
-# end
+# TravelTag :
+
+travel_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente et Spa", "Histoire", "Aventure", "Nourriture", "Nature", "Spectacle", "Escapade Romantique", "Parc d'attraction"]
+travel_tags.each do |tag|
+  TravelTag.create(name: tag)
+end
+
+place_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente et Spa", "Histoire", "Aventure", "Nourriture", "Nature", "Spectacle", "Escapade Romantique", "Parc d'attraction"]
+place_tags.each do |tag|
+  PlaceTag.create(name: tag)
+end
+
+# TravelTagging :
+
+TravelTagging.create(
+  travel: Travel.first,
+  travel_tag: TravelTag.first
+)
+TravelTagging.create(
+  travel: Travel.last,
+  travel_tag: TravelTag.last
+)
+
+# TravTravTagging :
+TravTravTagging.create(
+  travel: Travel.first,
+  trav_trav_type_tag: TravTravTypeTag.first
+)
+
+TravTravTagging.create(
+  travel: Travel.last,
+  trav_trav_type_tag: TravTravTypeTag.last
+)
+
+# TravTravTypeTag :
+traveler_types = ["Seul", "En Couple", "En Famille", "Entre Amis"]
+traveler_types.each do |trav_type|
+  TravTravTypeTag.create(name: trav_type)
+end
