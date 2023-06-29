@@ -1,21 +1,17 @@
 <div class="container-trav">
-<h1>Nouveau voyage 🌍</h1>
-
+<h1><h1>Nouveau voyage 🌍</h1></h1>
   <div class="calendar">
   <%= simple_form_for @travel, data: { controller: 'flatpickr' } do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
   <div class="form-inputs">
     <%= f.label :Adresse_de_départ %>
     <%= f.text_field :starting_point, class: "form-control" %>
   </div>
-
   <div class ="duree-trav">
     <%= f.input :beginning_date, label: "Voyage du :", as: :string, input_html: { data: { flatpickr_target: "startTime" } }%>
     <%= f.input :ending_date, label: "au :", as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
   </div>
-
   <div class="form-inputs">
     <%= f.label :nombre_de_voyageur, placeholder: "20"%>
     <p class="d-flex"><%= f.text_field :nb_traveler, class: "form-control", placeholder: "ex: 5" %><p>
@@ -46,12 +42,10 @@
       </div>
     </div> %>
   </div>
-
   <div class ="visit">
       <%= f.input :start_hour, label: "Visites de :", as: :string, input_html: { data: { flatpickr_target: "startTime" } }%>
       <%= f.input :end_hour, label: "à :", as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
   </div>
-
   <div class="form-inputs tag-item">
   <div>
     <%= f.check_box :incl_secret, class: "selector d-none" %>
@@ -59,14 +53,12 @@
     <%# , checked: true, id: "check_toggle", style: "visibility: hidden" %>
     </div>
   </div>
-
   <div class="form-inputs">
     <%= f.label :budget %>
     <p class="d-flex">
     <%= f.text_field :budget, class: "form-control", placeholder: "ex :35" %>
     </p>
   </div>
-
     <div class="form-inputs">
     <%= f.label :Touristic_? %>
       <p class="d-flex"><%= f.text_field :touristic, class: "form-control", placeholder: "ex :35" %></p>

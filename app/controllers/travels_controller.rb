@@ -18,7 +18,7 @@ class TravelsController < ApplicationController
     end
     @trav_type = TravTravTypeTag.where(id: params[:travel][:trav_trav_type_tag_ids])
     @trav_type.each do |trav_type|
-      travel_type_tagging = TravTravTagging.new(trav_trav_type_tags: trav_type, travel: @travel)
+      travel_type_tagging = TravTravTagging.new(trav_trav_type_tag: trav_type, travel: @travel)
       travel_type_tagging.save!
     end
     if @travel.save!

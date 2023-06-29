@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "pages#dashboard"
   get "dashboards", to: "pages#dashboard"
+  get "past_dashboards", to: "pages#past_dashboard"
+  get "secret_spots", to: "pages#secret_spot"
   devise_for :users
 
   resources :travels

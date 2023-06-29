@@ -1,27 +1,35 @@
 .btn-voyage {
+  text-decoration: none;
   background-color: #59BCB6;
   width: 182px;
   height: 47px;
   display: inline-block;
-  margin-left: 10px;
   border-radius: 8px;
   color: white;
   border: none;
-  margin-top: 6px;
-  margin-bottom: 8px;
+  margin: 7px 8px;
+  // margin-left: 10px;
+  // margin-top: 6px;
+  // margin-bottom: 8px;
+  text-align: center;
+  padding-top: 12px;
 }
 
 .btn-histo {
+  text-decoration: none;
   background-color: rgba(89, 188, 182, 0.30) ;
   width: 182px;
   height: 47px;
   display: inline-block;
-  margin-right: 10px;
   border-radius: 8px;
   color: white;
   border: none;
-  margin-top: 6px;
-  margin-bottom: 8px;
+  margin: 7px 8px;
+  // margin-right: 10px;
+  // margin-top: 6px;
+  // margin-bottom: 8px;
+  text-align: center;
+  padding-top: 12px;
 }
 
 h2 {
@@ -56,4 +64,9 @@ h6 {
   height: 100px;
   margin-right: 10px;
   border-radius: 5px;
+}
+
+.travel-card {
+  text-decoration: none;
+  color: black;
 }

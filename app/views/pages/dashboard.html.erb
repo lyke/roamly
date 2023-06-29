@@ -1,19 +1,31 @@
 <div class="container"></div>
 <div class="container_chocolat"></div>
-<button class="btn-voyage">Mes voyages</button>
-<button class="btn-histo">Mon historique</button>
+<div class="d-flex">
+  <%= link_to dashboards_path, class: "btn-voyage" do %>
+  Mes voyages
+  <% end %>
+  <%= link_to past_dashboards_path, class: "btn-histo" do %>
+  Mon historique
+  <% end %>
+</div>
+
 
 <h2>Mes voyages</h2>
-<h6>À venir</h6>
-<h6 class ="passés"> Passés</h6>
+<%# <h6>À venir</h6>
+<h6 class ="passés"> Passés</h6> %>
+<% @future_travels.each do |travel| %>
+  <%= link_to travel_path(travel), class: "travel-card" do %>
+    <div class="rectangle">
+        <img src="https://images.partir.com/g6_T5RzFIxc2VZcftQeoyIw8sgg=/750x/filters:sharpen(0.3,0.3,true)/incontournables/italie-milan-duomo.jpg" alt="Image 1">
+        <%# <%= cl_image_tag travel.place.first.photo.key, height: 350, width: 450, crop: :fill %> %>
+          <div>
+            <h2>Paris</h2>
+            <%= travel.beginning_date %> - <%= travel.ending_date %>
+          </div>
+      </div>
+  <% end %>
+<% end %>
 
- <div class="rectangle">
-    <img src="https://images.partir.com/g6_T5RzFIxc2VZcftQeoyIw8sgg=/750x/filters:sharpen(0.3,0.3,true)/incontournables/italie-milan-duomo.jpg" alt="Image 1">
-    <div>
-      <h2>Milan</h2>
-      <p>Mon voyage à Milan 🤌 🇮🇹</p>
-    </div>
-  </div>
 
   <div class="rectangle">
     <img src="https://images.adsttc.com/media/images/5d44/14fa/284d/d1fd/3a00/003d/large_jpg/eiffel-tower-in-paris-151-medium.jpg?1564742900" alt="Image 2">
@@ -30,3 +42,4 @@
       <p>Mon séjour à Rome 🍝 🇮🇹</p>
     </div>
   </div>
+  
