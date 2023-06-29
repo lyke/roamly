@@ -53,9 +53,11 @@
   </div>
 
   <div class="form-inputs tag-item">
+  <div>
     <%= f.check_box :incl_secret, class: "selector d-none" %>
-    <%= f.label :incl_secret %>
+    <p id ="btn-turist"><%= f.label :incl_secret %></p>
     <%# , checked: true, id: "check_toggle", style: "visibility: hidden" %>
+    </div>
   </div>
 
   <div class="form-inputs">
@@ -66,7 +68,7 @@
   </div>
 
     <div class="form-inputs">
-      <%= f.label :Touristic_? %>
+    <%= f.label :Touristic_? %>
       <p class="d-flex"><%= f.text_field :touristic, class: "form-control", placeholder: "ex :35" %></p>
     </div>
 
