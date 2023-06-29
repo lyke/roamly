@@ -52,8 +52,17 @@
       <%= f.text_field :address, class: "form-control" %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit %>
-    </div>
+
+     <%# <div>
+      <%= f.button :submit, class: "btn-cr form-actions"%>
+    <%# </div> %>
+
+  <div>
+    <%= submit_tag "Crée ton secret spot", class: "form-actions"%>
   </div>
+
+
+
+</div>
+
 <% end %>
