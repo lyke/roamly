@@ -23,6 +23,8 @@ class TravelsController < ApplicationController
     end
     if @travel.save!
       redirect_to dashboards_path
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
