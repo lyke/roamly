@@ -10,6 +10,17 @@ class TravelsController < ApplicationController
   def create
     @travel = Travel.new(travel_params)
     @travel.user_id = current_user.id
+
+    @tags = TravelTag.where(id: params[:travel][:travel_tag_ids])
+    @tags.each do |tag|
+      travel_tagging = TravelTagging.new(travel_tag: tag, travel: @travel)
+      travel_tagging.save!
+    end
+    @trav_type = TravTravTypeTag.where(id: params[:travel][:trav_trav_type_tag_ids])
+    @trav_type.each do |trav_type|
+      travel_type_tagging = TravTravTagging.new(trav_trav_type_tags: trav_type, travel: @travel)
+      travel_type_tagging.save!
+    end
     if @travel.save!
       redirect_to dashboards_path
     else
