@@ -1,22 +1,24 @@
 <div class="navbar-down fixed-bottom">
       <ul class="navbar-down d-flex justify-content">
-           <li class="nav-item active">
-            <i class="fa-solid fa-user" class="icon"></i>
+           <li class="nav-item">
+         <%= link_to dashboards_path do %>
+          <i class="fa-solid fa-user" class="icon" id="romain"></i>
+          <% end %>
             <br>
-          <%= link_to "Mon profil", dashboards_path, class: "navbar-titre" %>
+          <%= link_to "Mon profil", dashboards_path, class: "navbar-titre", id: "romain" %>
           </li>
           <div class="vl">
           </div>
           <li class="nav-item active">
-            <i class="fa-solid fa-plus" class="icon"></i>
+            <i class="fa-solid fa-plus" class="icon", id="romain"></i>
             <br>
-          <%= link_to "Nouveau Voyage", new_travel_path, class: "navbar-titre" %>
+          <%= link_to "Nouveau Voyage", new_travel_path, class: "navbar-titre", id: "romain" %>
           </li>
           <div class="vl"></div>
           <li class="nav-item">
-              <i class="fa-solid fa-user-secret" class="icon"></i>
+              <i class="fa-solid fa-user-secret" class="icon", id="romain"></i>
               <br>
-          <%= link_to "Ajouter un secret spot", new_place_path, class: "navbar-titre" %>
+          <%= link_to "Ajouter un secret spot", new_place_path, class: "navbar-titre", id: "romain" %>
           </li>
       </ul>
   </div>
