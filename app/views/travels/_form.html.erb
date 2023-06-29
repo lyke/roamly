@@ -1,31 +1,25 @@
 <div class="container-trav">
-<h1>Nouveau voyage 🌍</h1>
-
+<h1>Nouveau voyage :afrique:</h1>
   <div class="calendar">
   <%= simple_form_for @travel, data: { controller: 'flatpickr' } do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
   <div class="form-inputs">
     <%= f.label :Adresse_de_départ %>
     <%= f.text_field :starting_point, class: "form-control" %>
   </div>
-
   <div class ="duree-trav">
     <%= f.input :beginning_date, label: "Voyage du :", as: :string, input_html: { data: { flatpickr_target: "startTime" } }%>
     <%= f.input :ending_date, label: "au :", as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
   </div>
-
   <div class="form-inputs">
     <%= f.label :nombre_de_voyageur, placeholder: "20"%>
     <p class="d-flex"><%= f.text_field :nb_traveler, class: "form-control", placeholder: "ex: 5" %><p>
   </div>
-
   <div>
     <h1>Seul, En couple ...</h1>
     <%= f.association :trav_trav_type_tags, collection: TravTravTypeTag.all, prompt: "Choose a Company", as: :check_boxes, input_html: { class: "selector d-none" }, include_hidden: true, multiple: true, item_wrapper_class: 'tag-item' %>
   </div>
-
   <div>
     <%= f.label :Que_voudrais_tu_faire_? %>
     <%# créer une collection de tags, chacuns de ces tags %>
@@ -37,35 +31,31 @@
       </div>
     </div> %>
   </div>
-
   <div class ="visit">
       <%= f.input :start_hour, label: "Visites de :", as: :string, input_html: { data: { flatpickr_target: "startTime" } }%>
       <%= f.input :end_hour, label: "à :", as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
   </div>
-
   <div class="form-inputs tag-item">
     <%= f.check_box :incl_secret, class: "selector d-none" %>
     <%= f.label :incl_secret %>
     <%# , checked: true, id: "check_toggle", style: "visibility: hidden" %>
   </div>
-
   <div class="form-inputs">
     <%= f.label :budget %>
     <p class="d-flex">
     <%= f.text_field :budget, class: "form-control", placeholder: "ex :35" %>
     </p>
   </div>
-
     <div class="form-inputs">
       <%= f.label :Touristic_? %>
       <p class="d-flex"><%= f.text_field :touristic, class: "form-control", placeholder: "ex :35" %></p>
     </div>
-
-  <div class="form-actions">
+  <%# <div class="form-actions">
     <%= f.submit "Créer Mon Voyage", class: "btn-create"%>
+  <%# </div>  %>
+<div>
+    <%= submit_tag "Créer mon voyage", class: "form-actions"%>
   </div>
-
-
   <% end %>
   </div>
 </div>
