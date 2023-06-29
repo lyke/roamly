@@ -27,15 +27,20 @@
 <div class="d-flex align-content-center icons-box">
   <i class="fa-solid fa-clock place"></i> <%= @place.duration %>min</h3>
   <i class="fa-solid fa-temperature-three-quarters place"></i> <%= @place.min_temp %> to <%= @place.max_temp %> °C</h3>
-  <i class="fa-solid fa-money-bill place"></i> <%= @place.price %>€</h3>
+  <% if @place.price > 0 %>
+    <i class="fa-solid fa-money-bill place"></i> <%= @place.price %>€
+  <% else %>
+    <i class="fa-solid fa-money-bill place"></i> Gratuit
+  <% end %>
 </div>
+
+
 
 <div class="address">
   <h3 class="place-caracteristiques">Address : <%= @place.address %></h3>
 </div>
-<p class="text-justify"><%= @place.description %></p>
+<p class="text-justify"><%= truncate(@place.description, length: 400) %></p>
 </div>
-
 
 <div class="map" style="width: 360px; height: 400px;"
   data-controller="map"
@@ -45,8 +50,7 @@
 
 <div id="buttons">
   <%= link_to "Back to places", dashboards_path, class: "button-back" %>
-  <br>
-  <%= link_to "Edit", edit_place_path(@place) %>
-  <%= link_to "Destroy", @place, method: :delete %>
-  <%= button_to "Destroy this place", @place, method: :delete %>
+  <%# <br> %>
+  <%= link_to "Edit", edit_place_path(@place), class: "button-back" %>
+  <%= link_to "Destroy", @place, method: :delete, class: "button-back" %>
 </div>
