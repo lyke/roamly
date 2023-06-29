@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-  validates :username, uniqueness: {
+  validates :nickname, uniqueness: {
     message: ->(object, data) do
       "Sorry #{object.name}, #{data[:value]} is already taken."
     end

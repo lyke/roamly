@@ -1,0 +1,33 @@
+.tag-item {
+  display: inline-block;
+}
+
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.selector + label {
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 19px;
+  border: 1px solid #59BCB6;
+  background-color: white;
+  color: #59BCB6;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 90%;
+}
+
+.selector:checked + label {
+  display: inline-block;
+  border-radius: 19px;
+  border: 1px solid #59BCB6;
+  background-color: #59BCB6;
+  color: white;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 90%;
+}
