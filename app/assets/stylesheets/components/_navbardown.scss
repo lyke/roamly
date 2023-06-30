@@ -19,10 +19,16 @@
   color: white;
   font-size: 13px;
   text-decoration: none;
-  
+
 }
 
 .fa-solid {
+  color: white;
+  font-size: 25px;
+  align-items: center;
+}
+
+.fa-map {
   color: white;
   font-size: 25px;
   align-items: center;
@@ -50,6 +56,21 @@ li {
   align-items: center;
   padding: 10px;
 }
+
+#buttons {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+#romain:active {
+  color: #59BCB6;
+  // box-shadow: 2px 2px 5px #96908d;
+}
+
+.nav-item:active {
+  background: white;
+}
+
 
 
 // .navbar-lewagon .navbar-collapse {
