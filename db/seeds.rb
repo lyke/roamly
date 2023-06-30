@@ -108,8 +108,7 @@ louvre1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v168803274
 louvre2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688032744/pexels-gustavo-ramos-7684045_ddcphy.jpg")
 place2 = Place.new(
   name: "Louvre",
-  description: "Dès l’arrivée aux cascades, l’émerveillement est total, le paysage, les couleurs et la végétation rappellent les cartes postales de certaines îles tropicales !
-  Les chutes font plus de quatre mètres de haut, il y a des cascades un peu partout, impossible de toutes les prendre en photo… j’espère que cette petite vidéo vous donnera un aperçu de la beauté du site.",
+  description: "Le Louvre, joyau culturel de Paris, abrite une collection d'œuvres d'art époustouflante. Des chefs-d'œuvre tels que la Joconde, la Vénus de Milo et la Victoire de Samothrace y résident. Ce palais historique, avec son architecture grandiose et ses salles majestueuses, offre aux visiteurs une expérience artistique inoubliable. Un voyage au cœur de l'histoire et de la beauté, le musée du Louvre est un trésor inestimable de l'humanité.",
   longitude: 2.338629,
   latitude: 48.860294,
   price: 17,
@@ -133,8 +132,7 @@ arc1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688032809/p
 arc2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688033733/pexels-vinnie-de-carvalho-10216015_gssn0a.jpg")
 place3 = Place.new(
   name: "Arc de Triomphe",
-  description: "Dès l’arrivée aux cascades, l’émerveillement est total, le paysage, les couleurs et la végétation rappellent les cartes postales de certaines îles tropicales !
-  Les chutes font plus de quatre mètres de haut, il y a des cascades un peu partout, impossible de toutes les prendre en photo… j’espère que cette petite vidéo vous donnera un aperçu de la beauté du site.",
+  description: "L'Arc de Triomphe, majestueux monument parisien, domine la célèbre avenue des Champs-Élysées. Symbole de grandeur et de victoire, il rend hommage aux soldats français. Son architecture imposante et ses bas-reliefs captivants racontent l'histoire de la nation. Du sommet, la vue panoramique sur la ville de Paris est à couper le souffle. L'Arc de Triomphe incarne la fierté, la mémoire et l'élégance de la capitale française.",
   longitude: 2.2950,
   latitude: 48.8738,
   price: 17,
@@ -158,8 +156,7 @@ palais1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v168803277
 palais2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688032709/palais-royal_qwa9sl.jpg")
 place4 = Place.new(
   name: "Palais-Royal",
-  description: "Dès l’arrivée aux cascades, l’émerveillement est total, le paysage, les couleurs et la végétation rappellent les cartes postales de certaines îles tropicales !
-  Les chutes font plus de quatre mètres de haut, il y a des cascades un peu partout, impossible de toutes les prendre en photo… j’espère que cette petite vidéo vous donnera un aperçu de la beauté du site.",
+  description: "Le palais royal, situé au cœur de la ville, est un chef-d'œuvre architectural chargé d'histoire et de prestige. Avec ses somptueuses salles ornées de dorures, de fresques et de lustres étincelants, il incarne l'opulence et le pouvoir. Les jardins somptueux qui l'entourent offrent une oasis de tranquillité. En son sein, les couloirs regorgent de secrets et de souvenirs royaux. Le palais royal est un témoin vivant du passé glorieux et un symbole de grandeur intemporelle.",
   longitude: 2.121782,
   latitude: 48.804722,
   price: 0,
@@ -182,8 +179,7 @@ jardin1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v168803270
 jardin2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688032810/walk-through-jardin-du-luxembourg-fall-scene_n3sj8y.jpg")
 place5 = Place.new(
   name: "Jardin du Luxembourg",
-  description: "Dès l’arrivée aux cascades, l’émerveillement est total, le paysage, les couleurs et la végétation rappellent les cartes postales de certaines îles tropicales !
-  Les chutes font plus de quatre mètres de haut, il y a des cascades un peu partout, impossible de toutes les prendre en photo… j’espère que cette petite vidéo vous donnera un aperçu de la beauté du site.",
+  description: "Le jardin du Luxembourg, havre de paix en plein cœur de Paris, enchante par sa beauté sereine. Ses étendues verdoyantes, ses parterres fleuris et ses allées ombragées invitent à la détente. Les statues, les fontaines et le bassin central créent une atmosphère élégante et paisible. Les chaises vertes offrent un lieu idéal pour se reposer et admirer la vue sur le palais. Ce jardin emblématique est un véritable joyau, un refuge enchanteur où règne la tranquillité au milieu de l'effervescence urbaine.",
   longitude: 2.121782,
   latitude: 48.846943,
   price: 0,
@@ -207,8 +203,7 @@ chateau1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v16880351
 chateau2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688035084/1000_F_394723989_cINhVWQW91yzFjAKw4jcXA7wDnujJnml_l8eanl.jpg")
 place6 = Place.new(
   name: "Château de Versailles",
-  description: "Dès l’arrivée aux cascades, l’émerveillement est total, le paysage, les couleurs et la végétation rappellent les cartes postales de certaines îles tropicales !
-  Les chutes font plus de quatre mètres de haut, il y a des cascades un peu partout, impossible de toutes les prendre en photo… j’espère que cette petite vidéo vous donnera un aperçu de la beauté du site.",
+  description: "Le château de Versailles, chef-d'œuvre du classicisme français, éblouit par son architecture grandiose et ses jardins somptueux. Les salons royaux, richement décorés de lustres et de peintures, témoignent de l'opulence de la cour de Louis XIV. Les jardins à la française, avec leurs parterres impeccables et leurs fontaines élégantes, offrent une symphonie de beauté. Le château de Versailles est un témoignage vivant de la grandeur passée et un incontournable de l'histoire et de l'art français.",
   longitude: 4.860201,
   latitude: 45.748112,
   price: 20,
@@ -231,8 +226,7 @@ coeur1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688034534
 coeur2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688034567/pexels-pierre-blache%CC%81-9701151_htbcbu.jpg")
 place7 = Place.new(
   name: "Basilique du Sacré-Cœur",
-  description: "Dès l’arrivée aux cascades, l’émerveillement est total, le paysage, les couleurs et la végétation rappellent les cartes postales de certaines îles tropicales !
-  Les chutes font plus de quatre mètres de haut, il y a des cascades un peu partout, impossible de toutes les prendre en photo… j’espère que cette petite vidéo vous donnera un aperçu de la beauté du site.",
+  description: "La basilique du Sacré-Cœur, majestueusement perchée sur la butte Montmartre, offre une vue panoramique imprenable sur Paris. Son architecture romano-byzantine et son dôme blanc étincelant captivent le regard. À l'intérieur, la lumière baigne les mosaïques vibrantes et les vitraux colorés, créant une ambiance spirituelle. Cette icône religieuse incarne la ferveur et la dévotion, tout en étant un symbole d'unité et de paix pour les visiteurs du monde entier.",
   longitude: 2.343121,
   latitude: 48.886452,
   price: 0,
@@ -256,8 +250,7 @@ petit1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688035867
 petit2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688035859/866406-petit-palais-collection-permanente-jardin_movk8y.jpg")
 place8 = Place.new(
   name: "Petit Palais",
-  description: "Dès l’arrivée aux cascades, l’émerveillement est total, le paysage, les couleurs et la végétation rappellent les cartes postales de certaines îles tropicales !
-  Les chutes font plus de quatre mètres de haut, il y a des cascades un peu partout, impossible de toutes les prendre en photo… j’espère que cette petite vidéo vous donnera un aperçu de la beauté du site.",
+  description: "Le Petit Palais, joyau architectural de Paris, enchante par sa finesse et sa splendeur. Ses façades ornées, ses colonnes élégantes et son dôme majestueux captivent les regards. À l'intérieur, des galeries lumineuses abritent une collection d'art éclectique, allant de la Renaissance à l'Art Nouveau. Les jardins pittoresques offrent une oasis de calme et de verdure au cœur de la ville. Le Petit Palais est un trésor artistique qui séduit par son charme intemporel et son atmosphère raffinée.",
   longitude: 2.31451,
   latitude: 48.86605,
   price: 15,
@@ -281,8 +274,7 @@ dame1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688035900/
 dame2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688035885/pexels-hans-d-10915270_inwfkp.jpg")
 place9 = Place.new(
   name: "Cathédrale Notre-Dame de Paris",
-  description: "Dès l’arrivée aux cascades, l’émerveillement est total, le paysage, les couleurs et la végétation rappellent les cartes postales de certaines îles tropicales !
-  Les chutes font plus de quatre mètres de haut, il y a des cascades un peu partout, impossible de toutes les prendre en photo… j’espère que cette petite vidéo vous donnera un aperçu de la beauté du site.",
+  description: "La majestueuse cathédrale Notre-Dame de Paris, chef-d'œuvre gothique emblématique, incarne l'histoire et la spiritualité. Ses imposantes tours, ses gargouilles et ses rosaces captivent les esprits. À l'intérieur, les voûtes élancées et les vitraux colorés créent une atmosphère divine. Le parvis animé et les bords de la Seine ajoutent à son charme. Témoin des siècles, Notre-Dame est un symbole intemporel de la culture et de la foi, un lieu où l'âme de Paris résonne dans chaque pierre.",
   longitude: 2.349902,
   latitude: 48.852966,
   price: 0,
@@ -305,8 +297,7 @@ opera1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688035913
 opera2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688035854/E._Bauer___Opera_national_de_Paris-Garnier--E.-Bauer-OnP_mg3jek.webp")
 place10 = Place.new(
   name: "Palais Garnier",
-  description: "Dès l’arrivée aux cascades, l’émerveillement est total, le paysage, les couleurs et la végétation rappellent les cartes postales de certaines îles tropicales !
-  Les chutes font plus de quatre mètres de haut, il y a des cascades un peu partout, impossible de toutes les prendre en photo… j’espère que cette petite vidéo vous donnera un aperçu de la beauté du site.",
+  description: "Le Palais Garnier, somptueux opéra de Paris, est une merveille architecturale. Sa façade ornée de sculptures et de colonnes séduit dès le premier regard. À l'intérieur, le grand escalier en marbre, les balcons richement décorés et le lustre de cristal créent une atmosphère théâtrale. La salle de spectacle, avec son plafond peint par Chagall, enchante les spectateurs. Le Palais Garnier est un véritable joyau artistique où l'opéra et l'opulence se rencontrent dans une harmonie éblouissante.",
   longitude: 2.331355,
   latitude: 48.872536,
   price: 14,

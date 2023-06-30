@@ -5,10 +5,11 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.label :Nom_du_Voyage %>
-    <%= f.input :name, class: "form-control" %>
-  </div>
+
+<div class="form-inputs">
+  <%= f.label :Nom_du_Voyage, style: "display: none;" %>
+  <%= f.input :name, as: :text, label: "Nom", class: "form-control", style: "display: none;" %>
+</div>
 
   <div class="form-inputs">
     <%= f.label :Adresse_de_départ %>
@@ -19,7 +20,7 @@
     <%= f.input :ending_date, label: "au :", as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
   </div>
   <div class="form-inputs">
-    <%= f.label :nombre_de_voyageur, placeholder: "20"%>
+    <%= f.label :nombre_de_voyageurs, placeholder: "20"%>
     <p class="d-flex"><%= f.text_field :nb_traveler, class: "form-control", placeholder: "ex: 5" %><p>
   </div>
 
@@ -28,7 +29,7 @@
   <%# </div> %>
 
   <div>
-  <%# <p class="label"><%= f.label :Avec_qui_voyages_tu_?%>
+  <%# <p class="label"><%= f.label :Avec_qui_voyages_tu_?%></p>
   <% TravTravTypeTag.all.each do |tag| %>
     <label>
       <%= radio_button_tag 'trav_trav_type_tags[]', tag.id %>
