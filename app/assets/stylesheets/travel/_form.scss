@@ -1,6 +1,8 @@
 .tag-item {
-  display: inline-block;
+    display: inline-flex;
+    margin-bottom: inherit;
 }
+
 
 .tag-selector {
   position: absolute;
@@ -63,3 +65,8 @@
   width: 90%;
   text-align: center;
 }
+
+textarea.form-control {
+ height: 10px
+}
+
