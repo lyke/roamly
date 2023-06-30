@@ -335,8 +335,8 @@ place_tags.each do |place_tag|
   PlaceTag.create(name: place_tag)
 end
 
-Travel.create(
-  name: "Paris"
+first_travel = Travel.create(
+  name: "Paris",
   user: User.first,
   beginning_date: "2023-06-27",
   ending_date: "2023-06-27",
@@ -348,8 +348,8 @@ Travel.create(
   end_hour: "2023-06-27.20:00:00"
 )
 
-Travel.create(
-  name: "Marseille"
+second_travel = Travel.create(
+  name: "Marseille",
   user: User.first,
   beginning_date: "2023-06-15",
   ending_date: "2023-06-27",
@@ -402,7 +402,7 @@ traveler_types.each do |trav_type|
 end
 
 eiffel_tower_step = Step.create(
-  travel: Travel.find
-  place:
-  duration: self.travel
+  travel: first_travel,
+  place: place1,
+  duration: place1.duration
 )
