@@ -1,4 +1,6 @@
 class Travel < ApplicationRecord
+  has_many :steps
+  has_many :places, through: :steps
   has_many :travel_taggings
   has_many :travel_tags, through: :travel_taggings
   has_many :trav_trav_taggings

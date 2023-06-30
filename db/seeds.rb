@@ -1,11 +1,17 @@
 require "open-uri"
+TravTravTagging.destroy_all
+PlaceTravTagging.destroy_all
 TravelTagging.destroy_all
-PlaceTag.destroy_all
+PlaceTagging.destroy_all
+
 TravelTag.destroy_all
-Travel.destroy_all
 PlaceTag.destroy_all
+TravTravTypeTag.destroy_all
 PlaceTravelerTypeTag.destroy_all
+
+Travel.destroy_all
 Place.destroy_all
+
 User.destroy_all
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -330,12 +336,26 @@ place_tags.each do |place_tag|
 end
 
 Travel.create(
+  name: "Paris"
   user: User.first,
   beginning_date: "2023-06-27",
   ending_date: "2023-06-27",
   starting_point: "1 avenue des champs elysées, Paris",
   nb_traveler: 2,
   budget: 150,
+  local_temperature: 30,
+  start_hour: "2023-06-27.10:00:00",
+  end_hour: "2023-06-27.20:00:00"
+)
+
+Travel.create(
+  name: "Marseille"
+  user: User.first,
+  beginning_date: "2023-06-15",
+  ending_date: "2023-06-27",
+  starting_point: "1 rue haxo, Marseille",
+  nb_traveler: 5,
+  budget: 200,
   local_temperature: 30,
   start_hour: "2023-06-27.10:00:00",
   end_hour: "2023-06-27.20:00:00"
@@ -380,3 +400,9 @@ traveler_types = ["Seul", "En Couple", "En Famille", "Entre Amis"]
 traveler_types.each do |trav_type|
   TravTravTypeTag.create(name: trav_type)
 end
+
+eiffel_tower_step = Step.create(
+  travel: Travel.find
+  place:
+  duration: self.travel
+)

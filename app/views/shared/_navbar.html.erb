@@ -26,11 +26,11 @@
           </li>
           <li class="nav-item", id="normal">
             <i class="fa-solid fa-user-secret nav-icon"></i>
-            <%= link_to "Secret Spot", "#", class: "nav-link" %>
+            <%= link_to "Secret Spot", secret_spots_path, class: "nav-link" %>
           </li>
           <li class="nav-item", id="normal">
             <i class="fa-solid fa-arrow-right-from-bracket nav-icon">
-            </i> <%= link_to "Logout", new_user_session_path, class: "nav-link" %>
+            </i> <%= button_to "logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
         <% end %>
       </ul>

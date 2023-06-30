@@ -22,6 +22,10 @@
       <%= f.label :adresse %>
       <%= f.text_field :address, class: "form-control" %>
     </div>
+     <div>
+      <p class="label"><%= f.label :Que_voudrais_tu_faire_?%></p>
+      <%= f.association :place_tags, collection: PlaceTag.all, prompt: "Choose a Company", as: :check_boxes, input_html: { class: "selector-tag d-none" }, include_hidden: false, multiple: true, item_wrapper_class: 'tag-item' %>
+    </div>
 
     <div class="form-inputs">
       <%= f.label :prix_par_personne %>

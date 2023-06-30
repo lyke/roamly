@@ -1,4 +1,6 @@
 class TravelsController < ApplicationController
+  before_action :set_travel, only: %i[ show edit update destroy ]
+
   def show
     @travel = Travel.find(params[:id])
   end
@@ -21,6 +23,13 @@ class TravelsController < ApplicationController
       travel_type_tagging = TravTravTagging.new(trav_trav_type_tag: trav_type, travel: @travel)
       travel_type_tagging.save!
     end
+
+    @places = Place.where(id: params[:travel][:place_ids])
+    @places.each do |place|
+      step = Step.new(place: place, travel: @travel)
+      step.save!
+    end
+
     if @travel.save!
       redirect_to dashboards_path
     else
@@ -32,9 +41,13 @@ class TravelsController < ApplicationController
   end
 
   def update
+    @travel.update(travel_params)
+    redirect_to travel_path(@travel)
   end
 
   def destroy
+    @travel.destroy(travel_params)
+    redirect_to travel_path, status: :see_other
   end
 
   private
@@ -44,9 +57,6 @@ class TravelsController < ApplicationController
   end
 
   def travel_params
-    params.require(:travel).permit(:beginning_date, :ending_date, :nb_traveler, :incl_secret, :budget, :touristic, :starting_point, :start_hour, :end_hour)
+    params.require(:travel).permit(:beginning_date, :ending_date, :nb_traveler, :incl_secret, :budget, :touristic, :starting_point, :start_hour, :end_hour, :name)
   end
-
-
-
 end
