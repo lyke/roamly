@@ -49,10 +49,16 @@
       </div>
     </div> %>
   </div>
+
   <div class ="visit">
-      <%= f.input :start_hour, label: "Visites de :", as: :string, input_html: { data: { flatpickr_target: "startTime" } }%>
-      <%= f.input :end_hour, label: "à :", as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
+      <%= f.input :start_hour, label: "Visites de :", as: :string, input_html: { data: { flatpickr_target: "startingHour" } } %>
+      <%= f.input :end_hour, label: "à :", as: :string, input_html: { data: { flatpickr_target: "endingHour" }, id: 'ending_hour' } %>
   </div>
+
+
+
+
+
   <div class="form-inputs tag-item">
   <div>
     <%= f.check_box :incl_secret, class: "selector d-none" %>
@@ -60,6 +66,7 @@
     <%# , checked: true, id: "check_toggle", style: "visibility: hidden" %>
     </div>
   </div>
+
   <div class="form-inputs">
     <%= f.label :budget %>
     <p class="d-flex">

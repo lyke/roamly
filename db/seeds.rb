@@ -91,7 +91,7 @@ place1 = Place.new(
   price: 26.20,
   duration: 90,
   secret_spot: false,
-  user: User.first,
+  user: user2,
   min_temp: 0,
   max_temp: 40,
   touristic: true,
@@ -114,7 +114,7 @@ place2 = Place.new(
   price: 17,
   duration: 120,
   secret_spot: true,
-  user: User.last,
+  user: user2,
   min_temp: 20,
   max_temp: 40,
   touristic: false,
@@ -138,7 +138,7 @@ place3 = Place.new(
   price: 17,
   duration: 120,
   secret_spot: true,
-  user: User.last,
+  user: user2,
   min_temp: 20,
   max_temp: 40,
   touristic: false,
@@ -162,7 +162,7 @@ place4 = Place.new(
   price: 0,
   duration: 120,
   secret_spot: true,
-  user: User.last,
+  user: user2,
   min_temp: 20,
   max_temp: 40,
   touristic: false,
@@ -185,7 +185,7 @@ place5 = Place.new(
   price: 0,
   duration: 120,
   secret_spot: true,
-  user: User.last,
+  user: user2,
   min_temp: 20,
   max_temp: 40,
   touristic: false,
@@ -209,7 +209,7 @@ place6 = Place.new(
   price: 20,
   duration: 120,
   secret_spot: true,
-  user: User.last,
+  user: user2,
   min_temp: 20,
   max_temp: 40,
   touristic: false,
@@ -232,7 +232,7 @@ place7 = Place.new(
   price: 0,
   duration: 120,
   secret_spot: true,
-  user: User.last,
+  user: user2,
   min_temp: 20,
   max_temp: 40,
   touristic: false,
@@ -256,7 +256,7 @@ place8 = Place.new(
   price: 15,
   duration: 120,
   secret_spot: true,
-  user: User.last,
+  user: user2,
   min_temp: 20,
   max_temp: 40,
   touristic: false,
@@ -280,7 +280,7 @@ place9 = Place.new(
   price: 0,
   duration: 120,
   secret_spot: true,
-  user: User.last,
+  user: user2,
   min_temp: 20,
   max_temp: 40,
   touristic: false,
@@ -303,7 +303,7 @@ place10 = Place.new(
   price: 14,
   duration: 120,
   secret_spot: true,
-  user: User.last,
+  user: user2,
   min_temp: 20,
   max_temp: 40,
   touristic: false,
@@ -314,6 +314,124 @@ place10.photos.attach([
   { io: opera1, filename: "opera picture", content_type: "image/jpg" },
   { io: opera2, filename: "opera picture", content_type: "image/webp" }])
 place10.save!
+
+rue = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688115529/image_wtnk5t.jpg")
+rue1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688115529/29738802_wxqmae.webp")
+rue2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688115529/shutterstock_730699129_vgorlk.jpg")
+place11 = Place.new(
+  name: "Rue Crémieux",
+  description: "La rue Crémieux, joyau coloré du quartier de Bastille à Paris, émerveille par son charme unique. Ses maisons aux façades pastel et aux volets colorés créent une atmosphère enchantée. Les fleurs grimpantes et les jardinières ajoutent une touche de poésie. Cette rue piétonne, bordée d'arbres et d'escaliers en fer forgé, respire la tranquillité. Un véritable refuge de calme et de beauté au cœur de la ville animée, la rue Crémieux est une invitation à la flânerie et à la contemplation.",
+  longitude: 2.3700633,
+  latitude: 48.8463887,
+  price: 0,
+  duration: 120,
+  secret_spot: true,
+  user: user1,
+  min_temp: 20,
+  max_temp: 40,
+  touristic: false,
+  address: "Rue Crémieux, 75012 Paris"
+)
+place11.photos.attach([
+  { io: rue, filename: "rue picture", content_type: "image/jpg" },
+  { io: rue1, filename: "rue picture", content_type: "image/webp" },
+  { io: rue2, filename: "rue picture", content_type: "image/jpg" }])
+place11.save!
+
+parc = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688115529/5c2188b4-fd30-4801-8a78-6921f09a0d57_ithb6i.webp")
+parc1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688115529/buttes-chaumont-paris_yannis-sommera_ipiwdq.jpg")
+parc2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688115529/36644370903_c864d6d078_o_wq9dih.jpg")
+place12 = Place.new(
+  name: "Parc des Buttes-Chaumont",
+  description: "Le Parc des Buttes-Chaumont, oasis naturelle nichée au cœur de Paris, émerveille par sa beauté pittoresque. Ses collines verdoyantes, son lac paisible et son île romantique captivent les promeneurs. Les cascades gracieuses et les grottes mystérieuses ajoutent une touche d'aventure. Les jardins à la française et les sentiers sinueux offrent des vues panoramiques sur la ville. Ce parc bucolique, avec ses ponts élégants et ses arbres majestueux, est une échappée enchantée où règne la sérénité et la quiétude.",
+  longitude: 2.382761,
+  latitude: 48.880950,
+  price: 0,
+  duration: 120,
+  secret_spot: true,
+  user: user1,
+  min_temp: 20,
+  max_temp: 40,
+  touristic: false,
+  address: "1 Rue Botzaris, 75019 Paris"
+)
+place12.photos.attach([
+  { io: parc, filename: "parc picture", content_type: "image/webp" },
+  { io: parc1, filename: "parc picture", content_type: "image/jpg" },
+  { io: parc2, filename: "parc picture", content_type: "image/jpg" }])
+place12.save!
+
+square = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688116608/square-vert-galant_sfqawf.jpg")
+square1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688116624/paris_gcjbns.jpg")
+square2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688116635/1sq_vgal2_yp0gfc.jpg")
+place13 = Place.new(
+  name: "Square du Vert-Galant",
+  description: "Le Square du Vert-Galant, niché sur l'île de la Cité, offre une évasion paisible au cœur de Paris. Ce jardin pittoresque, en bord de Seine, dévoile une vue imprenable sur le fleuve et les ponts emblématiques. Ses pelouses verdoyantes, ses arbres ombragés et ses bancs invitent à la détente. L'atmosphère romantique et sereine du lieu en fait un refuge idéal pour les promeneurs en quête de tranquillité. Le Square du Vert-Galant est un havre de verdure et de quiétude, où l'on peut s'évader du tumulte urbain environnant.",
+  longitude: 2.340168,
+  latitude:  48.857487,
+  price: 0,
+  duration: 120,
+  secret_spot: true,
+  user: user1,
+  min_temp: 20,
+  max_temp: 40,
+  touristic: false,
+  address: "15 Pl. du Pont Neuf, 75001 Paris"
+)
+place13.photos.attach([
+  { io: square, filename: "square picture", content_type: "image/jpg" },
+  { io: square1, filename: "square picture", content_type: "image/jpg" },
+  { io: square2, filename: "square picture", content_type: "image/jpg" }])
+place13.save!
+
+
+butte = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688116639/cdec_bvylq2.webp")
+butte1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688116635/butte-bergeyre-paris-1_hlpwmv.jpg")
+butte2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688116624/butte-bergeyre-balade-paris_i6sfgg.jpg")
+place14 = Place.new(
+  name: "La Butte Bergeyre",
+  description: "La Butte Bergeyre, dans le 19e arrondissement de Paris, est un joli village caché. Ses rues pavées serpentent à 100 mètres d'altitude, offrant des vues panoramiques sur les toits parisiens. Anciennement un vignoble, le quartier conserve son charme avec ses maisons colorées et ses façades fleuries. Cette enclave paisible permet une promenade reposante et authentique, loin de l'agitation urbaine. Découvrez ce joyau caché, un havre de paix au cœur de la ville lumière.",
+  longitude: 2.37564,
+  latitude: 48.8772,
+  price: 0,
+  duration: 120,
+  secret_spot: true,
+  user: user1,
+  min_temp: 20,
+  max_temp: 40,
+  touristic: false,
+  address: "78 Rue Georges Lardennois, 75019 Paris"
+)
+place14.photos.attach([
+  { io: butte, filename: "butte picture", content_type: "image/webp" },
+  { io: butte1, filename: "butte picture", content_type: "image/jpg" },
+  { io: butte2, filename: "butte picture", content_type: "image/jpg" }])
+place14.save!
+
+villa = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688116608/villa-le%CC%81andre-montmartre-03_m0l9k6.jpg")
+villa1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688116608/villa-leandre-montmartre-paris-18-128811634194843125205.jpg_buopqn.webp")
+villa2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688116608/villa_leandre_montmartre_paris-1024x683.jpg_pagnpo.webp")
+place15 = Place.new(
+  name: "Le Villa Léandre",
+  description: "La Villa Léandre est une magnifique résidence située dans le quartier pittoresque de Montmartre à Paris. Cette villa historique incarne à la fois le charme de l'architecture parisienne traditionnelle et une élégance contemporaine.
+  La Villa Léandre offre un cadre enchanteur avec ses jardins luxuriants et sa tranquillité préservée, loin de l'agitation de la ville. Chaque détail de cette demeure a été soigneusement pensé pour créer une atmosphère de raffinement et de confort.",
+  longitude: 2.335057,
+  latitude: 48.888378,
+  price: 0,
+  duration: 120,
+  secret_spot: true,
+  user: user1,
+  min_temp: 20,
+  max_temp: 40,
+  touristic: false,
+  address: "Avenue Junot, 75018 Paris"
+)
+place15.photos.attach([
+  { io: villa, filename: "villa picture", content_type: "image/jpg" },
+  { io: villa1, filename: "villa picture", content_type: "image/webp" },
+  { io: villa2, filename: "villa picture", content_type: "image/webp" }])
+place15.save!
+
 
 
 pl_tr_ty_tags = ["Seul", "En Couple", "En Famille", "Entre Amis"]
