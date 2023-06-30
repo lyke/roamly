@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_28_095951) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_29_204121) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,6 +91,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_095951) do
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 
+  create_table "steps", force: :cascade do |t|
+    t.integer "duration"
+    t.bigint "travel_id", null: false
+    t.bigint "place_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_steps_on_place_id"
+    t.index ["travel_id"], name: "index_steps_on_travel_id"
+  end
+
   create_table "trav_trav_taggings", force: :cascade do |t|
     t.bigint "trav_trav_type_tag_id", null: false
     t.bigint "travel_id", null: false
@@ -137,6 +147,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_095951) do
     t.datetime "end_hour"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["user_id"], name: "index_travels_on_user_id"
   end
 
@@ -162,6 +173,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_095951) do
   add_foreign_key "place_trav_taggings", "place_traveler_type_tags"
   add_foreign_key "place_trav_taggings", "places"
   add_foreign_key "places", "users"
+  add_foreign_key "steps", "places"
+  add_foreign_key "steps", "travels"
   add_foreign_key "trav_trav_taggings", "trav_trav_type_tags"
   add_foreign_key "trav_trav_taggings", "travels"
   add_foreign_key "travel_taggings", "travel_tags"

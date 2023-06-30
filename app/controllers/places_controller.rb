@@ -22,6 +22,18 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     @place.user = current_user
+
+    @tags = PlaceTag.where(id: params[:place][:place_tag_ids])
+    @tags.each do |tag|
+      place_tagging = PlaceTagging.new(place_tag: tag, place: @place)
+      place_tagging.save!
+    end
+    @place_type = PlaceTravelerTypeTag.where(id: params[:place][:place_traveler_type_tag_ids])
+    @place_type.each do |place_type|
+      place_traveler_type_tagging = PlaceTravelerTypeTagging.new(place_traveler_type_tag: place_type, travel: @place)
+      place_traveler_type_tagging.save!
+    end
+
     if @place.save!
       redirect_to place_path(@place), notice: "Place was successfully created."
     else

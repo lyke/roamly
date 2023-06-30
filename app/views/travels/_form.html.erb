@@ -4,6 +4,12 @@
   <%= simple_form_for @travel, data: { controller: 'flatpickr' } do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.label :Nom_du_Voyage %>
+    <%= f.input :name, class: "form-control" %>
+  </div>
+
   <div class="form-inputs">
     <%= f.label :Adresse_de_départ %>
     <%= f.text_field :starting_point, class: "form-control" %>
@@ -22,7 +28,7 @@
   <%# </div> %>
 
   <div>
-  <p class="label"><%= f.label :Avec_qui_voyages_tu_?%></p>
+  <%# <p class="label"><%= f.label :Avec_qui_voyages_tu_?%></p> %>
   <% TravTravTypeTag.all.each do |tag| %>
     <label>
       <%= radio_button_tag 'trav_trav_type_tags[]', tag.id %>
@@ -37,7 +43,7 @@
     <%# <div class="container">
       <div class="row">
         <div class= "travel-grid"> %>
-          <%= f.association :travel_tags, collection: TravelTag.all, prompt: "Choose a Company", as: :check_boxes, input_html: { class: "selector d-none" }, include_hidden: false, multiple: true, item_wrapper_class: 'tag-item' %>
+          <%= f.association :travel_tags, collection: TravelTag.all, prompt: "Choose a Company", as: :check_boxes, input_html: { class: "selector-tag d-none" }, include_hidden: false, multiple: true, item_wrapper_class: 'tag-item' %>
         <%# </div>
       </div>
     </div> %>
@@ -49,7 +55,7 @@
   <div class="form-inputs tag-item">
   <div>
     <%= f.check_box :incl_secret, class: "selector d-none" %>
-    <p id ="btn-turist"><%= f.label :incl_secret %></p>
+    <%= f.label :incl_secret %>
     <%# , checked: true, id: "check_toggle", style: "visibility: hidden" %>
     </div>
   </div>

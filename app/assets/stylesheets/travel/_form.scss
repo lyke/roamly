@@ -7,6 +7,36 @@
   transform: scale(0);
 }
 
+.selector-tag + label {
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 19px;
+  border: 1px solid #59BCB6;
+  background-color: white;
+  color: #59BCB6;
+  display: inline-block;
+  margin-bottom: 2px;
+  padding: 5px;
+  text-align: center;
+  width: 116px;
+  height: 60px;
+}
+
+.selector-tag:checked + label {
+  display: inline-block;
+  border-radius: 19px;
+  border: 1px solid #59BCB6;
+  background-color: #59BCB6;
+  color: white;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 5px;
+  text-align: center;
+  width: 116px;
+  height: 60px;
+
+}
+
 .selector + label {
   cursor: pointer;
   display: inline-block;
@@ -17,7 +47,8 @@
   display: inline-block;
   margin-bottom: 20px;
   padding: 5px;
-
+  width: 90%;
+  text-align: center;
 }
 
 .selector:checked + label {
@@ -30,4 +61,5 @@
   margin-bottom: 20px;
   padding: 5px;
   width: 90%;
+  text-align: center;
 }
