@@ -15,6 +15,7 @@
 <% @future_travels.each do |travel| %>
   <%= link_to travel_path(travel), class: "travel-card" do %>
     <div class="rectangle">
+      <%# <%= cl_image_tag travel.places.first.photos.first.key %> %>
       <img src="https://images.partir.com/g6_T5RzFIxc2VZcftQeoyIw8sgg=/750x/filters:sharpen(0.3,0.3,true)/incontournables/italie-milan-duomo.jpg" alt="Image 1">
         <%# <%= cl_image_tag travel.place.first.photo.key, height: 350, width: 450, crop: :fill %> %>
       <div>
