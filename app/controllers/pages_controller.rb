@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   end
 
   def secret_spot
-    @my_secrets = Place.where(params[:user] == current_user)
+    @my_secrets = Place.where(user: current_user)
   end
 
   private

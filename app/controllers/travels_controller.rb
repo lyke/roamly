@@ -1,5 +1,5 @@
 class TravelsController < ApplicationController
-  before_action :set_travel, only: %i[ show edit update destroy ]
+  before_action :set_travel, only: %i[ show edit update destroy map ]
 
   def show
     @travel = Travel.find(params[:id])
@@ -48,6 +48,18 @@ class TravelsController < ApplicationController
   def destroy
     @travel.destroy(travel_params)
     redirect_to travel_path, status: :see_other
+  end
+
+  def map
+    @places = @travel.places
+    @starting_point = @travel.longitude.to_s + "," + @travel.latitude.to_s
+    # The `geocoded` scope filters only places with coordinates
+    @markers = @places.geocoded.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude
+      }
+    end
   end
 
   private

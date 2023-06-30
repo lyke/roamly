@@ -8,6 +8,7 @@ TravelTag.destroy_all
 PlaceTag.destroy_all
 TravTravTypeTag.destroy_all
 PlaceTravelerTypeTag.destroy_all
+Step.destroy_all
 
 Travel.destroy_all
 Place.destroy_all
@@ -68,12 +69,7 @@ user4 = User.new(
 user4.photo.attach(io: anastasiia_picture, filename: "Anastasiia profil picture", content_type: "image/png")
 user4.save!
 
-
-
-
-
  puts "user finished"
- puts "starting creating places"
 
 # Travel :
 
@@ -324,6 +320,8 @@ place10.photos.attach([
   { io: opera2, filename: "opera picture", content_type: "image/webp" }])
 place10.save!
 
+puts "place finished"
+
 
 pl_tr_ty_tags = ["Seul", "En Couple", "En Famille", "Entre Amis"]
 pl_tr_ty_tags.each do |tag|
@@ -335,12 +333,26 @@ place_tags.each do |place_tag|
   PlaceTag.create(name: place_tag)
 end
 
+# TravelTag :
+
+travel_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente et Spa", "Histoire", "Aventure", "Nourriture", "Nature", "Spectacle", "Escapade Romantique", "Parc d'attraction"]
+travel_tags.each do |tag|
+  TravelTag.create(name: tag)
+end
+
+place_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente et Spa", "Histoire", "Aventure", "Nourriture", "Nature", "Spectacle", "Escapade Romantique", "Parc d'attraction"]
+place_tags.each do |tag|
+  PlaceTag.create(name: tag)
+end
+
+puts "tag finished"
+
 first_travel = Travel.create(
   name: "Paris",
   user: User.first,
   beginning_date: "2023-06-27",
   ending_date: "2023-06-27",
-  starting_point: "1 avenue des champs elysées, Paris",
+  starting_point: "1 rue Rivoli, Paris",
   nb_traveler: 2,
   budget: 150,
   local_temperature: 30,
@@ -361,17 +373,8 @@ second_travel = Travel.create(
   end_hour: "2023-06-27.20:00:00"
 )
 
-# TravelTag :
+puts "travel finished"
 
-travel_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente et Spa", "Histoire", "Aventure", "Nourriture", "Nature", "Spectacle", "Escapade Romantique", "Parc d'attraction"]
-travel_tags.each do |tag|
-  TravelTag.create(name: tag)
-end
-
-place_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente et Spa", "Histoire", "Aventure", "Nourriture", "Nature", "Spectacle", "Escapade Romantique", "Parc d'attraction"]
-place_tags.each do |tag|
-  PlaceTag.create(name: tag)
-end
 
 # TravelTagging :
 
@@ -395,6 +398,8 @@ TravTravTagging.create(
   trav_trav_type_tag: TravTravTypeTag.last
 )
 
+puts "tagging finished"
+
 # TravTravTypeTag :
 traveler_types = ["Seul", "En Couple", "En Famille", "Entre Amis"]
 traveler_types.each do |trav_type|
@@ -406,3 +411,17 @@ eiffel_tower_step = Step.create(
   place: place1,
   duration: place1.duration
 )
+
+louvre_step = Step.create(
+  travel: first_travel,
+  place: place2,
+  duration: place2.duration
+)
+
+arc_step = Step.create(
+  travel: first_travel,
+  place: place3,
+  duration: place3.duration
+)
+
+puts "step finished"
