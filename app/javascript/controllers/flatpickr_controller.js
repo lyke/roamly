@@ -23,7 +23,7 @@ export default class extends Controller {
   static targets = [ "startTime", "endTime", "startingHour", "endingHour" ]
   connect() {
     // console.log('slt')
-    flatpickr({
+    flatpickr(this.startTimeTarget, {
               enableTime: true,
               disableMobile: "true",
               // Provide an id for the plugin to work
