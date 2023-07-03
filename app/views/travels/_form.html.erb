@@ -1,90 +1,74 @@
 <div class="container-trav">
 <h1><h1>Nouveau voyage 🌍</h1></h1>
   <div class="calendar">
-  <%= simple_form_for @travel, data: { controller: 'flatpickr' } do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= simple_form_for @travel, data: { controller: 'flatpickr' } do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 
-<div class="form-inputs">
-  <%= f.label :Nom_du_Voyage, style: "display: none;" %>
-  <%= f.input :name, as: :text, label: "Nom", class: "form-control", style: "display: none;" %>
-</div>
+    <div class="form-inputs">
+      <%= f.label :Nom_du_Voyage, style: "display: none;" %>
+      <%= f.input :name, as: :text, label: "Nom", class: "form-control", style: "display: none;" %>
+    </div>
 
-  <div class="form-inputs">
-    <%= f.label :Adresse_de_départ %>
-    <%= f.text_field :starting_point, class: "form-control" %>
-  </div>
-  <div class ="duree-trav">
-    <%= f.input :beginning_date, label: "Voyage du :", as: :string, input_html: { data: { flatpickr_target: "startTime" } }%>
-    <%= f.input :ending_date, label: "au :", as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
-  </div>
-  <div class="form-inputs">
-    <%= f.label :nombre_de_voyageurs, placeholder: "20"%>
-    <p class="d-flex"><%= f.text_field :nb_traveler, class: "form-control", placeholder: "ex: 5" %><p>
-  </div>
+    <%# <div class="form-inputs"> %>
+      <%# <%= f.label :Adresse_de_départ %>
+      <%# <%= f.text_field :starting_point, class: "form-control" %>
+      <%# <%= f.input :starting_point, class: "form-control", label: "Adresse de départ", input_html: {data: {address_autocomplete_target: "starting_point"}}, wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
+    <%# </div> %>
 
-  <%# <div>
-    <%= f.association :trav_trav_type_tags, collection: TravTravTypeTag.all, prompt: "Choose a Company", as: :check_boxes, input_html: { class: "selector d-none" }, include_hidden: true, multiple: true, item_wrapper_class: 'tag-item' %>
-  <%# </div> %>
+     <div class="form-inputs">
+      <%= f.input :starting_point,
+      label: "adresse de départ",
+      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
+    </div>
 
-  <div>
-  <%# <p class="label"><%= f.label :Avec_qui_voyages_tu_?%></p>
-  <% TravTravTypeTag.all.each do |tag| %>
-    <label>
-      <%= radio_button_tag 'trav_trav_type_tags[]', tag.id %>
-      <%= tag.name %>
-    </label>
-  <% end %>
-</div>
+    <div class ="duree-trav">
+      <%= f.input :beginning_date, label: "Voyage du :", as: :string, input_html: { data: { flatpickr_target: "startTime" } }%>
+      <%= f.input :ending_date, label: "au :", as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
+    </div>
+    <div class="form-inputs">
+      <%= f.label :nombre_de_voyageurs, placeholder: "20"%>
+      <p class="d-flex"><%= f.text_field :nb_traveler, class: "form-control", placeholder: "ex: 5" %><p>
+    </div>
 
-  <div>
-    <p class="label"><%= f.label :Que_voudrais_tu_faire_?%></p>
-    <%# créer une collection de tags, chacuns de ces tags %>
-    <%# <div class="container">
-      <div class="row">
-        <div class= "travel-grid"> %>
-          <%= f.association :travel_tags, collection: TravelTag.all, prompt: "Choose a Company", as: :check_boxes, input_html: { class: "selector-tag d-none" }, include_hidden: false, multiple: true, item_wrapper_class: 'tag-item' %>
-        <%# </div>
-      </div>
-    </div> %>
-  </div>
+    <div>
+      <%= f.association :trav_trav_type_tags, collection: TravTravTypeTag.all, as: :radio_buttons,  input_html: { class: "trav-selector-tag d-none" },  label: 'Tu voyages :', include_hidden: false, multiple: false, item_wrapper_class: 'tag-item'%>
+    </div>
 
-  <div class ="visit">
+    <div>
+      <%= f.association :travel_tags, collection: TravelTag.all, label: "Que voudrais tu faire ?", as: :check_boxes, input_html: { class: "selector-tag d-none" }, include_hidden: false, multiple: true, item_wrapper_class: 'tag-item' %>
+    </div>
+
+    <div class ="visit">
       <%= f.input :start_hour, label: "Visites de :", as: :string, input_html: { data: { flatpickr_target: "startingHour" } } %>
       <%= f.input :end_hour, label: "à :", as: :string, input_html: { data: { flatpickr_target: "endingHour" }, id: 'ending_hour' } %>
-  </div>
-
-
-
-
-
-  <div class="form-inputs tag-item">
-  <div>
-    <%= f.check_box :incl_secret, class: "selector d-none" %>
-    <%= f.label :incl_secret %>
-    <%# , checked: true, id: "check_toggle", style: "visibility: hidden" %>
     </div>
-  </div>
 
-  <div class="form-inputs">
-    <%= f.label :budget %>
-    <p class="d-flex">
-    <%= f.text_field :budget, class: "form-control", placeholder: "ex :35" %>
-    </p>
-  </div>
+    <div class="form-inputs tag-item">
+      <%= f.check_box :incl_secret, class: "selector d-none" %>
+      <%= f.label :incl_secret %>
+    </div>
+
     <div class="form-inputs">
-    <%= f.label :Touristic_? %>
-      <p class="d-flex"><%= f.text_field :touristic, class: "form-control", placeholder: "ex :35" %></p>
+      <%= f.label :budget %>
+      <p class="d-flex">
+      <%= f.text_field :budget, class: "form-control", placeholder: "ex :35" %> €
+      </p>
     </div>
 
-  <%# <div class="form-actions">
-    <%= f.submit "Créer Mon Voyage", class: "btn-create"%>
-  <%# </div>  %>
-<div>
-    <%= submit_tag "Créer mon voyage", class: "form-actions"%>
-  </div>
+    <div class="form-label">
+      <div class="barre_touristique_label">
+        <%= f.label :touristique%>
+        <%= f.label :local %>
+      </div>
+      <%= f.input :touristic, label: false, as: :range, input_html: { class:"form-range", id:"touristic", min:"0", max:"100", step:"1" } %>
+    </div>
 
-  <% end %>
+    <div>
+      <%= submit_tag "Créer mon voyage", class: "create_btn"%>
+    </div>
+    <% end %>
   </div>
 </div>

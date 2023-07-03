@@ -17,14 +17,15 @@ class PagesController < ApplicationController
 
   def set_travels
     @travels = Travel.all
+    @my_travels = Travel.where(user: current_user)
     @future_travels = []
     @past_travels = []
     # .flatten
-    @travels.each do |travel|
-      if travel.ending_date >= Date.today
-        @future_travels << travel
+    @my_travels.each do |my_travel|
+      if my_travel.ending_date >= Date.today
+        @future_travels << my_travel
       else
-        @past_travels << travel
+        @past_travels << my_travel
       end
     end
   end

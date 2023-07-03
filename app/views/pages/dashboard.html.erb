@@ -15,9 +15,8 @@
 <% @future_travels.each do |travel| %>
   <%= link_to travel_path(travel), class: "travel-card" do %>
     <div class="rectangle">
-      <%# <%= cl_image_tag travel.places.first.photos.first.key %> %>
-      <img src="https://images.partir.com/g6_T5RzFIxc2VZcftQeoyIw8sgg=/750x/filters:sharpen(0.3,0.3,true)/incontournables/italie-milan-duomo.jpg" alt="Image 1">
-        <%# <%= cl_image_tag travel.place.first.photo.key, height: 350, width: 450, crop: :fill %> %>
+      <%# <img src="https://images.partir.com/g6_T5RzFIxc2VZcftQeoyIw8sgg=/750x/filters:sharpen(0.3,0.3,true)/incontournables/italie-milan-duomo.jpg" alt="Image 1"> %>
+      <%= cl_image_tag travel.places.first.photos.first.key, height: 350, width: 450, crop: :fill %>
       <div>
         <h2><%= travel.name %></h2>
         <%= travel.beginning_date %> - <%= travel.ending_date %>
@@ -27,7 +26,7 @@
 <% end %>
 
 
-  <div class="rectangle">
+  <%# <div class="rectangle">
     <img src="https://images.adsttc.com/media/images/5d44/14fa/284d/d1fd/3a00/003d/large_jpg/eiffel-tower-in-paris-151-medium.jpg?1564742900" alt="Image 2">
     <div>
       <h2>Paris</h2>
@@ -41,4 +40,4 @@
       <h2>Rome</h2>
       <p>Mon séjour à Rome 🍝 🇮🇹</p>
     </div>
-  </div>
+  </div> %>

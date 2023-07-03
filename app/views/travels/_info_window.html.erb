@@ -1,0 +1,9 @@
+<%= link_to place_path(place), class: "travel-card" do %>
+  <div class="popup-card">
+    <%= cl_image_tag place.photos.first.key, height: 450, width: 450, crop: :fill, class: "img-rec" %>
+    <div>
+      <h2 class="popup-title"><%= place.name %></h2>
+      <p class="popup-title"><%= place.description.first(50)... %></p>
+    </div>
+  </div>
+<% end %>

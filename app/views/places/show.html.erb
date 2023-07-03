@@ -42,15 +42,21 @@
 <p class="text-justify"><%= truncate(@place.description, length: 400) %></p>
 </div>
 
-<div class="map" style="width: 360px; height: 400px;"
+<div class="map" style="width: 96%; height: 400px;"
   data-controller="map"
   data-map-markers-value="<%= @marker.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
 <div id="buttons">
-  <%= link_to "Back to places", dashboards_path, class: "button-back" %>
+  <%= link_to "Retourner à la liste", dashboards_path, class: "button-back" %>
   <%# <br> %>
-  <%= link_to "Edit", edit_place_path(@place), class: "button-back" %>
-  <%= link_to "Destroy", @place, method: :delete, class: "button-back" %>
+
+  <% if policy(@place).update? %>
+    <%= link_to "Modifier", edit_place_path(@place), class: "button-back" %>
+  <% end %>
+    <%# <%= link_to "Destroy", @place, method: :delete, class: "button-back" %>
+  <% if policy(@place).destroy? %>
+    <%= link_to "Suprimer", places_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button-back" %>
+  <% end %>
 </div>

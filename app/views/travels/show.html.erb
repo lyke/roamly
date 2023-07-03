@@ -14,11 +14,11 @@
 <% @travel.steps.each do |step| %>
   <p>Vous passerez <%= step.duration%> minutes sur site</p>
     <%= link_to place_path(step.place), class: "travel-card" do %>
-      <div class="rectangle-faux">
+      <div class="rectangle">
         <%= cl_image_tag step.place.photos.first.key, height: 450, width: 450, crop: :fill, class: "img-rec" %>
         <div>
           <h2><%= step.place.name %></h2>
-          <p><%= step.place.description.first(90)... %></p>
+          <p><%= step.place.description.first(60) ... %></p>
         </div>
       </div>
       <% end %>
