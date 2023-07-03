@@ -53,7 +53,8 @@ user3 = User.new(
   password: "123456",
   nickname: "alex",
   first_name: "alexandra",
-  last_name: "delory"
+  last_name: "delory",
+  admin: true
 )
 user3.photo.attach(io: alexandra_picture, filename: "Alexandra profil picture", content_type: "image/png")
 user3.save!

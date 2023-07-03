@@ -5,7 +5,7 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     markers: Array,
-    startingPoint: String
+    starting: String
   }
 
   connect() {
@@ -18,13 +18,12 @@ export default class extends Controller {
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
     const toto = this.markersValue
+    console.log(this.startingValue);
     this.getRoute(toto)
-
-    // const start = [-122.662323, 45.523751];
   }
 
   getRoute(toto) {
-    let markersUrl = ""
+    let markersUrl = `${this.startingValue};`;
 
     this.markersValue.forEach((marker, index) => {
        markersUrl += `${marker.lng.toString()},${marker.lat.toString()};`
@@ -37,6 +36,7 @@ export default class extends Controller {
 
     console.log(markersUrl.substring(0, this.markersValue.length - 1))
 
+    console.log(markersUrl);
 
     fetch(
       `https://api.mapbox.com/directions/v5/mapbox/cycling/${markersUrl}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
@@ -89,10 +89,16 @@ export default class extends Controller {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
       new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
-        .addTo(this.map)
+      .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
+      .addTo(this.map)
+
     })
+
+    new mapboxgl.Marker()
+      .setLngLat([ this.startingValue.split(",")[0], this.startingValue.split(",")[1] ])
+      .addTo(this.map)
+
   }
 
   #fitMapToMarkers() {
