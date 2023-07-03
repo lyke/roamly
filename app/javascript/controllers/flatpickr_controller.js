@@ -28,7 +28,9 @@ export default class extends Controller {
               disableMobile: "true",
               // Provide an id for the plugin to work
               plugins: [new rangePlugin({ input: "#end_time"})]})
-    flatpickr(this.endTimeTarget, {})
+    flatpickr(this.endTimeTarget, {
+      disableMobile: "true"
+    })
 
 
     flatpickr(this.startingHourTarget, {
