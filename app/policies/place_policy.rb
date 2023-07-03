@@ -5,9 +5,12 @@ class PlacePolicy < ApplicationPolicy
     #   scope.all
     # end
     def resolve
-      user.admin? ? scope.all : scope.where(user: user)
+      scope.where(validation: false) if user.admin?
     end
+  end
 
+  def index?
+    user.admin?
   end
 
   def show?

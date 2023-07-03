@@ -28,6 +28,12 @@
             <i class="fa-solid fa-user-secret nav-icon"></i>
             <%= link_to "Secret Spot", secret_spots_path, class: "nav-link" %>
           </li>
+          <% if current_user.admin? %>
+            <li class="nav-item", id="normal">
+              <i class="fa-solid fa-user-secret nav-icon"></i>
+              <%= link_to "Places en attente de validation", places_path, class: "nav-link" %>
+            </li>
+          <% end %>
           <li class="nav-item", id="normal">
             <i class="fa-solid fa-arrow-right-from-bracket nav-icon">
             </i> <%= button_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link" %>
