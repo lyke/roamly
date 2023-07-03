@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :place_traveler_type_tags, only: [:index, :new, :create, :destroy]
   resources :place_tags, only: [:index, :new, :create, :destroy]
 
-  get "travel/:id/map", to: "travels#map", as: :travel_map
+  get "travels/:id/map", to: "travels#map", as: :travel_map
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

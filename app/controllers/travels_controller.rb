@@ -63,6 +63,7 @@ class TravelsController < ApplicationController
   def map
     @places = @travel.places
     @starting_point = @travel.longitude.to_s + "," + @travel.latitude.to_s
+    
     # The `geocoded` scope filters only places with coordinates
     @markers = @places.geocoded.map do |place|
       {
@@ -79,7 +80,7 @@ class TravelsController < ApplicationController
   def set_travel
     @travel = Travel.find(params[:id])
     authorize @travel
-  end 
+  end
 
   def travel_params
     params.require(:travel).permit(:beginning_date, :ending_date, :nb_traveler, :incl_secret, :budget, :touristic, :starting_point, :start_hour, :end_hour, :name)
