@@ -11,9 +11,13 @@ class TravelsController < ApplicationController
 
   def create
     @travel = Travel.new(travel_params)
-    @travel.user_id = current_user.id
+    @travel.user = current_user
+    @travel.save!
 
+    # TAGS
+    # ---------------------------------------
     @tags = TravelTag.where(id: params[:travel][:travel_tag_ids])
+    # @travel.travel_tags << @tags
     @tags.each do |tag|
       travel_tagging = TravelTagging.new(travel_tag: tag, travel: @travel)
       travel_tagging.save!
@@ -23,9 +27,13 @@ class TravelsController < ApplicationController
       travel_type_tagging = TravTravTagging.new(trav_trav_type_tag: trav_type, travel: @travel)
       travel_type_tagging.save!
     end
+    # ---------------------------------------
 
+    # STEPS
+    # ---------------------------------------
 
-    @places = Place.where(id: params[:travel][:place_ids])
+    #  logic de choix en fonction des critères
+    @places = Place.find_for_travel(@travel)
     @places.each do |place|
       step = Step.new(place: place, travel: @travel)
       step.save!
@@ -71,7 +79,7 @@ class TravelsController < ApplicationController
   def set_travel
     @travel = Travel.find(params[:id])
     authorize @travel
-  end
+  end 
 
   def travel_params
     params.require(:travel).permit(:beginning_date, :ending_date, :nb_traveler, :incl_secret, :budget, :touristic, :starting_point, :start_hour, :end_hour, :name)

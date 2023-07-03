@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   before_action :set_place, only: %i[ show edit update destroy ]
 
   def index
-    @places = Place.all
+    @places = policy_scope(Place)
     @markers = @places.geocoded.map do |place|
       {
         lat: place.latitude,
@@ -10,6 +10,7 @@ class PlacesController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {place: place})
       }
     end
+    authorize @places
   end
 
   def show
@@ -56,8 +57,8 @@ class PlacesController < ApplicationController
   end
 
   def destroy
-    @place.destroy(place_params)
-    redirect_to places_path, status: :see_other, notice: "Place was successfully destroyed."
+    @place.destroy
+    redirect_to secret_spots_path, status: :see_other, notice: "Place was successfully destroyed."
   end
 
   private
