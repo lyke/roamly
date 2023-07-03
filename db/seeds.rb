@@ -477,7 +477,7 @@ second_travel = Travel.create(
   user: User.first,
   beginning_date: "2024-06-15",
   ending_date: "2024-06-27",
-  starting_point: "1 rue haxo, Marseille",
+  starting_point: "2 rue du Nil, Paris",
   nb_traveler: 5,
   budget: 200,
   local_temperature: 30,
