@@ -1,13 +1,13 @@
 class Place < ApplicationRecord
   belongs_to :user
 
-  has_many :steps
+  has_many :steps, dependent: :destroy
   has_many :travels, through: :steps
 
-  has_many :place_trav_taggings
+  has_many :place_trav_taggings, dependent: :destroy
   has_many :place_traveler_type_tags, through: :place_trav_taggings
 
-  has_many :place_taggings
+  has_many :place_taggings, dependent: :destroy
   has_many :place_tags, through: :place_taggings
 
   validates :name, presence: true

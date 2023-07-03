@@ -1,0 +1,13 @@
+<%= link_to place_path(place), class: "travel-card" do %>
+  <div class="popup-card">
+    <% if place.photos.attached? %>
+      <%= cl_image_tag place.photos.first.key, height: 450, width: 450, crop: :fill, class: "img-rec" %>
+    <% else %>
+      <img src="https://images.adsttc.com/media/images/5d44/14fa/284d/d1fd/3a00/003d/large_jpg/eiffel-tower-in-paris-151-medium.jpg?1564742900" alt="Image 2" style="width: 60px; height: 60px;" >
+    <% end %>
+    <div>
+      <h2 class="popup-title"><%= place.name %></h2>
+      <p class="popup-title"><%= place.description.first(50)... %></p>
+    </div>
+  </div>
+<% end %>

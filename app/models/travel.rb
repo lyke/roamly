@@ -1,9 +1,9 @@
 class Travel < ApplicationRecord
-  has_many :steps
+  has_many :steps, dependent: :destroy
   has_many :places, through: :steps
-  has_many :travel_taggings
+  has_many :travel_taggings, dependent: :destroy
   has_many :travel_tags, through: :travel_taggings
-  has_many :trav_trav_taggings
+  has_many :trav_trav_taggings, dependent: :destroy
   has_many :trav_trav_type_tags, through: :trav_trav_taggings
   belongs_to :user
 

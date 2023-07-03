@@ -19,7 +19,10 @@ export default class extends Controller {
     this.#fitMapToMarkers()
     const toto = this.markersValue
     this.getRoute(toto)
+
+    // const start = [-122.662323, 45.523751];
   }
+
   getRoute(toto) {
     let markersUrl = ""
 
@@ -84,8 +87,10 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(this.map)
     })
   }

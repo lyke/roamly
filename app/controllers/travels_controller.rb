@@ -2,11 +2,11 @@ class TravelsController < ApplicationController
   before_action :set_travel, only: %i[ show edit update destroy map ]
 
   def show
-    @travel = Travel.find(params[:id])
   end
 
   def new
     @travel = Travel.new
+    authorize @travel
   end
 
   def create
@@ -24,6 +24,7 @@ class TravelsController < ApplicationController
       travel_type_tagging.save!
     end
 
+
     @places = Place.where(id: params[:travel][:place_ids])
     @places.each do |place|
       step = Step.new(place: place, travel: @travel)
@@ -35,6 +36,7 @@ class TravelsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @travel
   end
 
   def edit
@@ -57,15 +59,18 @@ class TravelsController < ApplicationController
     @markers = @places.geocoded.map do |place|
       {
         lat: place.latitude,
-        lng: place.longitude
+        lng: place.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {place: place})
       }
     end
+    authorize @travel
   end
 
   private
 
   def set_travel
     @travel = Travel.find(params[:id])
+    authorize @travel
   end
 
   def travel_params

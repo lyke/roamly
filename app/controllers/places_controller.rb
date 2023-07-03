@@ -6,17 +6,19 @@ class PlacesController < ApplicationController
     @markers = @places.geocoded.map do |place|
       {
         lat: place.latitude,
-        lng: place.longitude
+        lng: place.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {place: place})
       }
     end
   end
 
   def show
-    @marker = [{ lat: @place.latitude, lng: @place.longitude }]
+    @marker = [{ lat: @place.latitude, lng: @place.longitude, info_window_html: render_to_string(partial: "info_window", locals: {place: @place}) }]
   end
 
   def new
     @place = Place.new
+    authorize @place
   end
 
   def create
@@ -39,6 +41,7 @@ class PlacesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @place
   end
 
   def edit
@@ -53,17 +56,18 @@ class PlacesController < ApplicationController
   end
 
   def destroy
-    @place.destroy
-    redirect_to places_path, notice: "Place was successfully destroyed."
+    @place.destroy(place_params)
+    redirect_to places_path, status: :see_other, notice: "Place was successfully destroyed."
   end
 
   private
 
   def set_place
     @place = Place.find(params[:id])
+    authorize @place
   end
 
   def place_params
-    params.require(:place).permit(:name, :description, :address, :price, :duration, :min_temp, :max_temp, :photo)
+    params.require(:place).permit(:name, :description, :address, :price, :duration, :min_temp, :max_temp, :photos, :secret_spot, :touristic, :longitude, :latitude, :validation)
   end
 end

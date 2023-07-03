@@ -22,7 +22,7 @@
           </li>
           <li class="nav-item active", id="normal">
           <i class="fa-solid fa-house nav-icon"></i>
-            <%= link_to "Home", dashboards_path, class: "nav-link" %>
+            <%= link_to "Accueil", dashboards_path, class: "nav-link" %>
           </li>
           <li class="nav-item", id="normal">
             <i class="fa-solid fa-user-secret nav-icon"></i>
@@ -30,7 +30,7 @@
           </li>
           <li class="nav-item", id="normal">
             <i class="fa-solid fa-arrow-right-from-bracket nav-icon">
-            </i> <%= button_to "logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </i> <%= button_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
         <% end %>
       </ul>

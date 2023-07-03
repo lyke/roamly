@@ -41,7 +41,8 @@ user2 = User.new(
   password: "123456",
   nickname: "lou",
   first_name: "louhane",
-  last_name: "maudet"
+  last_name: "maudet",
+  admin: true
 )
 user2.photo.attach(io: louhane_picture, filename: "Louhane profil picture", content_type: "image/jpg")
 user2.save!
@@ -109,7 +110,7 @@ place2 = Place.new(
   latitude: 48.860294,
   price: 17,
   duration: 120,
-  secret_spot: true,
+  secret_spot: false,
   user: user2,
   min_temp: 20,
   max_temp: 40,
@@ -133,7 +134,7 @@ place3 = Place.new(
   latitude: 48.8738,
   price: 17,
   duration: 120,
-  secret_spot: true,
+  secret_spot: false,
   user: user2,
   min_temp: 20,
   max_temp: 40,
@@ -157,7 +158,7 @@ place4 = Place.new(
   latitude: 48.804722,
   price: 0,
   duration: 120,
-  secret_spot: true,
+  secret_spot: false,
   user: user2,
   min_temp: 20,
   max_temp: 40,
@@ -180,7 +181,7 @@ place5 = Place.new(
   latitude: 48.846943,
   price: 0,
   duration: 120,
-  secret_spot: true,
+  secret_spot: false,
   user: user2,
   min_temp: 20,
   max_temp: 40,
@@ -204,7 +205,7 @@ place6 = Place.new(
   latitude: 45.748112,
   price: 20,
   duration: 120,
-  secret_spot: true,
+  secret_spot: false,
   user: user2,
   min_temp: 20,
   max_temp: 40,
@@ -227,7 +228,7 @@ place7 = Place.new(
   latitude: 48.886452,
   price: 0,
   duration: 120,
-  secret_spot: true,
+  secret_spot: false,
   user: user2,
   min_temp: 20,
   max_temp: 40,
@@ -251,7 +252,7 @@ place8 = Place.new(
   latitude: 48.86605,
   price: 15,
   duration: 120,
-  secret_spot: true,
+  secret_spot: false,
   user: user2,
   min_temp: 20,
   max_temp: 40,
@@ -275,7 +276,7 @@ place9 = Place.new(
   latitude: 48.852966,
   price: 0,
   duration: 120,
-  secret_spot: true,
+  secret_spot: false,
   user: user2,
   min_temp: 20,
   max_temp: 40,
@@ -298,7 +299,7 @@ place10 = Place.new(
   latitude: 48.872536,
   price: 14,
   duration: 120,
-  secret_spot: true,
+  secret_spot: false,
   user: user2,
   min_temp: 20,
   max_temp: 40,
@@ -322,11 +323,12 @@ place11 = Place.new(
   price: 0,
   duration: 120,
   secret_spot: true,
-  user: user1,
+  user: user2,
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "Rue Crémieux, 75012 Paris"
+  address: "Rue Crémieux, 75012 Paris",
+  validation: true
 )
 place11.photos.attach([
   { io: rue, filename: "rue picture", content_type: "image/jpg" },
@@ -345,11 +347,12 @@ place12 = Place.new(
   price: 0,
   duration: 120,
   secret_spot: true,
-  user: user1,
+  user: user2,
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "1 Rue Botzaris, 75019 Paris"
+  address: "1 Rue Botzaris, 75019 Paris",
+  validation: true
 )
 place12.photos.attach([
   { io: parc, filename: "parc picture", content_type: "image/webp" },
@@ -368,11 +371,12 @@ place13 = Place.new(
   price: 0,
   duration: 120,
   secret_spot: true,
-  user: user1,
+  user: user2,
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "15 Pl. du Pont Neuf, 75001 Paris"
+  address: "15 Pl. du Pont Neuf, 75001 Paris",
+  validation: true
 )
 place13.photos.attach([
   { io: square, filename: "square picture", content_type: "image/jpg" },
@@ -392,7 +396,7 @@ place14 = Place.new(
   price: 0,
   duration: 120,
   secret_spot: true,
-  user: user1,
+  user: user2,
   min_temp: 20,
   max_temp: 40,
   touristic: false,
@@ -420,7 +424,7 @@ place15 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "Avenue Junot, 75018 Paris"
+  address: "Avenue Junot, 75018 Paris",
 )
 place15.photos.attach([
   { io: villa, filename: "villa picture", content_type: "image/jpg" },
@@ -468,10 +472,10 @@ first_travel = Travel.create(
 )
 
 second_travel = Travel.create(
-  name: "Marseille",
+  name: "Secret Paris",
   user: User.first,
-  beginning_date: "2023-06-15",
-  ending_date: "2023-06-27",
+  beginning_date: "2024-06-15",
+  ending_date: "2024-06-27",
   starting_point: "1 rue haxo, Marseille",
   nb_traveler: 5,
   budget: 200,
@@ -513,22 +517,45 @@ traveler_types.each do |trav_type|
   TravTravTypeTag.create(name: trav_type)
 end
 
+arc_step = Step.create(
+  travel: first_travel,
+  place: place5,
+  duration: place5.duration
+)
 eiffel_tower_step = Step.create(
   travel: first_travel,
   place: place1,
   duration: place1.duration
 )
-
+arc_step = Step.create(
+  travel: first_travel,
+  place: place3,
+  duration: place3.duration
+)
 louvre_step = Step.create(
   travel: first_travel,
   place: place2,
   duration: place2.duration
 )
 
-arc_step = Step.create(
-  travel: first_travel,
-  place: place3,
-  duration: place3.duration
+cremieux_step = Step.create(
+  travel: Travel.last,
+  place: place11,
+  duration: place11.duration
 )
-
+square_step = Step.create(
+  travel: Travel.last,
+  place: place13,
+  duration: place13.duration
+)
+butte_step = Step.create(
+  travel: Travel.last,
+  place: place14,
+  duration: place14.duration
+)
+parc_step = Step.create(
+  travel: Travel.last,
+  place: place12,
+  duration: place12.duration
+)
 puts "step finished"
