@@ -44,7 +44,8 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :photos, as: :file %>
+      <%# <%= f.input :photos, as: :file %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
 
     <%# <div class="form-inputs"> %>
@@ -59,15 +60,41 @@
       wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
     </div>
 
+    <% if policy(@place).admin? %>
+       <div>
+          <%= f.association :place_traveler_type_tags, collection: PlaceTravelerTypeTag.all, label: "Place Tags :", as: :check_boxes, label_method: :tag, value_method: :id, input_html: { class: "trav-selector-tag d-none" }, include_hidden: false, multiple: true, item_wrapper_class: 'tag-item' %>
+      </div>
+    <% end %>
 
+    <% if policy(@place).admin? %>
+      <div>
+        <%= f.association :place_tags, collection: PlaceTag.all, label: "Place Tags :", prompt:"salut", as: :check_boxes, input_html: { class: "selector-tag d-none" }, include_hidden: false, multiple: true, item_wrapper_class: 'tag-item' %>
+      </div>
+    <% end %>
 
-     <%# <div>
+    <% if policy(@place).admin? %>
+      <div class="form-inputs">
+        <%= f.input :secret_spot, collection: ["true", "false"], class: "form-control d-flex", label: "Secret Spot" %>
+
+      </div>
+    <% end %>
+
+    <% if policy(@place).admin? %>
+      <div class="form-inputs">
+        <%= f.input :touristic, collection: ["true", "false"], class: "form-control d-flex", label: "Touristique" %>
+      </div>
+    <% end %>
+    <% if policy(@place).admin? %>
+      <div class="form-inputs">
+        <%= f.input :validation, collection: ["true", "false"], class: "form-control d-flex", label: "Validation" %>
+      </div>
+    <% end %>
+
+    <div>
       <%= f.button :submit, class: "btn-cr form-actions"%>
+    </div>
+    <%# <div>
+      <%= submit_tag "Crée ton secret spot", class: "create_btn"%>
     <%# </div> %>
-
-  <div>
-    <%= submit_tag "Crée ton secret spot", class: "create_btn"%>
   </div>
-</div>
-
 <% end %>
