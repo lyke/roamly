@@ -12,7 +12,7 @@ class TravelsController < ApplicationController
   def create
     @travel = Travel.new(travel_params)
     @travel.user = current_user
-    @travel.save!
+    # @travel.save!
 
     # TAGS
     # ---------------------------------------
@@ -63,7 +63,7 @@ class TravelsController < ApplicationController
   def map
     @places = @travel.places
     @starting_point = @travel.longitude.to_s + "," + @travel.latitude.to_s
-    
+
     # The `geocoded` scope filters only places with coordinates
     @markers = @places.geocoded.map do |place|
       {

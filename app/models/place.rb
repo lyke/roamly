@@ -19,7 +19,13 @@ class Place < ApplicationRecord
   has_many_attached :photos
   after_validation :geocode, if: :will_save_change_to_address?
 
+  # def self.find_for_travel(travel)
+  #   all.sample(5)
+  # end
+
   def self.find_for_travel(travel)
-    all.sample(5)
+    near_places = all.near(travel.starting_point, 10)
+    near_places.where()
   end
 end
+

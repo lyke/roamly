@@ -73,6 +73,31 @@ user4.save!
 
  puts "user finished"
 
+ # TravTravTypeTag :
+traveler_types = ["Seul", "En Couple", "En Famille", "Entre Amis"]
+traveler_types.each do |trav_type|
+  TravTravTypeTag.create(name: trav_type)
+end
+
+# TravelTag :
+
+travel_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente et Spa", "Histoire", "Aventure", "Nourriture", "Nature", "Spectacle", "Escapade Romantique", "Parc d'attraction"]
+travel_tags.each do |tag|
+  TravelTag.create(name: tag)
+end
+
+pl_tr_ty_tags = ["Seul", "En Couple", "En Famille", "Entre Amis"]
+pl_tr_ty_tags.each do |tag|
+  PlaceTravelerTypeTag.create(tag: tag)
+end
+
+place_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente et Spa", "Histoire", "Aventure", "Nourriture", "Nature", "Spectacle", "Escapade Romantique", "Parc d'attraction"]
+place_tags.each do |place_tag|
+  PlaceTag.create(name: place_tag)
+end
+
+puts "tag finished"
+
 # Travel :
 
 eiffel_tower = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1687788252/development/6men4efzsrk3jv0wmaooost68n7h.jpg")
@@ -93,10 +118,21 @@ place1 = Place.new(
   min_temp: 0,
   max_temp: 40,
   touristic: true,
-  address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris"
+  address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris",
 )
+# place_tags = PlaceTag.where(name: ["Art et Culture", "Escapade Romantique", "Histoire"])
+# place_tags.each do |place_tag|
+#   place_tagging = PlaceTagging.new(place: place1, place_tag: place_tag)
+#   place1.place_taggings << place_tagging
+# end
+
+place1.place_tags << PlaceTag.where(name: ["Art et Culture", "Escapade Romantique", "Histoire"])
+# place_tags.each do |place_tag|
+#   place1.place_tags << place_tag
+# end
+
 place1.photos.attach([
-    { io: eiffel_tower, filename: "ceiffel tower picture", content_type: "image/jpg" },
+    { io: eiffel_tower, filename: "eiffel tower picture", content_type: "image/jpg" },
     { io: eiffel_tower1, filename: "eiffel tower picture", content_type: "image/jpg" },
     { io: eiffel_tower2, filename: "eiffel tower picture", content_type: "image/jpg" }])
 place1.save!
@@ -116,8 +152,9 @@ place2 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "20 Quai du Louvre, 75001 Paris"
+  address: "20 Quai du Louvre, 75001 Paris",
 )
+place2.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
 place2.photos.attach([
   { io: louvre, filename: "louvre picture", content_type: "image/jpg" },
   { io: louvre1, filename: "louvre picture", content_type: "image/jpg" },
@@ -142,6 +179,7 @@ place3 = Place.new(
   touristic: false,
   address: "Pl. Charles de Gaulle, 75008 Paris"
 )
+place3.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
 place3.photos.attach([
   { io: arc, filename: "arc picture", content_type: "image/jpg" },
   { io: arc1, filename: "arc picture", content_type: "image/jpg" },
@@ -166,6 +204,7 @@ place4 = Place.new(
   touristic: false,
   address: "8 Rue de Montpensier, 75001 Paris"
 )
+place4.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Spectacle"])
 place4.photos.attach([
   { io: palais, filename: "palais picture", content_type: "image/jpg" },
   { io: palais1, filename: "palais picture", content_type: "image/jpg" },
@@ -189,6 +228,7 @@ place5 = Place.new(
   touristic: false,
   address: "Rue de Vaugirard, 75006 Paris"
 )
+place5.place_tags << PlaceTag.where(name: ["Nature", "Escapade Romantique"])
 place5.photos.attach([
   { io: jardin, filename: "jardin picture", content_type: "image/jpg" },
   { io: jardin1, filename: "jardin picture", content_type: "image/webp" },
@@ -213,6 +253,7 @@ place6 = Place.new(
   touristic: false,
   address: "Place d'Armes, 78000 Versailles"
 )
+place6.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Spectacle"])
 place6.photos.attach([
   { io: chateau, filename: "chateau picture", content_type: "image/jpg" },
   { io: chateau1, filename: "chateau picture", content_type: "image/jpg" },
@@ -236,6 +277,7 @@ place7 = Place.new(
   touristic: false,
   address: "35 Chevalier de La Barre, 75018 Paris"
 )
+place7.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Escapade Romantique"])
 place7.photos.attach([
   { io: coeur, filename: "coeur picture", content_type: "image/jpg" },
   { io: coeur1, filename: "coeur picture", content_type: "image/jpg" },
@@ -260,6 +302,7 @@ place8 = Place.new(
   touristic: false,
   address: "Avenue Winston-Churchill, 75008 Paris"
 )
+place8.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Escapade Romantique"])
 place8.photos.attach([
   { io: petit, filename: "petit picture", content_type: "image/jpg" },
   { io: petit1, filename: "petit picture", content_type: "image/jpg" },
@@ -284,6 +327,7 @@ place9 = Place.new(
   touristic: false,
   address: "6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris"
 )
+place9.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
 place9.photos.attach([
   { io: dame, filename: "dame picture", content_type: "image/jpg" },
   { io: dame1, filename: "dame picture", content_type: "image/jpg" },
@@ -307,6 +351,7 @@ place10 = Place.new(
   touristic: false,
   address: "Pl. de l'Opéra, 75009 Paris"
 )
+place10.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Spectacle", "Escapade Romantique"])
 place10.photos.attach([
   { io: opera, filename: "opera picture", content_type: "image/jpg" },
   { io: opera1, filename: "opera picture", content_type: "image/jpg" },
@@ -331,6 +376,7 @@ place11 = Place.new(
   address: "Rue Crémieux, 75012 Paris",
   validation: true
 )
+place11.place_tags << PlaceTag.where(name: ["Art et Culture"])
 place11.photos.attach([
   { io: rue, filename: "rue picture", content_type: "image/jpg" },
   { io: rue1, filename: "rue picture", content_type: "image/webp" },
@@ -355,6 +401,7 @@ place12 = Place.new(
   address: "1 Rue Botzaris, 75019 Paris",
   validation: true
 )
+place12.place_tags << PlaceTag.where(name: ["Nature", "Escapade Romantique"])
 place12.photos.attach([
   { io: parc, filename: "parc picture", content_type: "image/webp" },
   { io: parc1, filename: "parc picture", content_type: "image/jpg" },
@@ -379,6 +426,7 @@ place13 = Place.new(
   address: "15 Pl. du Pont Neuf, 75001 Paris",
   validation: true
 )
+place13.place_tags << PlaceTag.where(name: ["Nature", "Escapade Romantique"])
 place13.photos.attach([
   { io: square, filename: "square picture", content_type: "image/jpg" },
   { io: square1, filename: "square picture", content_type: "image/jpg" },
@@ -403,6 +451,7 @@ place14 = Place.new(
   touristic: false,
   address: "78 Rue Georges Lardennois, 75019 Paris"
 )
+place14.place_tags << PlaceTag.where(name: ["Nature"])
 place14.photos.attach([
   { io: butte, filename: "butte picture", content_type: "image/webp" },
   { io: butte1, filename: "butte picture", content_type: "image/jpg" },
@@ -427,6 +476,7 @@ place15 = Place.new(
   touristic: false,
   address: "Avenue Junot, 75018 Paris",
 )
+place15.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
 place15.photos.attach([
   { io: villa, filename: "villa picture", content_type: "image/jpg" },
   { io: villa1, filename: "villa picture", content_type: "image/webp" },
@@ -434,30 +484,6 @@ place15.photos.attach([
 place15.save!
 
 puts "place finished"
-
-pl_tr_ty_tags = ["Seul", "En Couple", "En Famille", "Entre Amis"]
-pl_tr_ty_tags.each do |tag|
-  PlaceTravelerTypeTag.create(tag: tag)
-end
-
-place_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente et Spa", "Histoire", "Aventure", "Nourriture", "Nature", "Spectacle", "Escapade Romantique", "Parc d'attraction"]
-place_tags.each do |place_tag|
-  PlaceTag.create(name: place_tag)
-end
-
-# TravelTag :
-
-travel_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente et Spa", "Histoire", "Aventure", "Nourriture", "Nature", "Spectacle", "Escapade Romantique", "Parc d'attraction"]
-travel_tags.each do |tag|
-  TravelTag.create(name: tag)
-end
-
-place_tags = ["Art et Culture", "Sport", "Shopping", "Vie Nocturne", "Détente et Spa", "Histoire", "Aventure", "Nourriture", "Nature", "Spectacle", "Escapade Romantique", "Parc d'attraction"]
-place_tags.each do |tag|
-  PlaceTag.create(name: tag)
-end
-
-puts "tag finished"
 
 first_travel = Travel.create(
   name: "Paris",
@@ -510,13 +536,25 @@ TravTravTagging.create(
   trav_trav_type_tag: TravTravTypeTag.last
 )
 
-puts "tagging finished"
+puts "Travel tagging finished"
 
-# TravTravTypeTag :
-traveler_types = ["Seul", "En Couple", "En Famille", "Entre Amis"]
-traveler_types.each do |trav_type|
-  TravTravTypeTag.create(name: trav_type)
-end
+# PlaceTagging.create(
+#   place: place1,
+#   place_tag: PlaceTag.where(name: ["Art et Culture"])
+# )
+
+# puts "Place tagging finished"
+# place_tags = PlaceTag.where(name: ["Art et Culture", "Escapade Romantique", "Histoire"])
+# place_tags.each do |place_tag|
+#   place_tagging = PlaceTagging.new(place: place1, place_tag: place_tag)
+#   place1.place_taggings << place_tagging
+# end
+
+# place1.place_tags << PlaceTag.where(name: ["Art et Culture", "Escapade Romantique", "Histoire"])
+
+# place_tags.each do |place_tag|
+#   place1.place_tags << place_tag
+# end
 
 arc_step = Step.create(
   travel: first_travel,
