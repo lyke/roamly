@@ -11,7 +11,7 @@ class Place < ApplicationRecord
   has_many :place_tags, through: :place_taggings
 
   validates :name, presence: true
-  validates :description, presence: true
+  validates :description, presence: true, length: { minimum: 10, maximum: 400 }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :duration, presence: true, numericality: { greater_than: 0 }
   validates :address, presence: true
@@ -28,4 +28,3 @@ class Place < ApplicationRecord
     near_places.where()
   end
 end
-

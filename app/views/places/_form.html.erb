@@ -14,24 +14,54 @@
 
     <div class="form-inputs">
       <%= f.label :description %>
-      <%= f.text_field :description, class: "form-control" %>
-    </div>
+      <%= f.text_field :description, class: "form-control", minlength: 10, maxlength: 400 %>
+   <div id="description-error" style="color: red;"></div>
+</div>
+
+  <script>
+    const descriptionInput = document.querySelector('#<%= f.object_name %>\\_description');
+    const descriptionError = document.querySelector('#description-error');
+
+    descriptionInput.addEventListener('input', function() {
+      if (descriptionInput.validity.tooShort) {
+        descriptionError.textContent = 'Veuillez saisir au moins 10 caractères.';
+      } else if (descriptionInput.validity.tooLong) {
+        descriptionError.textContent = 'Veuillez ne pas dépasser 400 caractères.';
+      } else {
+        descriptionError.textContent = '';
+      }
+    });
+  </script>
 
     <div class="form-inputs">
       <%= f.label :prix_par_personne %>
-      <%= f.text_field :price, class: "form-control" %>
-    </div>
+      <%= f.text_field :price, class: "form-control", pattern: "[0-9]*" %>
+  <div id="price-error" style="color: red;"></div>
+</div>
+
+  <script>
+    const priceInput = document.querySelector('#<%= f.object_name %>\\_price');
+    const priceError = document.querySelector('#price-error');
+
+    priceInput.addEventListener('input', function() {
+      if (!priceInput.checkValidity()) {
+        priceError.textContent = 'Veuillez saisir un numéro valide.';
+      } else {
+        priceError.textContent = '';
+      }
+    });
+  </script>
 
     <div class="form-inputs">
       <%= f.label :durée %>
-      <p class="d-flex"><%= f.text_field :duration, class: "form-control", placeholder: "ex: 120" %>min</p>
+      <p class="d-flex"><%= f.text_field :duration, class: "form-control", placeholder: "ex: 120" %>  min</p>
     </div>
 
     <div class="accessible">
       <div class="accessibleby">
         <div class="form-inputs">
           <%= f.label :accessible_dès, placeholder: "20"%>
-          <p class="d-flex w-45"><%= f.text_field :min_temp, class: "form-control", placeholder: "ex: 20" %>°C</p>
+          <p class="d-flex w-45"><%= f.text_field :min_temp, class: "form-control", placeholder: "ex:20" %>°C</p>
         </div>
       </div>
 
@@ -44,8 +74,8 @@
     </div>
 
     <div class="form-inputs">
-      <%# <%= f.input :photos, as: :file %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.input :photos, as: :file %>
+      <%# <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
 
     <%# <div class="form-inputs"> %>
@@ -53,12 +83,33 @@
       <%# <%= f.text_field :address, class: "form-control" %>
     <%# </div> %>
 
-    <div class="form-inputs">
-      <%= f.input :address,
+
+      <%# <%= f.input :address,
       label: "adresse",
       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
-    </div>
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY_NASTYA"]}}%>
+
+
+    <h3 class="address">Address*</h4>
+    <div
+      data-controller="carte"
+      data-carte-markers-value="<%= @markers.to_json %>"
+      data-carte-api-key-value="<%= ENV['MAPBOX_API_KEY_NASTYA'] %>"
+    >
+      <div style="width: 100%; height: 500px;" data-carte-target="map"></div>
+      <%# data-latitude-target="new-place.latitude"
+  data-longitude-target="new-place.longitude" %>
+      <%# data-geocoder-api-key-value> %>
+<%#
+    <form data-controller="new-place">
+    </form> %>
+
+      <input  id="latitude" name="place[latitude]" data-carte-target="latitude" class="d-none">
+      <input  id="longitude" name="place[longitude]" data-carte-target="longitude" class="d-none">
+      <input  id="address" name="place[address]" data-carte-target="address" class="d-none">
+  </div>
+
+
 
     <% if policy(@place).admin? %>
        <div>
