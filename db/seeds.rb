@@ -228,7 +228,7 @@ place5 = Place.new(
   touristic: false,
   address: "Rue de Vaugirard, 75006 Paris"
 )
-place5.place_tags << PlaceTag.where(name: ["Nature", "Escapade Romantique"])
+place5.place_tags << PlaceTag.where(name: ["Nature", "Escapade Romantique",])
 place5.photos.attach([
   { io: jardin, filename: "jardin picture", content_type: "image/jpg" },
   { io: jardin1, filename: "jardin picture", content_type: "image/webp" },
@@ -483,6 +483,363 @@ place15.photos.attach([
   { io: villa2, filename: "villa picture", content_type: "image/webp" }])
 place15.save!
 
+# njerfreof
+
+lacdaumesnil = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688551282/embarcadere1_gwtlw7.webp")
+lacdaumesnil1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688551334/grotte1_pgpmwg.webp")
+lacdaumesnil2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688551338/rocher-du-zoo1_m2q5mc.webp")
+place16 = Place.new(
+  name: "Les Barques du Lac Daumesnil",
+  description: " Les Barques du Lac Daumesnil vous proposent de venir canoter en barque sur les douze hectares du charmant lac Daumesnil.",
+  longitude: 2.410029,
+  latitude: 48.832986,
+  price: 15,
+  duration: 45,
+  secret_spot: true,
+  user: user2,
+  min_temp: 18,
+  max_temp: 30,
+  touristic: false,
+  address: "Route de Ceinture du Lac Daumesnil, 75012 Paris",
+)
+place16.place_tags << PlaceTag.where(name: ["Aventure", "Sport", "Nature", "Escapade Romantique"])
+place16.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place16.photos.attach([
+  { io: lacdaumesnil, filename: "barque lac daumesnil picture", content_type: "image/webp" },
+  { io: lacdaumesnil1, filename: "barque lac daumesnil picture", content_type: "image/webp" },
+  { io: lacdaumesnil2, filename: "barque lac daumesnil picture", content_type: "image/webp" }])
+place16.save!
+
+evasionverte = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688552048/Photo-Accro_rxxhmf.png")
+evasionverte1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688552082/ADO-accrobranche-explora-parc-02_kozao2.jpg")
+evasionverte2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688552047/ADULTE-accrobranche-explora-parc-02_ucth18.jpg")
+
+place17 = Place.new(
+  name: "Accrobranche au Parc floral de Paris",
+  description: "Le parc d'accrobranche EVASION VERTE situé au coeur du Parc Floral de Paris vous propose une experience unique: tyroliennes, ponts de cordes, plates-formes pour adultes et grands enfants.",
+  longitude: 2.435581,
+  latitude: 48.840639,
+  price: 22,
+  duration: 120,
+  secret_spot: true,
+  user: user2,
+  min_temp: 15,
+  max_temp: 25,
+  touristic: false,
+  address: "Parc floral de Paris, Esplanade du château de Vincennes, 75012 Vincennes",
+)
+place17.place_tags << PlaceTag.where(name: ["Aventure", "Sport", "Nature"])
+place17.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+
+place17.photos.attach([
+  { io: evasionverte, filename: "accrobranche picture", content_type: "image/png" },
+  { io: evasionverte1, filename: "accrobranche picture", content_type: "image/jpg" },
+  { io: evasionverte2, filename: "accrobranche picture", content_type: "image/jpg" }])
+place17.save!
+
+vallée_village = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688552867/2023-06-19_xyvqv5.jpg")
+vallée_village1= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688552868/2023-03-21_slmmo2.jpg")
+vallée_village2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688552896/2022-10-03_ebfelw.jpg")
+place18 = Place.new(
+  name: "La Vallée Village",
+  description: "La vallée village est centre commercial en plein air avec plus de 110 magasins d'usine d'enseignes de luxe et de première qualité",
+  longitude: 2.783114,
+  latitude: 48.853850,
+  price: 0,
+  duration: 240,
+  secret_spot: true,
+  user: user2,
+  min_temp: 10,
+  max_temp: 35,
+  touristic: false,
+  address: "3 Cours de la Garonne, 77700 Serris",
+)
+place18.place_tags << PlaceTag.where(name: ["Shopping"])
+place18.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+
+place18.photos.attach([
+  { io: vallée_village, filename: "la vallée village picture", content_type: "image/jpg" },
+  { io: vallée_village1, filename: "la vallée village picture", content_type: "image/jpg" },
+  { io: vallée_village1, filename: "la vallée village picture", content_type: "image/jpg" }])
+place18.save!
+
+champs_elysees = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688554724/avenue-champs-elysees-paris-france_rk8pdk.jpg")
+champs_elysees1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688554724/960x614_visuel-des-nouvelles-illuminations-des-champs-elysees-realise-par-blachere-illumination-et-le-comite-champs-elysees_dvaamq.jpg")
+champs_elysees2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688554735/USI367XIMFFB3B6SAF6A7ZJBOQ_botygs.jpg")
+
+place19 = Place.new(
+  name: "Les Champs Elysées",
+  description: "L’avenue des Champs-Élysées, reconnue pour être la plus belle avenue du monde, est un lieu de shopping incontournale à Paris",
+  longitude: 2.297853,
+  latitude: 48.872960,
+  price: 0,
+  duration: 240,
+  secret_spot: true,
+  user: user2,
+  min_temp: 0,
+  max_temp: 35,
+  touristic: true,
+  address: "Avenue des Champs-Élysées, 75008 Paris")
+
+place19.place_tags << PlaceTag.where(name: ["Shopping", "Escapade Romantique"])
+place19.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+
+place19.photos.attach([
+  { io: champs_elysees, filename: "champs élysées picture", content_type: "image/jpg" },
+  { io: champs_elysees1, filename: "champs élysées picture", content_type: "image/jpg" },
+  { io: champs_elysees2, filename: "champs élysées picture", content_type: "image/jpg" }])
+place19.save!
+
+francs_bourgeois= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688559264/musee-carnavalet-jardin-paris-zigzag-e1550070641172.png_rvxgz3.webp")
+francs_bourgeois1= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688559265/rue-beaute-francs-bourgeois-paris-zigzag-e1550069668904.png_y35vne.webp")
+francs_bourgeois2= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688559266/La-rue-des-Francs-Bourgeois_zeihrj.jpg")
+
+place20 = Place.new(
+  name: "Rue des Francs bourgeois",
+  description: "La rue des Francs-bourgeois propose un agréable mélange de magasins de mode, de boutiques élégantes et de design pour la maison, accompagné d'une sélection remarquable de restaurants et d'endroits culturels incontournables, tels que le Musée Carnavalet.",
+  longitude: 2.360405,
+  latitude: 48.857845,
+  price: 0,
+  duration: 240,
+  secret_spot: true,
+  user: user2,
+  min_temp: 0,
+  max_temp: 35,
+  touristic: false,
+  address: "Rue des Francs bourgeois, 75004 Paris")
+
+place20.place_tags << PlaceTag.where(name: ["Shopping", "Escapade Romantique", "Histoire", "Art et Culture"])
+place20.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+
+place20.photos.attach([
+  { io: francs_bourgeois, filename: "rue des francs bourgeois picture", content_type: "image/webp" },
+  { io: francs_bourgeois1, filename: "rue des francs bourgeois picture", content_type: "image/webp" },
+  { io: francs_bourgeois2, filename: "rue des francs bourgeois picture", content_type: "image/jpg" }])
+place20.save!
+
+
+lido= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688560460/536962-lido-une-semaine-anniversaire-pour-les-5-ans-de-paris-merveilles_tgskv0.jpg")
+lido1= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688560460/73_lrlubl.jpg")
+lido2= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688560460/76_dabse1.jpg")
+
+place21 = Place.new(
+  name: "Le Lido",
+  description: "Le Lido est un somptueux cabaret crée en 1946 et reconnu dans le monde entier! Vous y découvrirez chorégraphies, performances burlesques, acrobatiques, gymnastiques ainsi que des costumes exotiques ornés de paillettes, de plumes et de strass.",
+  longitude: 2.300838,
+  latitude: 48.872392,
+  price: 50,
+  duration:120 ,
+  secret_spot: true,
+  user: user2,
+  min_temp:0,
+  max_temp: 40,
+  touristic: true,
+  address: "116 bis avenue des Champs Elysées, 75008 Paris")
+
+place21.place_tags << PlaceTag.where(name: ["Spectacle", "Vie Nocturne"])
+place21.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "Entre Amis"])
+
+place21.photos.attach([
+  { io: lido, filename: "lido picture", content_type: "image/jpg" },
+  { io: lido1, filename: "lido picture", content_type: "image/jpg" },
+  { io: lido2, filename: "lido picture", content_type: "image/jpg" }])
+place21.save!
+
+
+moulin_rouge= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688560759/moulin-rouge_r8vk4r.jpg")
+moulin_rouge1= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688560759/0a_grraju.jpg")
+moulin_rouge2= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688560759/80_iiqvi1.jpg")
+
+place22 = Place.new(
+  name: "Le Moulin Rouge",
+  description: "Plongez-vous dans l'extravagance du Moulin Rouge, le spectacle le plus populaire à Paris! Admirez les talentueuses troupes de danseuses et danseurs hauts en couleur se pavaner dans leurs froufrous sur la scène historique du Moulin Rouge.
+  Laissez-vous emporter dans la danse et le théâtre et titillez vos papilles de saveurs gastronomiques françaises au cours d'un délicieux repas.",
+  longitude: 2.332581,
+  latitude: 48.884030 ,
+  price: 110,
+  duration: 240,
+  secret_spot: true,
+  user: user2,
+  min_temp: 0 ,
+  max_temp: 35 ,
+  touristic: true,
+  address: "82 Bd de Clichy, 75018 Paris")
+
+place22.place_tags << PlaceTag.where(name: ["Vie Nocturne", "Spectacle"])
+place22.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "Entre Amis"])
+
+place22.photos.attach([
+  { io: moulin_rouge, filename: "moulin rouge picture", content_type: "image/jpg" },
+  { io: moulin_rouge1, filename: "moulin rouge picture", content_type: "image/jpg" },
+  { io: moulin_rouge2, filename: "moulin rouge picture", content_type: "image/jpg" }])
+place22.save!
+
+spa_biere= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688561743/IN9A8732_re-69da77c9-1920w_hdpgn4.webp")
+spa_biere1= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688561742/IN9A8739_re-01d52a22-1920w_sxxue9.webp")
+spa_biere2= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688561742/IN9A8730_re-1920w_g9ckjk.webp")
+
+place23 = Place.new(
+  name: "Spa à la bière",
+  description: "Plongez dans un bain à remous en chêne sculpté, rempli des principaux ingrédients de la  bière  (Houblon , Malt et Levure de Bière).
+  Une dégustation de bières (avec ou sans alcool) vous sera offerte pendant votre bain.
+  Vous pourrez également tester des produits cosmétiques à base de bières.
+  Vous goûterez de la gelée de bière et des biscuits à la bière.",
+  longitude: 2.321067,
+  latitude: 48.848509,
+  price: 70,
+  duration: 60,
+  secret_spot: true,
+  user: user2,
+  min_temp: 0,
+  max_temp: 35,
+  touristic: false,
+  address: "101 Rue de Sevre, 75006 PARIS")
+
+place23.place_tags << PlaceTag.where(name: ["Détente et Spa"])
+place23.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "Entre Amis"])
+
+place23.photos.attach([
+  { io: spa_biere , filename: "spa à la bière picture", content_type: "image/webp" },
+  { io: spa_biere1, filename: "spa à la bière picture", content_type: "image/webp"},
+  { io: spa_biere2, filename: "spa à la bière picture", content_type: "image/webp" }])
+place23.save!
+
+suisen= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688569006/Unknown-2_vhnrlx.jpg")
+suisen1= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688569006/Unknown_r2onip.jpg")
+suisen2= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688569006/Unknown-1_n6uzh2.jpg")
+
+place24 = Place.new(
+  name: "Suisen, Spa Japonais",
+  description: "Envie de découvrir tous les bienfaits du spa japonais ? On se rend chez Suisen Spa dans le 3e arrondissement pour découvrir toutes les prestations de l'établissement. Wa, Jaku, Sei, Kei...
+  A vous les moments de détente et d'harmonisation de vos énergies vitales à travers différentes techniques de Shiatsu.",
+  longitude:2.362882 ,
+  latitude:48.859922,
+  price: 70,
+  duration: 60,
+  secret_spot: true,
+  user: user2,
+  min_temp: 0,
+  max_temp: 35,
+  touristic: false,
+  address: "7 Rue de Thorigny, 75003 Paris")
+place24.place_tags << PlaceTag.where(name: ["Détente et Spa"])
+place24.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "Entre Amis"])
+
+place24.photos.attach([
+  { io: suisen, filename: "suisen spa photo", content_type: "image/jpg" },
+  { io: suisen1, filename: "suisen spa photo", content_type: "image/jpg" },
+  { io: suisen2 , filename: "suisen spa photo", content_type: "image/jpg" }])
+place24.save!
+
+galerie_gourmets= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688566809/2023-03-17_fzmawa.jpg")
+galerie_gourmets1= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688566808/2023-05-23_mryfcp.jpg")
+galerie_gourmets2= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688566808/2023-02-18_fd9hak.jpg")
+
+place25 = Place.new(
+  name: "Galerie Lafayette Le Gourmet",
+  description: "Un lieu parfait pour découvrir toutes les spécialités françaises: Pains, pâtisseries, plats de traiteur et desserts de chefs français renomés",
+  longitude: 2.330405 ,
+  latitude: 48.873154,
+  price: 20,
+  duration: 90,
+  secret_spot: true,
+  user: user2,
+  min_temp: 0,
+  max_temp: 35 ,
+  touristic: true,
+  address: "35 Boulevard Haussmann, 75009 Paris")
+
+place25.place_tags << PlaceTag.where(name: ["Nourriture"])
+place25.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+
+place25.photos.attach([
+  { io: galerie_gourmets, filename: "Galerie Lafayette Le Gourmet picture ", content_type: "image/jpg" },
+  { io: galerie_gourmets1, filename: "Galerie Lafayette Le Gourmet picture", content_type: "image/jpg" },
+  { io: galerie_gourmets2, filename: "Galerie Lafayette Le Gourmet picture", content_type: "image/jpg" }])
+place25.save!
+
+grolet= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688567338/Cedric-Grolet-le-meilleur-patissier-du-monde.jpg_lonqyl.webp")
+grolet1= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688567338/1652702474394_b438ba12-1c2b-42db-a5c5-c3cd0d372fc5_z0a8ia.webp")
+grolet2= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688567338/1652702807680_3095bd65-5237-4169-93f4-c534e73ca410_adq85n.webp")
+
+place26 = Place.new(
+  name: "La Pâtisserie du Meurice par Cédric Grolet",
+  description: "Le prestigieux palace Le Meurice vous invite à savourer les célèbres pâtisseries du renommé chef Cédric Grolet, dont ses incroyables créations en trompe-l'œil.",
+  longitude: 2.327985,
+  latitude: 48.865724,
+  price: 20,
+  duration: 60,
+  secret_spot: true,
+  user: user2,
+  min_temp: 0,
+  max_temp: 35,
+  touristic: true,
+  address: "6 Rue de Castiglione, 75001 Paris")
+place26.place_tags << PlaceTag.where(name: ["Nourriture"])
+place26.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+
+place26.photos.attach([
+  { io: grolet, filename: "La Pâtisserie du Meurice par Cédric Grolet picture", content_type: "image/webp" },
+  { io: grolet1, filename: "La Pâtisserie du Meurice par Cédric Grolet picture", content_type: "image/webp" },
+  { io: grolet2, filename: "La Pâtisserie du Meurice par Cédric Grolet picture", content_type: "image/webp" }])
+place26.save!
+
+disney= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688567895/ff849442dbc4bd0759909deffc05cc95-254-paris-01-paris-_-disneyland-02_a1r2sl.jpg")
+disney1= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688567895/Unknown_j43ews.jpg")
+disney2= URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688567894/Unknown-1_bzac8l.jpg")
+
+place27 = Place.new(
+  name: "Disneyland Paris",
+  description: "Découvrez la magie ultime à Disneyland, un lieu où les rêves deviennent réalité!
+  Plongez dans un univers enchanté rempli d'attractions palpitantes, de spectacles éblouissants et de rencontres avec vos personnages Disney préférés.
+  Des parades féériques aux délicieuses collations, chaque instant est empreint de joie et de merveille.",
+  longitude:2.776623,
+  latitude:48.871900,
+  price: 100,
+  duration: 480,
+  secret_spot: true,
+  user: user2,
+  min_temp: 5,
+  max_temp: 30,
+  touristic: true,
+  address: "77777, Chessy")
+place27.place_tags << PlaceTag.where(name: ["Parc d'attraction"])
+place27.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+
+place27.photos.attach([
+  { io: disney, filename: "Disneyland Paris picture", content_type: "image/jpg" },
+  { io: disney1, filename: "Disneyland Paris picture", content_type: "image/jpg" },
+  { io: disney2, filename: "Disneyland Paris picture", content_type: "image/jpg" }])
+place27.save!
+
+
+jardin_acclimatation = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688568062/75040d36-967f-4a7d-a399-cba65ce07bae_chaises_volantes__8_qmzexc.webp")
+jardin_acclimatation1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688568062/ca1acc50-27fc-4b5a-a57d-9612130a457d_che_CC_80vre_ferme_ylrzvh.webp")
+jardin_acclimatation2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688568062/2b3bef1f-c28a-49f0-8769-840f78e13244_Atelier_-_2_cvayod.webp")
+
+place28 = Place.new(
+  name: "Le jardin d'acclimatation",
+  description: "le jardin d'acclimatation est un parc d'attractions très apprécié des parisiens, adultes comme enfants, pour ses  manèges, aires de jeux, promenades à cheval, ateliers et événements.",
+  longitude: 2.249173,
+  latitude: 48.862440,
+  price: 46,
+  duration: 240 ,
+  secret_spot: true,
+  user: user2,
+  min_temp: 15,
+  max_temp: 35,
+  touristic: false,
+  address: "Bois de Boulogne, Route de la Porte Dauphine à la Porte des Sablons, 75116 Paris")
+
+place28.place_tags << PlaceTag.where(name: ["Parc d'attraction"])
+place28.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+
+place28.photos.attach([
+  { io: jardin_acclimatation, filename: "Le jardin d'acclimatation picture", content_type: "image/webp" },
+  { io: jardin_acclimatation1, filename: "Le jardin d'acclimatation picture", content_type: "image/webp" },
+  { io: jardin_acclimatation2, filename: "Le jardin d'acclimatation picture", content_type: "image/webp" }])
+place28.save!
+
 puts "place finished"
 
 first_travel = Travel.create(
@@ -497,6 +854,7 @@ first_travel = Travel.create(
   start_hour: "2023-06-27.10:00:00",
   end_hour: "2023-06-27.20:00:00"
 )
+
 
 second_travel = Travel.create(
   name: "Secret Paris",
