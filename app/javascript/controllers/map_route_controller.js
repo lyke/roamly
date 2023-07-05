@@ -18,7 +18,7 @@ export default class extends Controller {
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
     const toto = this.markersValue
-    console.log(this.startingValue);
+    // console.log(this.startingValue);
     this.getRoute(toto)
   }
 
@@ -26,7 +26,10 @@ export default class extends Controller {
     let markersUrl = `${this.startingValue};`;
 
     this.markersValue.forEach((marker, index) => {
-       markersUrl += `${marker.lng.toString()},${marker.lat.toString()};`
+      const coords = `${marker.lng.toString()},${marker.lat.toString()}`
+      if (coords !== this.startingValue) {
+        markersUrl += `${coords};`
+      }
     })
 
 
@@ -34,18 +37,24 @@ export default class extends Controller {
       markersUrl = markersUrl.substring(0, markersUrl.length - 1);
     }
 
-    console.log(markersUrl.substring(0, this.markersValue.length - 1))
+    // console.log(markersUrl.substring(0, this.markersValue.length - 1))
 
-    console.log(markersUrl);
+    // console.log(markersUrl);
 
     fetch(
-      `https://api.mapbox.com/directions/v5/mapbox/cycling/${markersUrl}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
+      // `https://api.mapbox.com/directions/v5/mapbox/cycling/${markersUrl}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
+
+      // `https://api.mapbox.com/optimized-trips/v1/mapbox/cycling/${markersUrl}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
+
+      `https://api.mapbox.com/optimized-trips/v1/mapbox/cycling/${markersUrl}?source=first&roundtrip=true&steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
+
       { method: 'GET' }
     )
       .then(response => response.json())
       .then(json => {
-        const data = json.routes[0];
-        const route = data.geometry.coordinates;
+        const route = json.trips[0].geometry.coordinates;
+        console.log(json)
+        debugger
         const geojson = {
           type: 'Feature',
           properties: {},
