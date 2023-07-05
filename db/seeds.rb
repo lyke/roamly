@@ -509,7 +509,8 @@ place34 = Place.new(
   min_temp: 15,
   max_temp: 40,
   touristic: true,
-  address: "Quai des Belges, 13001 Marseille"
+  address: "Quai des Belges, 13001 Marseille",
+  validation: true
 )
 place34.place_tags << PlaceTag.where(name: ["Nourriture", "Histoire"])
 place34.photos.attach([
@@ -533,7 +534,8 @@ place35 = Place.new(
   min_temp: 10,
   max_temp: 30,
   touristic: true,
-  address: "Rue Fort du Sanctuaire, 13006 Marseille"
+  address: "Rue Fort du Sanctuaire, 13006 Marseille",
+  validation: true
 )
 place35.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
 place35.photos.attach([
@@ -557,7 +559,8 @@ place36 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "32 Boulevard Bonne Brise, 13008 Marseille"
+  address: "32 Boulevard Bonne Brise, 13008 Marseille",
+  validation: true
 )
 place36.place_tags << PlaceTag.where(name: ["Détente et Spa", "Nature", "Histoire"])
 place36.photos.attach([
@@ -581,7 +584,8 @@ place37 = Place.new(
   min_temp: 10,
   max_temp: 30,
   touristic: true,
-  address: "Boulevard Jard. Zoologique, 13004 Marseille"
+  address: "Boulevard Jard. Zoologique, 13004 Marseille",
+  validation: true
 )
 place37.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
 place37.photos.attach([
@@ -605,7 +609,8 @@ place38 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: true,
-  address: "11 Boulevard Vaucanson, 13009 Marseille"
+  address: "11 Boulevard Vaucanson, 13009 Marseille",
+  validation: true
 )
 place38.place_tags << PlaceTag.where(name: ["Aventure", "Nature", "Sport"])
 place38.photos.attach([
@@ -629,7 +634,8 @@ place39 = Place.new(
   min_temp: 0,
   max_temp: 40,
   touristic: true,
-  address: "9 Quai du Lazaret, 13002 Marseille"
+  address: "9 Quai du Lazaret, 13002 Marseille",
+  validation: true
 )
 place39.place_tags << PlaceTag.where(name: ["Shopping"])
 place39.photos.attach([
@@ -653,7 +659,8 @@ place40 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "Boulevard Alexandre Delabre 13008 Marseille"
+  address: "Boulevard Alexandre Delabre 13008 Marseille",
+  validation: true
 )
 place40.place_tags << PlaceTag.where(name: ["Nature", "Aventure", "Histoire"])
 place40.photos.attach([
@@ -677,7 +684,8 @@ place41 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: true,
-  address: "9 Quai du Lazaret, 13002 Marseille"
+  address: "9 Quai du Lazaret, 13002 Marseille",
+  validation: true
 )
 place41.place_tags << PlaceTag.where(name: ["Vie Nocturne"])
 place41.photos.attach([
@@ -701,7 +709,8 @@ place42 = Place.new(
   min_temp: 0,
   max_temp: 30,
   touristic: true,
-  address: "Esplanade du J4, 13002 Marseille"
+  address: "Esplanade du J4, 13002 Marseille",
+  validation: true
 )
 place42.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
 place42.photos.attach([
@@ -725,7 +734,8 @@ place43 = Place.new(
   min_temp: 0,
   max_temp: 30,
   touristic: false,
-  address: "25 Quai de Rive Neuve, 13007 Marseille"
+  address: "25 Quai de Rive Neuve, 13007 Marseille",
+  validation: true
 )
 place43.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
 place43.photos.attach([
@@ -749,7 +759,8 @@ place44 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: true,
-  address: "13009 Marseille"
+  address: "13009 Marseille",
+  validation: true
 )
 place44.place_tags << PlaceTag.where(name: ["Nature", "Histoire", "Sport"])
 place44.photos.attach([
