@@ -483,7 +483,7 @@ place15 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "Avenue Junot, 75018 Paris",
+  address: "Avenue Junot, 75018 Paris"
 )
 place15.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
 place15.photos.attach([
@@ -491,6 +491,283 @@ place15.photos.attach([
   { io: villa1, filename: "villa picture", content_type: "image/webp" },
   { io: villa2, filename: "villa picture", content_type: "image/webp" }])
 place15.save!
+
+# place Marseille
+
+vieuxport = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688548813/Old_port_of_Marseille_za9ps8.jpg")
+vieuxport1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688548813/1408_3XZ2e_v_viyhxm.jpg")
+vieuxport2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688548813/ima-image-34189_r0u3kf.jpg")
+place34 = Place.new(
+  name: "Le Vieux Port",
+  description: "Le Vieux-Port de Marseille, joyau méditerranéen, berceau de l'histoire et de l'authenticité provençale. Les bateaux colorés dansent au rythme des vagues tandis que les ruelles pittoresques révèlent les parfums envoûtants de la bouillabaisse et du pastis. Un lieu où passé et présent se rencontrent, offrant une atmosphère unique et un charme intemporel.",
+  longitude: 5.371370,
+  latitude: 43.296191,
+  price: 0,
+  duration: 60,
+  secret_spot: false,
+  user: user2,
+  min_temp: 15,
+  max_temp: 40,
+  touristic: true,
+  address: "Quai des Belges, 13001 Marseille",
+  validation: true
+)
+place34.place_tags << PlaceTag.where(name: ["Nourriture", "Histoire"])
+place34.photos.attach([
+  { io: vieuxport, filename: "vieuxport picture", content_type: "image/jpg" },
+  { io: vieuxport1, filename: "vieuxport picture", content_type: "image/webp" },
+  { io: vieuxport2, filename: "vieuxport picture", content_type: "image/webp" }])
+place34.save!
+
+notredame = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688549011/bonne-mere-ok-1-e1643907235539_i7yz8j.jpg")
+notredame1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688549011/ndg-vue-deposit_bczifp.webp")
+notredame2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688549011/det_notre-dame-de-la-garde-marseille_BR_ksc7q7.jpg")
+place35 = Place.new(
+  name: "La Bonne Mère",
+  description: "La Bonne Mère, majestueuse sentinelle surplombant Marseille, symbole de foi et de protection. Sa silhouette élégante domine la ville, offrant une vue panoramique à couper le souffle. Les pèlerins et les visiteurs y trouvent réconfort et inspiration, tandis que sa présence bienveillante veille sur les habitants. Un monument emblématique qui incarne l'âme et l'esprit de Marseille.",
+  longitude: 5.371238,
+  latitude: 43.283953,
+  price: 0,
+  duration: 30,
+  secret_spot: false,
+  user: user2,
+  min_temp: 10,
+  max_temp: 30,
+  touristic: true,
+  address: "Rue Fort du Sanctuaire, 13006 Marseille",
+  validation: true
+)
+place35.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
+place35.photos.attach([
+  { io: notredame, filename: "notredame picture", content_type: "image/jpg" },
+  { io: notredame1, filename: "notredame picture", content_type: "image/webp" },
+  { io: notredame2, filename: "notredame picture", content_type: "image/webp" }])
+place35.save!
+
+plage = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688549640/plage-de-la-verrerie-plage-de-bonne-brise-plage-a-dede-marseille-25_sets8b.jpg")
+plage1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688549639/plage-de-la-verrerie-plage-de-bonne-brise-plage-a-dede-marseille-29-848x566_nykw5g.jpg")
+plage2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688549639/2061_tw5kd2.jpg")
+place36 = Place.new(
+  name: "Plage de la Bonne Brise",
+  description: "La plage de la Bonne Brise à Marseille, paradis balnéaire où sable doré et eaux turquoises se rencontrent harmonieusement. Bordée de palmiers et baignée de douces brises marines, elle offre un havre de détente et de plaisir. Les amateurs de baignade, de sports nautiques ou de farniente y trouveront leur bonheur. Un lieu envoûtant où la magie de la Méditerranée opère, invitant chacun à profiter de moments inoubliables au bord de l'eau.",
+  longitude: 5.359929,
+  latitude: 43.235411,
+  price: 0,
+  duration: 240,
+  secret_spot: true,
+  user: user2,
+  min_temp: 20,
+  max_temp: 40,
+  touristic: false,
+  address: "32 Boulevard Bonne Brise, 13008 Marseille",
+  validation: true
+)
+place36.place_tags << PlaceTag.where(name: ["Détente et Spa", "Nature", "Histoire"])
+place36.photos.attach([
+  { io: plage, filename: "plage picture", content_type: "image/jpg" },
+  { io: plage1, filename: "plage picture", content_type: "image/webp" },
+  { io: plage2, filename: "plage picture", content_type: "image/webp" }])
+place36.save!
+
+longchamp = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688550102/palais-longchamp-leotcm-1920x960_l5r77l.jpg")
+longchamp1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688550102/image_lkztxq.jpg")
+longchamp2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688550102/20191213_1_6_6_1_0_obj21722552_1.jpg_iwda56.webp")
+place37 = Place.new(
+  name: "Le Palais Longchamp",
+  description: "Le palais Longchamp, majestueux édifice au cœur de Marseille, incarne l'élégance et le prestige. Ses colonnes imposantes encadrent une fontaine spectaculaire, tandis que ses jardins verdoyants invitent à la contemplation. Témoin de l'histoire et de l'art, ce monument emblématique offre un cadre enchanteur pour les promenades et les événements culturels. Un lieu où l'architecture grandiose et la nature luxuriante se conjuguent pour offrir une expérience captivante et mémorable.",
+  longitude: 5.394603,
+  latitude: 43.304267,
+  price: 0,
+  duration: 60,
+  secret_spot: false,
+  user: user2,
+  min_temp: 10,
+  max_temp: 30,
+  touristic: true,
+  address: "Boulevard Jard. Zoologique, 13004 Marseille",
+  validation: true
+)
+place37.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
+place37.photos.attach([
+  { io: longchamp, filename: "longchamp picture", content_type: "image/jpg" },
+  { io: longchamp1, filename: "longchamp picture", content_type: "image/webp" },
+  { io: longchamp2, filename: "longchamp picture", content_type: "image/webp" }])
+place37.save!
+
+calanques = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688551222/sormiou_e4i8uy.jpg")
+calanques1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688551222/10844339.jpg_k57isz.webp")
+calanques2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688551222/calanque-sormiou-640x640_ti3od7.jpg")
+place38 = Place.new(
+  name: "Calanque de Sormiou",
+  description: "La calanque de Sormiou, joyau naturel préservé près de Marseille, enchante par ses eaux cristallines et ses falaises imposantes. Ce paradis sauvage invite à l'évasion, offrant des sentiers de randonnée pittoresques et des plages isolées. Les amoureux de la nature trouveront ici un sanctuaire préservé, où la beauté brute de la Méditerranée se mêle à la tranquillité absolue. Une expérience unique qui éveille les sens et laisse des souvenirs indélébiles.",
+  longitude: 5.421875,
+  latitude: 43.209557,
+  price: 0,
+  duration: 240,
+  secret_spot: false,
+  user: user2,
+  min_temp: 20,
+  max_temp: 40,
+  touristic: true,
+  address: "11 Boulevard Vaucanson, 13009 Marseille",
+  validation: true
+)
+place38.place_tags << PlaceTag.where(name: ["Aventure", "Nature", "Sport"])
+place38.photos.attach([
+  { io: calanques, filename: "calanques picture", content_type: "image/jpg" },
+  { io: calanques1, filename: "calanques picture", content_type: "image/webp" },
+  { io: calanques2, filename: "calanques picture", content_type: "image/webp" }])
+place38.save!
+
+terrasseport = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688551922/2925_g8uho8.jpg")
+terrasseport1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688551923/2449x1632_sie8ft.jpg")
+terrasseport2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688551923/les-terrasses-du-port-007.jpg_fnehmz.webp")
+place39 = Place.new(
+  name: "Les Terrasses du Port",
+  description: "Les Terrasses du Port, oasis urbaine contemporaine à Marseille, offrent une vue imprenable sur la mer Méditerranée. Avec leur architecture moderne et leurs espaces ouverts, elles invitent à la détente et à la flânerie. Les boutiques tendance, les restaurants raffinés et les terrasses animées créent une atmosphère vibrante et conviviale. Un lieu où shopping, gastronomie et panorama spectaculaire se rejoignent pour créer une expérience unique au cœur de la ville.",
+  longitude: 5.364598,
+  latitude: 43.306758,
+  price: 0,
+  duration: 240,
+  secret_spot: false,
+  user: user2,
+  min_temp: 0,
+  max_temp: 40,
+  touristic: true,
+  address: "9 Quai du Lazaret, 13002 Marseille",
+  validation: true
+)
+place39.place_tags << PlaceTag.where(name: ["Shopping"])
+place39.photos.attach([
+  { io: terrasseport, filename: "terrasses picture", content_type: "image/jpg" },
+  { io: terrasseport1, filename: "terrasses picture", content_type: "image/webp" },
+  { io: terrasseport2, filename: "terrasses picture", content_type: "image/webp" }])
+place39.save!
+
+lesgoudes = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688552116/hemaposesesvalises.fr_marseille_les_goudes_cap_croisette_ile_maire_yqfm5k.jpg")
+lesgoudes1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688552116/bateaux-a-sec-goudes_fwvs0i.jpg")
+lesgoudes2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688552115/68ca6c_d80942763489415cb4528b9cff78ba2f_mv2.jpg_xoftxz.webp")
+place40 = Place.new(
+  name: "Les Goudes",
+  description: "Les Goudes, petit village de pêcheurs pittoresque aux portes de Marseille, éblouit par son charme authentique. Ses maisons colorées se nichent entre les collines et les eaux turquoise, offrant une atmosphère paisible et un cadre idyllique. Les criques secrètes invitent à la baignade et à la plongée, tandis que les restaurants de fruits de mer servent des délices culinaires frais. Un refuge préservé où l'on peut profiter de la beauté naturelle de la Méditerranée et du rythme tranquille de la vie méditerranéenne.",
+  longitude: 5.346570,
+  latitude: 43.215287,
+  price: 0,
+  duration: 240,
+  secret_spot: true,
+  user: user2,
+  min_temp: 20,
+  max_temp: 40,
+  touristic: false,
+  address: "Boulevard Alexandre Delabre 13008 Marseille",
+  validation: true
+)
+place40.place_tags << PlaceTag.where(name: ["Nature", "Aventure", "Histoire"])
+place40.photos.attach([
+  { io: lesgoudes, filename: "goudes picture", content_type: "image/jpg" },
+  { io: lesgoudes1, filename: "goudes picture", content_type: "image/webp" },
+  { io: lesgoudes2, filename: "goudes picture", content_type: "image/webp" }])
+place40.save!
+
+rooftop = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688552682/rooftop-r2-terrasses-port_h0kzjf.jpg")
+rooftop1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688552682/r2_lcbgyd.jpg")
+rooftop2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688552682/5a29182be2465eb40dbee33e849e2558ddcedd62_n7s1t3.jpg")
+place41 = Place.new(
+  name: "Le R2",
+  description: "Le R2 Marseille, lieu emblématique de la vie nocturne, se dresse fièrement sur le Vieux-Port. Cette salle de concert et club offre une ambiance électrisante où la musique, les lumières et la fête se marient. Des artistes internationaux y font vibrer les foules, créant une atmosphère envoûtante et festive. Avec sa vue panoramique sur la mer et sa programmation éclectique, le R2 Marseille est un temple de la musique et de la fête qui promet des soirées inoubliables.",
+  longitude: 5.364127,
+  latitude: 43.307886,
+  price: 10,
+  duration: 240,
+  secret_spot: false,
+  user: user2,
+  min_temp: 20,
+  max_temp: 40,
+  touristic: true,
+  address: "9 Quai du Lazaret, 13002 Marseille",
+  validation: true
+)
+place41.place_tags << PlaceTag.where(name: ["Vie Nocturne"])
+place41.photos.attach([
+  { io: rooftop, filename: "r2 picture", content_type: "image/jpg" },
+  { io: rooftop1, filename: "r2 picture", content_type: "image/webp" },
+  { io: rooftop2, filename: "r2 picture", content_type: "image/webp" }])
+place41.save!
+
+mucem = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688559065/le-mucem-porte-dacces-sur-les-enjeux-et-traditions-de-la-mediterranee-825x460_bd3gcx.jpg")
+mucem1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688559065/mucem-jorengootcm-18-1920x960_q4imub.jpg")
+mucem2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688559066/Mucem_et_Cath%C3%A9drale_Sainte-Marie-Majeure_de_Marseille_gwbjae.jpg")
+place42 = Place.new(
+  name: "Le Mucem",
+  description: "Le Mucem, musée emblématique de Marseille, se dresse tel un phare culturel entre mer et ville. Sa structure moderne fascine, offrant des expositions captivantes sur l'histoire méditerranéenne. Des collections riches et variées éclairent les visiteurs sur la diversité des cultures qui ont façonné cette région. Les terrasses panoramiques offrent des vues spectaculaires sur le Vieux-Port et la mer. Un lieu où l'art, l'histoire et l'architecture se rencontrent pour célébrer la richesse culturelle de la Méditerranée.",
+  longitude: 5.361083,
+  latitude: 43.296694,
+  price: 11,
+  duration: 180,
+  secret_spot: false,
+  user: user2,
+  min_temp: 0,
+  max_temp: 30,
+  touristic: true,
+  address: "Esplanade du J4, 13002 Marseille",
+  validation: true
+)
+place42.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
+place42.photos.attach([
+  { io: mucem, filename: "mucem picture", content_type: "image/jpg" },
+  { io: mucem1, filename: "mucem  picture", content_type: "image/webp" },
+  { io: mucem2, filename: "mucem picture", content_type: "image/webp" }])
+place42.save!
+
+museesavon = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688559556/Savonnerie-de-la-licorne-boutique-du-musee-du-savon-marseille-veritable-savon-de-marseille-14_s0s0kb.jpg")
+museesavon1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688559555/mus%C3%A9e-du-savon-de-marseille-vieux-port-de-marseille-visite-guidee-9-1_eoslna.jpg")
+museesavon2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688559555/boites-histoire-savon-marseille_zur1kc.jpg")
+place43 = Place.new(
+  name: "Le Musée du Savon",
+  description: "Le Musée du Savon de Marseille, niché au cœur de la cité phocéenne, révèle les secrets parfumés de cette icône du patrimoine provençal. À travers des expositions interactives, il plonge les visiteurs dans l'histoire de la fabrication traditionnelle du savon. Les fragrances envoûtantes, les moules d'époque et les savoir-faire ancestraux captivent les sens. Un voyage sensoriel qui révèle l'essence même de la culture marseillaise et de son savoir-faire artisanal unique.",
+  longitude: 5.369662,
+  latitude: 43.292881,
+  price: 3,
+  duration: 60,
+  secret_spot: true,
+  user: user2,
+  min_temp: 0,
+  max_temp: 30,
+  touristic: false,
+  address: "25 Quai de Rive Neuve, 13007 Marseille",
+  validation: true
+)
+place43.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
+place43.photos.attach([
+  { io: museesavon, filename: "museesavon picture", content_type: "image/jpg" },
+  { io: museesavon1, filename: "museesavon  picture", content_type: "image/webp" },
+  { io: museesavon2, filename: "museesavon picture", content_type: "image/webp" }])
+place43.save!
+
+sugiton = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688561275/randonn%C3%A9e-sugiton-marseille_jejf8y.jpg")
+sugiton1 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688561275/calanque-en-vau_rcf0oo.jpg")
+sugiton2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688561275/750_500_contingentement_sugiton_jane_dziwinski_128_mptw1p.jpg")
+place44 = Place.new(
+  name: "Calanque de Sugiton",
+  description: "La calanque de Sugiton, perle naturelle préservée près de Marseille, enchante par sa beauté sauvage et préservée. Ses eaux cristallines baignent des plages de sable fin, entourées de falaises escarpées. Les sentiers de randonnée offrent des vues panoramiques à couper le souffle, tandis que la végétation méditerranéenne parfume l'air. Un havre de paix où les amoureux de la nature peuvent se ressourcer et se perdre dans un paysage enchanteur, loin de l'agitation urbaine.",
+  longitude: 5.455583,
+  latitude: 43.210480,
+  price: 0,
+  duration: 240,
+  secret_spot: false,
+  user: user2,
+  min_temp: 20,
+  max_temp: 40,
+  touristic: true,
+  address: "13009 Marseille",
+  validation: true
+)
+place44.place_tags << PlaceTag.where(name: ["Nature", "Histoire", "Sport"])
+place44.photos.attach([
+  { io: sugiton, filename: "sugiton picture", content_type: "image/jpg" },
+  { io: sugiton1, filename: "sugiton picture", content_type: "image/webp" },
+  { io: sugiton2, filename: "sugiton picture", content_type: "image/webp" }])
+place44.save!
 
 puts "place finished"
 
