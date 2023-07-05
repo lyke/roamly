@@ -24,7 +24,7 @@ class PlaceTagsController < ApplicationController
   private
 
   def set_place_traveler_type_tag
-    @place__tag = PlaceTag.find(params[:id])
+    @place_tag = PlaceTag.find(params[:id])
   end
 
   def place_traveler_type_tag_params

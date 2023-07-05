@@ -119,6 +119,7 @@ place1 = Place.new(
   max_temp: 40,
   touristic: true,
   address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris",
+  validation: true
 )
 # place_tags = PlaceTag.where(name: ["Art et Culture", "Escapade Romantique", "Histoire"])
 # place_tags.each do |place_tag|
@@ -153,6 +154,7 @@ place2 = Place.new(
   max_temp: 40,
   touristic: false,
   address: "20 Quai du Louvre, 75001 Paris",
+  validation: true
 )
 place2.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
 place2.photos.attach([
@@ -177,7 +179,8 @@ place3 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "Pl. Charles de Gaulle, 75008 Paris"
+  address: "Pl. Charles de Gaulle, 75008 Paris",
+  validation: true
 )
 place3.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
 place3.photos.attach([
@@ -226,7 +229,8 @@ place5 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "Rue de Vaugirard, 75006 Paris"
+  address: "Rue de Vaugirard, 75006 Paris",
+  validation: true
 )
 place5.place_tags << PlaceTag.where(name: ["Nature", "Escapade Romantique"])
 place5.photos.attach([
@@ -251,7 +255,8 @@ place6 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "Place d'Armes, 78000 Versailles"
+  address: "Place d'Armes, 78000 Versailles",
+  validation: true
 )
 place6.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Spectacle"])
 place6.photos.attach([
@@ -275,7 +280,8 @@ place7 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "35 Chevalier de La Barre, 75018 Paris"
+  address: "35 Chevalier de La Barre, 75018 Paris",
+  validation: true
 )
 place7.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Escapade Romantique"])
 place7.photos.attach([
@@ -300,7 +306,8 @@ place8 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "Avenue Winston-Churchill, 75008 Paris"
+  address: "Avenue Winston-Churchill, 75008 Paris",
+  validation: true
 )
 place8.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Escapade Romantique"])
 place8.photos.attach([
@@ -325,7 +332,8 @@ place9 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris"
+  address: "6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris",
+  validation: true
 )
 place9.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
 place9.photos.attach([
@@ -349,7 +357,8 @@ place10 = Place.new(
   min_temp: 20,
   max_temp: 40,
   touristic: false,
-  address: "Pl. de l'Opéra, 75009 Paris"
+  address: "Pl. de l'Opéra, 75009 Paris",
+  validation: true
 )
 place10.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Spectacle", "Escapade Romantique"])
 place10.photos.attach([
