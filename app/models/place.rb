@@ -24,12 +24,29 @@ class Place < ApplicationRecord
   # end
   def self.find_for_travel(travel)
     valid_place = all.where(validation: true)
-    @near_places = valid_place.near(travel.starting_point, 10)
+    near_places = valid_place.near(travel.starting_point, 10)
     # separer les places en 2 listes, local ou touristique et pick dans chaque liste en fonction du pourcentage choisi par le user.
-    selected_places = filter_for_tags(@near_places, travel.travel_tags)
+    selected_trav_places = filter_for_traveler_tags(near_places, travel.trav_trav_type_tags)
+    selected_places = filter_for_tags(selected_trav_places, travel.travel_tags)
     selected_price_places = filter_for_price(selected_places, travel.budget)
     return filter_for_time(selected_price_places, travel.start_hour, travel.end_hour)
     # return filter_for_days(selected_price_places, travel.beginning_date, travel.ending_date)
+  end
+
+  def self.filter_for_traveler_tags(places_to_filter, traveler_tags)
+    @travel_traveler_tags = traveler_tags.flat_map { |traveler_tag| traveler_tag }
+    @travel_traveler_tag = TravTravTypeTag.where(id: @travel_traveler_tags.pluck(:id))
+    @travel_traveler_tag_names = @travel_traveler_tag.map { |travel_tag_name| travel_tag_name.name }
+
+    @selected_places = []
+
+    @travel_traveler_tag_names.each do |travel_tag_name|
+      @selected_places << places_to_filter.select { |place| place.place_tags.pluck(:name).include?(travel_tag_name) }
+    end
+
+    @selected_places.flatten!
+    @selected_places.uniq!
+    return @selected_places
   end
 
   def self.filter_for_tags(places_to_filter, tags)
@@ -47,6 +64,7 @@ class Place < ApplicationRecord
     @selected_places.uniq!
     return @selected_places
   end
+
 
   def self.filter_for_price(places_to_filter, budget)
     sorted_places = places_to_filter.sort_by(&:price)
