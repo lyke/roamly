@@ -41,6 +41,11 @@ export default class extends Controller {
     });
 
 
+    var styleSelector = document.getElementById('map-style');
+  styleSelector.addEventListener('change', function(e) {
+    var style = e.target.value;
+    carte.setStyle(style);
+  });
 
     // navigator.geolocation.getCurrentPosition(function(position) {
     //   // Set the map's center to the user's position
@@ -66,6 +71,11 @@ navigator.geolocation.getCurrentPosition(function(position) {
   marker.style.width = '16px';
   marker.style.height = '16px';
   marker.style.borderRadius = '50%'; // Round shape
+
+
+  var marker = document.createElement('div');
+marker.className = 'marker2';
+marker.innerHTML = '<span class="beacon"></span>';
 
   // <span class="beacon"></span>
   // Add the custom marker at the user's position
