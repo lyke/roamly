@@ -22,9 +22,13 @@ class Place < ApplicationRecord
   # def self.find_for_travel(travel)
   #   all.sample(5)
   # end
-
   def self.find_for_travel(travel)
-    near_places = all.near(travel.starting_point, 10)
-    near_places.where()
+    valid_place = all.where(validation: true)
+    @near_places = valid_place.near(travel.starting_point, 10)
+    # separer les places en 2 listes, local ou touristique et pick dans chaque liste en fonction du pourcentage choisi par le user.
+    selected_places = filter_for_tags(@near_places, travel.travel_tags)
+    selected_price_places = filter_for_price(selected_places, travel.budget)
+    return filter_for_time(selected_price_places, travel.start_hour, travel.end_hour)
+    # return filter_for_days(selected_price_places, travel.beginning_date, travel.ending_date)
   end
 end
