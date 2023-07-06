@@ -22,8 +22,9 @@ export default class extends Controller {
       container: this.mapTarget,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [2.3522, 48.8566],
-      zoom: 15,
-      duration: 500
+      zoom: 14,
+      speed: 0.8,
+      curve: 1,
     });
 
     const geocoder = new MapboxGeocoder({
@@ -41,11 +42,23 @@ export default class extends Controller {
     });
 
 
-    var styleSelector = document.getElementById('map-style');
-  styleSelector.addEventListener('change', function(e) {
-    var style = e.target.value;
-    carte.setStyle(style);
-  });
+    //   var styleSelector = document.getElementById('map-style');
+    // styleSelector.addEventListener('change', function(e) {
+    //   var style = e.target.value;
+    //   carte.setStyle(style);
+    // });
+
+    var checkbox = document.getElementById("map-style-checkbox");
+    checkbox.addEventListener("change", function() {
+      // Vérifiez l'état de la checkbox
+      if (checkbox.checked) {
+        // Si la checkbox est cochée, utilisez le style Streets
+        carte.setStyle("mapbox://styles/mapbox/streets-v11");
+      } else {
+        // Sinon, utilisez le style Satellite
+        carte.setStyle("mapbox://styles/mapbox/satellite-v9");
+      }
+    });
 
     // navigator.geolocation.getCurrentPosition(function(position) {
     //   // Set the map's center to the user's position
@@ -61,41 +74,42 @@ export default class extends Controller {
 
 
 
-navigator.geolocation.getCurrentPosition(function(position) {
-  // Set the map's center to the user's position
-  carte.setCenter([position.coords.longitude, position.coords.latitude]);
+    navigator.geolocation.getCurrentPosition(function(position) {
+      // Set the map's center to the user's position
+      carte.setCenter([position.coords.longitude, position.coords.latitude]);
 
-  // Create a custom marker using HTML and CSS
-  var marker = document.createElement('div');
-  marker.style.background = '#FF0000'; // Red color
-  marker.style.width = '16px';
-  marker.style.height = '16px';
-  marker.style.borderRadius = '50%'; // Round shape
+      // Create a custom marker using HTML and CSS
+      var marker = document.createElement('div');
+      marker.style.background = '#FF0000'; // Red color
+      marker.style.width = '16px';
+      marker.style.height = '16px';
+      marker.style.borderRadius = '50%'; // Round shape
 
 
-  var marker = document.createElement('div');
-marker.className = 'marker2';
-marker.innerHTML = '<span class="beacon"></span>';
+      var marker = document.createElement('div');
+      marker.className = 'marker';
+      marker.innerHTML = '<span class="beacon"></span>';  // marker.innerHTML = '<span class="beacon"></span>';
 
-  // <span class="beacon"></span>
-  // Add the custom marker at the user's position
-  new mapboxgl.Marker({ element: marker })
-    .setLngLat([position.coords.longitude, position.coords.latitude])
-    .addTo(carte);
-}, function(error) {
-  console.error(error);
-});
+      // <span class="beacon"></span>
+      // Add the custom marker at the user's position
+      new mapboxgl.Marker({ element: marker })
+        .setLngLat([position.coords.longitude, position.coords.latitude])
+        .addTo(carte);
+    }, function(error) {
+      console.error(error);
+    });
 
 
 
     console.log("coucou");
     carte.on('touchstart', (event) => {
-      console.log(event);
+      console.log(this.latitudeTarget.value);
       this.marker?.remove();
       this.latitudeTarget.value = event.lngLat.lng;
       this.longitudeTarget.value = event.lngLat.lat;
       this.addressTarget.value = "*** Secret ***";
-      this. marker = new mapboxgl.Marker()
+      console.log(this.latitudeTarget.value);
+      this.marker = new mapboxgl.Marker()
         .setLngLat([ event.lngLat.lng, event.lngLat.lat ])
         .addTo(carte)
     });

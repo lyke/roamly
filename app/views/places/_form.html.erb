@@ -91,17 +91,27 @@
 
 
     <h3 class="address">Address*</h4>
-
    <%# <div>
     <button id="map-style-btn"><i class="fa-solid fa-layer-group layer"></i></button>
-  </div> %>
-<div>
-  <select id="map-style">
-    <option value="mapbox://styles/mapbox/streets-v11">Streets</option>
-    <option value="mapbox://styles/mapbox/light-v10">Light</option>
-    <option value="mapbox://styles/mapbox/satellite-v9">Satellite</option>
-  </select>
-</div>
+      </div> %>
+    <%# <div>
+      <button id="map-style-toggle"><i class="fas fa-toggle-on fa-lg"></i></button>
+    </div> %>
+    <div>
+      <input type="checkbox" id="map-style-checkbox" class="d-none" />
+      <label for="map-style-checkbox"><i class="fa-solid fa-layer-group layer"></i></label>
+    </div>
+<%#
+      <label for="map-style">Toggle Map Style</label>
+      <input id="map-style">
+      <select id="style-select">
+        <option value="streets">Streets</option>
+        <option value="satellite">Satellite</option>
+      </select>
+    </div> %>
+
+
+
 
     <div
       data-controller="carte"
@@ -149,7 +159,7 @@
     <%# <div>
       <%# f.button :submit, class: "btn-cr form-actions", label: "Créer mon Secret Spot"%>
     <%# </div> %>
-    <div>
+    <div class="creation">
       <%= submit_tag "Créer mon secret spot", class: "create_btn" %>
     </div>
   </div>
