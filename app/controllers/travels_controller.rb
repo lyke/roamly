@@ -2,8 +2,8 @@ class TravelsController < ApplicationController
   before_action :set_travel, only: %i[ show edit update destroy map ]
 
   def show
-    @beginning = @travel.start_hour
-    @ending = @travel.end_hour
+    # @beginning = @travel.start_hour
+    # @ending = @travel.end_hour
   end
 
   def new

@@ -12,9 +12,18 @@
 </div>
 
 <%# <% @travel.places.each do |place| %>
+<% @travel.start_hour.strftime("%H:%M:") %>
 
-<%# <% @travel.steps.each do |step| %>
-  <%# <p>Vous passerez <%= step.duration %>
+
+
+<% @travel.steps.each do |step| %>
+  Durée : <strong><%= step.duration %></strong>  min
+  <%# <% minutes =  step.duration %>
+  <%# <% heures = minutes / 60 %>
+  <%# <% minutes_rest = minutes % 60 %>
+  <%# <% heure_convertie = DateTime.new(0, 1, 1, heures, minutes_rest, 0).strftime("%H:%M") %>
+  <%# <% start_time = @travel.start_hour.strftime("%H:%M") %>
+  <%# <%= start_time + heure_convertie %>
 
     <%= link_to place_path(step.place), class: "travel-card" do %>
       <div class="rectangle">
