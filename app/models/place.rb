@@ -23,15 +23,29 @@ class Place < ApplicationRecord
   #   all.sample(5)
   # end
   def self.find_for_travel(travel)
-    valid_place = all.where(validation: true)
-
-    near_places = valid_place.near(travel.starting_point, 10)
+    valid_places = all.where(validation: true)
+    near_places = valid_places.near(travel.starting_point, 10)
+    selected_secret_places = filter_for_secret_spots(near_places, travel.incl_secret)
     # separer les places en 2 listes, local ou touristique et pick dans chaque liste en fonction du pourcentage choisi par le user.
     selected_trav_places = filter_for_traveler_tags(near_places, travel.trav_trav_type_tags)
     selected_places = filter_for_tags(selected_trav_places, travel.travel_tags)
     selected_price_places = filter_for_price(selected_places, travel.budget)
     return filter_for_time(selected_price_places, travel.start_hour, travel.end_hour)
 
+  end
+
+  def self.filter_for_secret_spots(places_to_filter, secret_spot)
+    @selected_places = []
+    if secret_spot
+      @selected_places << places_to_filter
+    else
+      places_to_filter.each do |place|
+        if !place.secret_spot
+          @selected_places << place
+        end
+      end
+    end
+    return @selected_places
   end
 
   def self.filter_for_traveler_tags(places_to_filter, traveler_tags)
