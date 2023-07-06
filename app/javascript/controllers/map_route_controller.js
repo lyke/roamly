@@ -54,7 +54,6 @@ export default class extends Controller {
       .then(json => {
         const route = json.trips[0].geometry.coordinates;
         console.log(json)
-        debugger
         const geojson = {
           type: 'Feature',
           properties: {},
