@@ -98,7 +98,7 @@ class Place < ApplicationRecord
     return selected_places
   end
 
-  def self.filter_for_touristic(places_to_filter, touristic, touristic_range)
+  # def self.filter_for_touristic(places_to_filter, touristic, touristic_range)
   #   touristic_place = []
   #   local_place = []
   #   selected_places = []
