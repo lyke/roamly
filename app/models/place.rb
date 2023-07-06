@@ -24,13 +24,14 @@ class Place < ApplicationRecord
   # end
   def self.find_for_travel(travel)
     valid_place = all.where(validation: true)
+
     near_places = valid_place.near(travel.starting_point, 10)
     # separer les places en 2 listes, local ou touristique et pick dans chaque liste en fonction du pourcentage choisi par le user.
     selected_trav_places = filter_for_traveler_tags(near_places, travel.trav_trav_type_tags)
     selected_places = filter_for_tags(selected_trav_places, travel.travel_tags)
     selected_price_places = filter_for_price(selected_places, travel.budget)
     return filter_for_time(selected_price_places, travel.start_hour, travel.end_hour)
-    # return filter_for_days(selected_price_places, travel.beginning_date, travel.ending_date)
+
   end
 
   def self.filter_for_traveler_tags(places_to_filter, traveler_tags)
@@ -97,9 +98,23 @@ class Place < ApplicationRecord
     return selected_places
   end
 
+  def self.filter_for_touristic(places_to_filter, touristic, touristic_range)
+  #   touristic_place = []
+  #   local_place = []
+  #   selected_places = []
+  #   places_to_filter.each do |place|
+  #     if place.touristic
+  #       touristic_place << place
+  #     else
+  #       local_place << place
+  #     end
+
+  #   end
+  #   return selected_places
+  # end
+
+
   # def self.filter_for_days(places_to_filter, beg_date, end_date)
   #   nb_days = (end_date - beg_date)
-
-
   # end
 end
