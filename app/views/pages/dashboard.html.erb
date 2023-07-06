@@ -15,11 +15,20 @@
 <% @future_travels.each do |travel| %>
   <%= link_to travel_path(travel), class: "travel-card" do %>
     <div class="rectangle">
+      <% if travel.places.first != nil %>
       <%# <img src="https://images.partir.com/g6_T5RzFIxc2VZcftQeoyIw8sgg=/750x/filters:sharpen(0.3,0.3,true)/incontournables/italie-milan-duomo.jpg" alt="Image 1"> %>
-      <%= cl_image_tag travel.places.first.photos.first.key, height: 350, width: 450, crop: :fill %>
+        <%= cl_image_tag travel.places.first.photos.first.key, height: 350, width: 450, crop: :fill %>
+      <% else %>
+        <%= image_tag "https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688474864/photo-non-disponible-1_do68va.jpg", height: 350, width: 450, crop: :fill %>
+      <% end %>
       <div>
         <h2><%= travel.name %></h2>
-        <%= travel.beginning_date %> - <%= travel.ending_date %>
+        Dates :
+        <div>
+          <strong><%= travel.beginning_date %></strong>  -  <strong><%= travel.ending_date %></strong>
+        </div>
+        Prix : <strong><%= travel.places.sum(&:price) %> €</strong>
+        <%# total_price = places_to_filter.sum(&:price) %>
       </div>
     </div>
   <% end %>

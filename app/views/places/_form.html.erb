@@ -44,8 +44,8 @@
     </div>
 
     <div class="form-inputs">
-      <%# <%= f.input :photos, as: :file %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+       <%= f.input :photos, as: :file %>
+      <%# <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
 
     <%# <div class="form-inputs"> %>
@@ -59,6 +59,7 @@
       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
       wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
     </div>
+    <%# <div id="map" style="width: 100%; height: 400px;"></div> %>
 
     <% if policy(@place).admin? %>
        <div>
@@ -91,10 +92,10 @@
     <% end %>
 
     <%# <div>
-      <%= f.button :submit, class: "btn-cr form-actions"%>
-    </div>
+      <%# f.button :submit, class: "btn-cr form-actions", label: "Créer mon Secret Spot"%>
+    <%# </div> %>
     <div>
-      <%= submit_tag "Crée ton secret spot", class: "create_btn"%>
+      <%= submit_tag "Créer mon secret spot", class: "create_btn" %>
     </div>
   </div>
 <% end %>

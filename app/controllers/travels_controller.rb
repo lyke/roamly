@@ -12,7 +12,7 @@ class TravelsController < ApplicationController
   def create
     @travel = Travel.new(travel_params)
     @travel.user = current_user
-    # @travel.save!
+    @travel.save!
 
     # TAGS
     # ---------------------------------------
@@ -34,13 +34,14 @@ class TravelsController < ApplicationController
 
     #  logic de choix en fonction des critères
     @places = Place.find_for_travel(@travel)
+
     @places.each do |place|
-      step = Step.new(place: place, travel: @travel)
+      step = Step.new(place: place, travel: @travel, duration: place.duration)
       step.save!
     end
 
     if @travel.save!
-      redirect_to dashboards_path
+      redirect_to travel_path(@travel)
     else
       render :new, status: :unprocessable_entity
     end
