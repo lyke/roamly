@@ -107,8 +107,7 @@ eiffel_tower2 = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v168
 place1 = Place.new(
   name: "Eiffel Tower",
   description: "La tour Eiffel est une tour de fer puddlé de 330 m2 de hauteur (avec antennes) située à Paris, à l’extrémité nord-ouest du parc du Champ-de-Mars en bordure de la Seine dans le 7e arrondissement. Son adresse officielle est 5, avenue Anatole-France.
-  Construite en deux ans par Gustave Eiffel et ses collaborateurs pour l'Exposition universelle de Paris de 1889, célébrant le centenaire de la Révolution française, et initialement nommée « tour de 300 mètres », elle est devenue le symbole de la capitale française et un site touristique de premier plan : il s’agit du quatrième site culturel français payant le plus visité en 2016, avec 5,9 millions de visiteurs3. Depuis son ouverture au public, elle a accueilli plus de 300 millions de visiteurs4.
-  D’une hauteur de 312 mètreso 1 à l’origine, la tour Eiffel est restée le monument le plus élevé du monde pendant quarante ans. Le second niveau du troisième étage, appelé parfois quatrième étage, situé à 279,11 mètres, est la plus haute plateforme d'observation accessible au public de l'Union européenne et la deuxième plus haute d'Europe, derrière la tour Ostankino à Moscou culminant à 337 mètres. La hauteur de la tour a été plusieurs fois augmentée par l’installation d'un drapeau puis de nombreuses antennes, notamment en 1991, 1994, 2000 et 2022. Utilisée dans le passé pour de nombreuses expériences scientifiques, elle sert aujourd’hui d’émetteur de programmes radiophoniques et télévisés.",
+  Construite en deux ans par Gustave Eiffel et ses collaborateurs pour l'Exposition universelle de Paris de 1889, célébrant le centenaire de la Révolution française, et initialement nommée « tour de 300 mètres », elle est devenue le symbole de la capitale française et un site touristique de premier plan : il s’agit du quatrième site culturel français payant le plus visité en 2016, avec 5,9 millions de visiteurs3. Depuis son ouverture au public, elle a accueilli plus de 300 millions de visiteurs4.",
   longitude: 2.294481,
   latitude: 48.858370,
   price: 26.20,
@@ -128,7 +127,7 @@ place1 = Place.new(
 # end
 
 place1.place_tags << PlaceTag.where(name: ["Art et Culture", "Escapade Romantique", "Histoire"])
-place1.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place1.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 # place_tags.each do |place_tag|
 #   place1.place_tags << place_tag
 # end
@@ -158,7 +157,7 @@ place2 = Place.new(
   validation: true
 )
 place2.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
-place2.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place2.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place2.photos.attach([
   { io: louvre, filename: "louvre picture", content_type: "image/jpg" },
@@ -186,7 +185,7 @@ place3 = Place.new(
   validation: true
 )
 place3.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
-place3.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place3.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place3.photos.attach([
   { io: arc, filename: "arc picture", content_type: "image/jpg" },
@@ -213,7 +212,7 @@ place4 = Place.new(
   address: "8 Rue de Montpensier, 75001 Paris"
 )
 place4.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Spectacle"])
-place4.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place4.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place4.photos.attach([
   { io: palais, filename: "palais picture", content_type: "image/jpg" },
@@ -241,7 +240,7 @@ place5 = Place.new(
 )
 
 place5.place_tags << PlaceTag.where(name: ["Nature", "Escapade Romantique"])
-place5.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place5.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place5.photos.attach([
   { io: jardin, filename: "jardin picture", content_type: "image/jpg" },
@@ -269,7 +268,7 @@ place6 = Place.new(
   validation: true
 )
 place6.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Spectacle"])
-place6.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place6.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place6.photos.attach([
   { io: chateau, filename: "chateau picture", content_type: "image/jpg" },
@@ -296,7 +295,7 @@ place7 = Place.new(
   validation: true
 )
 place7.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Escapade Romantique"])
-place7.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place7.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place7.photos.attach([
   { io: coeur, filename: "coeur picture", content_type: "image/jpg" },
@@ -324,7 +323,7 @@ place8 = Place.new(
   validation: true
 )
 place8.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Escapade Romantique"])
-place8.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place8.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place8.photos.attach([
   { io: petit, filename: "petit picture", content_type: "image/jpg" },
@@ -352,7 +351,7 @@ place9 = Place.new(
   validation: true
 )
 place9.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
-place9.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place9.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place9.photos.attach([
   { io: dame, filename: "dame picture", content_type: "image/jpg" },
@@ -379,7 +378,7 @@ place10 = Place.new(
   validation: true
 )
 place10.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire", "Spectacle", "Escapade Romantique"])
-place10.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place10.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place10.photos.attach([
   { io: opera, filename: "opera picture", content_type: "image/jpg" },
@@ -406,7 +405,7 @@ place11 = Place.new(
   validation: true
 )
 place11.place_tags << PlaceTag.where(name: ["Art et Culture"])
-place11.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place11.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place11.photos.attach([
   { io: rue, filename: "rue picture", content_type: "image/jpg" },
@@ -433,7 +432,7 @@ place12 = Place.new(
   validation: true
 )
 place12.place_tags << PlaceTag.where(name: ["Nature", "Escapade Romantique"])
-place12.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place12.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place12.photos.attach([
   { io: parc, filename: "parc picture", content_type: "image/webp" },
@@ -460,7 +459,7 @@ place13 = Place.new(
   validation: true
 )
 place13.place_tags << PlaceTag.where(name: ["Nature", "Escapade Romantique"])
-place13.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place13.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place13.photos.attach([
   { io: square, filename: "square picture", content_type: "image/jpg" },
@@ -487,7 +486,7 @@ place14 = Place.new(
   address: "78 Rue Georges Lardennois, 75019 Paris"
 )
 place14.place_tags << PlaceTag.where(name: ["Nature"])
-place14.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place14.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place14.photos.attach([
   { io: butte, filename: "butte picture", content_type: "image/webp" },
@@ -514,7 +513,7 @@ place15 = Place.new(
   address: "Avenue Junot, 75018 Paris"
 )
 place15.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
-place15.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place15.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place15.photos.attach([
   { io: villa, filename: "villa picture", content_type: "image/jpg" },
@@ -540,7 +539,7 @@ place16 = Place.new(
   address: "Route de Ceinture du Lac Daumesnil, 75012 Paris",
 )
 place16.place_tags << PlaceTag.where(name: ["Aventure", "Sport", "Nature", "Escapade Romantique"])
-place16.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place16.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 place16.photos.attach([
   { io: lacdaumesnil, filename: "barque lac daumesnil picture", content_type: "image/webp" },
   { io: lacdaumesnil1, filename: "barque lac daumesnil picture", content_type: "image/webp" },
@@ -566,7 +565,7 @@ place17 = Place.new(
   address: "Parc floral de Paris, Esplanade du château de Vincennes, 75012 Vincennes",
 )
 place17.place_tags << PlaceTag.where(name: ["Aventure", "Sport", "Nature"])
-place17.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place17.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place17.photos.attach([
   { io: evasionverte, filename: "accrobranche picture", content_type: "image/png" },
@@ -592,12 +591,12 @@ place18 = Place.new(
   address: "3 Cours de la Garonne, 77700 Serris",
 )
 place18.place_tags << PlaceTag.where(name: ["Shopping"])
-place18.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place18.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place18.photos.attach([
   { io: vallée_village, filename: "la vallée village picture", content_type: "image/jpg" },
   { io: vallée_village1, filename: "la vallée village picture", content_type: "image/jpg" },
-  { io: vallée_village1, filename: "la vallée village picture", content_type: "image/jpg" }])
+  { io: vallée_village2, filename: "la vallée village picture", content_type: "image/jpg" }])
 place18.save!
 
 champs_elysees = URI.open("https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688554724/avenue-champs-elysees-paris-france_rk8pdk.jpg")
@@ -619,7 +618,7 @@ place19 = Place.new(
   address: "Avenue des Champs-Élysées, 75008 Paris")
 
 place19.place_tags << PlaceTag.where(name: ["Shopping", "Escapade Romantique"])
-place19.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place19.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place19.photos.attach([
   { io: champs_elysees, filename: "champs élysées picture", content_type: "image/jpg" },
@@ -646,7 +645,7 @@ place20 = Place.new(
   address: "Rue des Francs bourgeois, 75004 Paris")
 
 place20.place_tags << PlaceTag.where(name: ["Shopping", "Escapade Romantique", "Histoire", "Art et Culture"])
-place20.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place20.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place20.photos.attach([
   { io: francs_bourgeois, filename: "rue des francs bourgeois picture", content_type: "image/webp" },
@@ -674,7 +673,7 @@ place21 = Place.new(
   address: "116 bis avenue des Champs Elysées, 75008 Paris")
 
 place21.place_tags << PlaceTag.where(name: ["Spectacle", "Vie Nocturne"])
-place21.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "Entre Amis"])
+place21.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "Entre Amis"])
 
 place21.photos.attach([
   { io: lido, filename: "lido picture", content_type: "image/jpg" },
@@ -703,7 +702,7 @@ place22 = Place.new(
   address: "82 Bd de Clichy, 75018 Paris")
 
 place22.place_tags << PlaceTag.where(name: ["Vie Nocturne", "Spectacle"])
-place22.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "Entre Amis"])
+place22.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "Entre Amis"])
 
 place22.photos.attach([
   { io: moulin_rouge, filename: "moulin rouge picture", content_type: "image/jpg" },
@@ -733,7 +732,7 @@ place23 = Place.new(
   address: "101 Rue de Sevre, 75006 PARIS")
 
 place23.place_tags << PlaceTag.where(name: ["Détente et Spa"])
-place23.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "Entre Amis"])
+place23.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "Entre Amis"])
 
 place23.photos.attach([
   { io: spa_biere , filename: "spa à la bière picture", content_type: "image/webp" },
@@ -760,7 +759,7 @@ place24 = Place.new(
   touristic: false,
   address: "7 Rue de Thorigny, 75003 Paris")
 place24.place_tags << PlaceTag.where(name: ["Détente et Spa"])
-place24.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "Entre Amis"])
+place24.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "Entre Amis"])
 
 place24.photos.attach([
   { io: suisen, filename: "suisen spa photo", content_type: "image/jpg" },
@@ -787,7 +786,7 @@ place25 = Place.new(
   address: "35 Boulevard Haussmann, 75009 Paris")
 
 place25.place_tags << PlaceTag.where(name: ["Nourriture"])
-place25.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place25.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place25.photos.attach([
   { io: galerie_gourmets, filename: "Galerie Lafayette Le Gourmet picture ", content_type: "image/jpg" },
@@ -813,7 +812,7 @@ place26 = Place.new(
   touristic: true,
   address: "6 Rue de Castiglione, 75001 Paris")
 place26.place_tags << PlaceTag.where(name: ["Nourriture"])
-place26.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place26.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place26.photos.attach([
   { io: grolet, filename: "La Pâtisserie du Meurice par Cédric Grolet picture", content_type: "image/webp" },
@@ -841,7 +840,7 @@ place27 = Place.new(
   touristic: true,
   address: "77777, Chessy")
 place27.place_tags << PlaceTag.where(name: ["Parc d'attraction"])
-place27.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place27.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place27.photos.attach([
   { io: disney, filename: "Disneyland Paris picture", content_type: "image/jpg" },
@@ -869,7 +868,7 @@ place28 = Place.new(
   address: "Bois de Boulogne, Route de la Porte Dauphine à la Porte des Sablons, 75116 Paris")
 
 place28.place_tags << PlaceTag.where(name: ["Parc d'attraction"])
-place28.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place28.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place28.photos.attach([
   { io: jardin_acclimatation, filename: "Le jardin d'acclimatation picture", content_type: "image/webp" },
@@ -898,7 +897,7 @@ place34 = Place.new(
   validation: true
 )
 place34.place_tags << PlaceTag.where(name: ["Nourriture", "Histoire"])
-place34.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place34.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place34.photos.attach([
   { io: vieuxport, filename: "vieuxport picture", content_type: "image/jpg" },
@@ -925,7 +924,7 @@ place35 = Place.new(
   validation: true
 )
 place35.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
-place35.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place35.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place35.photos.attach([
   { io: notredame, filename: "notredame picture", content_type: "image/jpg" },
@@ -952,7 +951,7 @@ place36 = Place.new(
   validation: true
 )
 place36.place_tags << PlaceTag.where(name: ["Détente et Spa", "Nature", "Histoire"])
-place36.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place36.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place36.photos.attach([
   { io: plage, filename: "plage picture", content_type: "image/jpg" },
@@ -979,7 +978,7 @@ place37 = Place.new(
   validation: true
 )
 place37.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
-place37.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place37.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place37.photos.attach([
   { io: longchamp, filename: "longchamp picture", content_type: "image/jpg" },
@@ -1006,7 +1005,7 @@ place38 = Place.new(
   validation: true
 )
 place38.place_tags << PlaceTag.where(name: ["Aventure", "Nature", "Sport"])
-place38.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place38.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place38.photos.attach([
   { io: calanques, filename: "calanques picture", content_type: "image/jpg" },
@@ -1033,7 +1032,7 @@ place39 = Place.new(
   validation: true
 )
 place39.place_tags << PlaceTag.where(name: ["Shopping"])
-place39.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place39.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place39.photos.attach([
   { io: terrasseport, filename: "terrasses picture", content_type: "image/jpg" },
@@ -1060,7 +1059,7 @@ place40 = Place.new(
   validation: true
 )
 place40.place_tags << PlaceTag.where(name: ["Nature", "Aventure", "Histoire"])
-place40.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place40.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place40.photos.attach([
   { io: lesgoudes, filename: "goudes picture", content_type: "image/jpg" },
@@ -1087,7 +1086,7 @@ place41 = Place.new(
   validation: true
 )
 place41.place_tags << PlaceTag.where(name: ["Vie Nocturne"])
-place41.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place41.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place41.photos.attach([
   { io: rooftop, filename: "r2 picture", content_type: "image/jpg" },
@@ -1114,7 +1113,7 @@ place42 = Place.new(
   validation: true
 )
 place42.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
-place42.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place42.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place42.photos.attach([
   { io: mucem, filename: "mucem picture", content_type: "image/jpg" },
@@ -1141,7 +1140,7 @@ place43 = Place.new(
   validation: true
 )
 place43.place_tags << PlaceTag.where(name: ["Art et Culture", "Histoire"])
-place43.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place43.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place43.photos.attach([
   { io: museesavon, filename: "museesavon picture", content_type: "image/jpg" },
@@ -1168,7 +1167,7 @@ place44 = Place.new(
   validation: true
 )
 place44.place_tags << PlaceTag.where(name: ["Nature", "Histoire", "Sport"])
-place44.place_traveler_type_tags << PlaceTravelerTypeTags.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
+place44.place_traveler_type_tags << PlaceTravelerTypeTag.where(tag: ["Seul", "En Couple", "En Famille", "Entre Amis"])
 
 place44.photos.attach([
   { io: sugiton, filename: "sugiton picture", content_type: "image/jpg" },
