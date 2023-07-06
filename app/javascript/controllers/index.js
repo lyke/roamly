@@ -7,6 +7,9 @@ import { application } from "./application"
 import AddressAutocompleteController from "./address_autocomplete_controller"
 application.register("address-autocomplete", AddressAutocompleteController)
 
+import CarteController from "./carte_controller"
+application.register("carte", CarteController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
@@ -18,3 +21,7 @@ application.register("map", MapController)
 
 import MapRouteController from "./map_route_controller"
 application.register("map-route", MapRouteController)
+
+import NewPlaceController from "./new_place_controller"
+application.register("new-place", NewPlaceController)
+

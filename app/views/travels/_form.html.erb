@@ -19,7 +19,7 @@
 
      <div class="form-inputs">
       <%= f.input :starting_point,
-      label: "adresse de départ",
+      label: "Adresse de départ",
       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
       wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
     </div>
@@ -28,6 +28,7 @@
       <%= f.input :beginning_date, label: "Voyage du :", as: :string, input_html: { data: { flatpickr_target: "startTime" } }%>
       <%= f.input :ending_date, label: "au :", as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
     </div>
+
     <div class="form-inputs">
       <%= f.label :nombre_de_voyageurs, placeholder: "20"%>
       <p class="d-flex"><%= f.text_field :nb_traveler, class: "form-control", placeholder: "ex: 5" %><p>

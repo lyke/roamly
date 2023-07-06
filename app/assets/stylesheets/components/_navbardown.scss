@@ -58,7 +58,16 @@ li {
   width: 33%;
   text-align: center;
   align-items: center;
-  padding: 10px;
+  justify-content: center;
+  padding: 13px;
+  background-color: #59BCB6;
+  color: white;
+}
+
+.nav-item li{
+  float: none;
+  padding-top: 0;
+
 }
 
 #buttons {
@@ -66,15 +75,17 @@ li {
   padding-bottom: 15px;
 }
 
-#romain:active {
-  color: #59BCB6;
-  // box-shadow: 2px 2px 5px #96908d;
-}
 
 .nav-item:active {
-  background: white;
+  background: #3d928c;
+
 }
 
+
+// .fa-solid:active,
+// .fa-regular:active {
+//   color: #59BCB6;
+// }
 
 
 // .navbar-lewagon .navbar-collapse {
