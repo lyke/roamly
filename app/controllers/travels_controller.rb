@@ -36,7 +36,7 @@ class TravelsController < ApplicationController
     @places = Place.find_for_travel(@travel)
 
     @places.each do |place|
-      step = Step.new(place: place, travel: @travel)
+      step = Step.new(place: place, travel: @travel, duration: place.duration)
       step.save!
     end
 
