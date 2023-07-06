@@ -12,7 +12,7 @@
 </div>
 
 <% @travel.steps.each do |step| %>
-  <p>Vous passerez <%= step.duration%> minutes sur site</p>
+  <p>Vous passerez <%= step.duration %> minutes sur site</p>
     <%= link_to place_path(step.place), class: "travel-card" do %>
       <div class="rectangle">
         <%= cl_image_tag step.place.photos.first.key, height: 450, width: 450, crop: :fill, class: "img-rec" %>

@@ -36,12 +36,12 @@ class TravelsController < ApplicationController
     @places = Place.find_for_travel(@travel)
 
     @places.each do |place|
-      step = Step.new(place: place, travel: @travel)
+      step = Step.new(place: place, travel: @travel, duration: place.duration)
       step.save!
     end
 
     if @travel.save!
-      redirect_to dashboards_path
+      redirect_to travel_path(@travel)
     else
       render :new, status: :unprocessable_entity
     end
