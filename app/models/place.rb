@@ -37,13 +37,16 @@ class Place < ApplicationRecord
   def self.filter_for_traveler_tags(places_to_filter, traveler_tags)
     @travel_traveler_tags = traveler_tags.flat_map { |traveler_tag| traveler_tag }
     @travel_traveler_tag = TravTravTypeTag.where(id: @travel_traveler_tags.pluck(:id))
-    @travel_traveler_tag_names = @travel_traveler_tag.map { |travel_tag_name| travel_tag_name.name }
+    @travel_traveler_tag_name = @travel_traveler_tag.map { |travel_tag_name| travel_tag_name.name }
 
     @selected_places = []
 
-    @travel_traveler_tag_names.each do |travel_tag_name|
-      @selected_places << places_to_filter.select { |place| place.place_tags.pluck(:name).include?(travel_tag_name) }
+    places_to_filter.each do |place|
+      if place.place_traveler_type_tags.pluck(:tag).include?(@travel_traveler_tag_name.join)
+        @selected_places << place
+      end
     end
+    # @selected_places << places_to_filter.select { |place| place.place_traveler_type_tags.pluck(:tag).include?(@travel_traveler_tag_name) }
 
     @selected_places.flatten!
     @selected_places.uniq!
