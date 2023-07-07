@@ -78,9 +78,9 @@
       <%# <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
 
-    <%# <div class="form-inputs"> %>
-      <%# <%= f.input :address, class: "form-control" %>
-    <%# </div> %>
+    <div class="form-inputs">
+      <%= f.input :address, class: "form-control" %>
+    </div>
 
 
       <%# <%= f.input :address,
@@ -100,7 +100,7 @@
       <input type="checkbox" id="map-style-checkbox" class="d-none" />
       <label for="map-style-checkbox"><i class="fa-solid fa-layer-group layer"></i></label>
     </div>
-      <%#
+<%#
       <label for="map-style">Toggle Map Style</label>
       <input id="map-style">
       <select id="style-select">
@@ -112,16 +112,16 @@
 
 
 
-    <div
-      data-controller="carte"
-      data-carte-markers-value="<%= @markers.to_json %>"
-      data-carte-api-key-value="<%= ENV['MAPBOX_API_KEY_NASTYA'] %>"
-    >
-      <div style="width: 100%; height: 500px;" data-carte-target="map"></div>
-      <input  id="latitude" name="place[latitude]" data-carte-target="latitude" class="d-none">
-      <input  id="longitude" name="place[longitude]" data-carte-target="longitude" class="d-none">
-      <input  id="address" name="place[address]" data-carte-target="address" class="d-none">
-    </div>
+    <%# <div %>
+      <%# data-controller="carte" %>
+      <%# data-carte-markers-value="<%= @markers.to_json %>
+      <%# data-carte-api-key-value="<%= ENV['MAPBOX_API_KEY_NASTYA'] %>
+    
+      <%# <div style="width: 100%; height: 500px;" data-carte-target="map"></div> %>
+      <%# <input  id="latitude" name="place[latitude]" data-carte-target="latitude" class="d-none"> %>
+      <%# <input  id="longitude" name="place[longitude]" data-carte-target="longitude" class="d-none"> %>
+      <%# <input  id="address" name="place[address]" data-carte-target="address" class="d-none"> %>
+  <%# </div> %>
 
 
 

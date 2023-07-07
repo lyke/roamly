@@ -80,6 +80,6 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.require(:place).permit(:name, :description, :address, :price, :duration, :min_temp, :max_temp, :photos, :secret_spot, :touristic, :longitude, :latitude, :validation, :place_traveler_type_tags, :place_tags, :place_taggings, :place_trav_taggings)
+    params.require(:place).permit(:name, :description, :address, :price, :duration, :min_temp, :max_temp, :photos, :secret_spot, :touristic, :longitude, :latitude, :validation, :place_traveler_type_tags, :place_tags, :place_taggings, :place_trav_taggings, :validation, place_traveler_type_tag_ids:[], place_tag_ids:[])
   end
 end
