@@ -15,7 +15,7 @@
         <% if user_signed_in? %>
            <li class="nav-itam">
            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <% if current_user %>
+          <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu", crop: :fill %>
           <% end %>
           </a>
