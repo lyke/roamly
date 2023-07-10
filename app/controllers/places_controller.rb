@@ -25,8 +25,7 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     @place.user = current_user
-    # @place.save!
-
+    @place.save!
     @tags = PlaceTag.where(id: params[:place][:place_tag_ids])
     @place.place_tags << @tags
     # @tags.each do |tag|
@@ -48,6 +47,7 @@ class PlacesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
     authorize @place
+
   end
 
   def edit
