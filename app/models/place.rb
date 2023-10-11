@@ -19,9 +19,7 @@ class Place < ApplicationRecord
   has_many_attached :photos
   after_validation :geocode, if: :will_save_change_to_address?
 
-  # def self.find_for_travel(travel)
-  #   all.sample(5)
-  # end
+
   def self.find_for_travel(travel)
     valid_places = all.where(validation: true)
     near_places = valid_places.near(travel.starting_point, 10)
@@ -31,7 +29,6 @@ class Place < ApplicationRecord
     selected_places = filter_for_tags(selected_trav_places, travel.travel_tags)
     selected_price_places = filter_for_price(selected_places, travel.budget)
     return filter_for_time(selected_price_places, travel.start_hour, travel.end_hour)
-
   end
 
   def self.filter_for_secret_spots(places_to_filter, secret_spot)

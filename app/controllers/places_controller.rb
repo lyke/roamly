@@ -28,18 +28,11 @@ class PlacesController < ApplicationController
     @place.save!
     @tags = PlaceTag.where(id: params[:place][:place_tag_ids])
     @place.place_tags << @tags
-    # @tags.each do |tag|
-    #   place_tagging = PlaceTagging.new(place_tag: tag, place: @place)
-    #   place_tagging.save!
-    # end
     @type_tags = PlaceTravelerTypeTag.where(id: params[:place][:place_traveler_type_tag_ids])
     @place.place_traveler_type_tags << @type_tags
-    # @type_tags.each do |type_tag|
-    #   place_traveler_type_tagging = PlaceTravelerTypeTagging.new(place_traveler_type_tag: type_tag, travel: @place)
-    #   place_traveler_type_tagging.save!
-    # end
-    address = Geocoder.search([@place.longitude, @place.latitude]).first.address
-    @place.address = address
+
+    # address = Geocoder.search([@place.longitude, @place.latitude]).first.address
+    # @place.address = address
 
     if @place.save!
       redirect_to place_path(@place), notice: "Place was successfully created."
@@ -47,7 +40,6 @@ class PlacesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
     authorize @place
-
   end
 
   def edit

@@ -14,11 +14,5 @@
 @import "flatpickr/dist/flatpickr.css";
 @import "devise/sessions_new.scss";
 
-// body {
-//   max-height: 10vh ;
-// }
-
-body {
-  margin-top: 10vh;
-  margin-bottom: 13vh;
-}
+@import "travel/index";
+@import "places/index";

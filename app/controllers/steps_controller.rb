@@ -8,6 +8,8 @@ class StepsController < ApplicationController
     @step.save!
   end
 
+  private
+
   def step_params
     params.require(:step).permit(:name)
   end

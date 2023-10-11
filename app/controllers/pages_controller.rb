@@ -20,7 +20,6 @@ class PagesController < ApplicationController
     @my_travels = Travel.where(user: current_user)
     @future_travels = []
     @past_travels = []
-    # .flatten
     @my_travels.each do |my_travel|
       if my_travel.ending_date >= Date.today
         @future_travels << my_travel

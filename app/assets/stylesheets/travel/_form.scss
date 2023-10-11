@@ -119,3 +119,79 @@ textarea.form-control {
 .mapboxgl-ctrl-geocoder {
   max-width: none !important;
 }
+
+.container-trav {
+  margin: 20px;
+  color: #59BCB6;
+  font-weight: normal;
+  }
+  .travel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    grid-gap: 2px;
+  }
+
+  .btn-trav {
+    border-radius: 19px;
+    border: 1px solid #59BCB6;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 90%;
+  }
+
+  .duree-trav {
+    display: flex;
+    align-items: center;
+  }
+
+  .form-inputs label {
+    font-weight: normal;
+  }
+
+  .tag {
+    // height: 30px;
+    height: 130px;
+    width: 200px;
+    border-radius: 50px;
+    color: white;
+    background-color: #59BCB6 !important;
+    text-align: center !important;
+    margin: 69px;
+  }
+
+  .btn-create {
+    color: white;
+    background-color: #59BCB6;
+    justify-content: center;
+  }
+
+  .form-actions {
+    width: 200px;
+    height: 42px;
+    margin: 76px;
+  }
+
+  .visit {
+    display: flex;
+    align-items: center;
+  }
+
+  h1{
+    margin-bottom: 30px;
+  }
+
+  .label  {
+    font-size: 16px;
+    margin-top: 15px;
+  }
+
+  #btn-turist {
+    background-color: #59BCB6;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    height: 20px;
+    width: 16px;
+  }

@@ -11,19 +11,18 @@
   </div>
 </div>
 
-<%# <% @travel.places.each do |place| %>
-<% @travel.start_hour.strftime("%H:%M:") %>
-
-
-
+<%# <div %>
+  <%# data-controller="map-route" %>
+  <%# data-action="map-route#connectToTravelShow" %>
+  <%# data-map-route-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>
+<%# > %>
+<% previous_step_end_hour = @travel.start_hour %>
 <% @travel.steps.each do |step| %>
-  <p style="margin-left: 2.5vw;"> Durée : <strong style="color: #59BCB6;"><%= step.duration %></strong>  min</p>
-  <%# <% minutes =  step.duration %>
-  <%# <% heures = minutes / 60 %>
-  <%# <% minutes_rest = minutes % 60 %>
-  <%# <% heure_convertie = DateTime.new(0, 1, 1, heures, minutes_rest, 0).strftime("%H:%M") %>
-  <%# <% start_time = @travel.start_hour.strftime("%H:%M") %>
-  <%# <%= start_time + heure_convertie %>
+  <% step_duration = step.place.duration %>
+  <% step_start_hour = previous_step_end_hour %>
+  <% step_end_hour = step_start_hour + step_duration.minutes %>
+  <h3 class="horaires"><%= step_start_hour.strftime("%H:%M") %> - <%= step_end_hour.strftime("%H:%M") %></h3>
+  <% previous_step_end_hour = step_end_hour %>
 
     <%= link_to place_path(step.place), class: "travel-card" do %>
       <div class="rectangle">
@@ -33,5 +32,6 @@
           <p><%= step.place.description.first(60) ... %></p>
         </div>
       </div>
-      <% end %>
+    <% end %>
 <% end %>
+<%# </div> %>
