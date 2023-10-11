@@ -37,7 +37,9 @@
 
 
 <div class="address">
-  <h3 class="place-caracteristiques">Address : <%= @place.address.split(",").first(5).join(' ') %></h3>
+  <% if @place.address %>
+    <h3 class="place-caracteristiques">Address : <%= @place.address.split(",").first(5).join(' ') %></h3>
+  <% end %>
 </div>
 <p class="text-justify"><%= truncate(@place.description, length: 400) %></p>
 </div>

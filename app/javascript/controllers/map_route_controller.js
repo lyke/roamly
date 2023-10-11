@@ -17,12 +17,18 @@ export default class extends Controller {
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-    const toto = this.markersValue
+    const point = this.markersValue
     // console.log(this.startingValue);
-    this.getRoute(toto)
+    this.getRoute(point)
   }
 
-  getRoute(toto) {
+  // connectToTravelShow() {
+  //   mapboxgl.accessToken = this.apiKeyValue
+  //   // console.log(this.startingValue);
+  //   console.log("salutsalut");
+  // }
+
+  getRoute(point) {
     let markersUrl = `${this.startingValue};`;
 
     this.markersValue.forEach((marker, index) => {
@@ -31,64 +37,50 @@ export default class extends Controller {
         markersUrl += `${coords};`
       }
     })
-
-
     if (markersUrl.endsWith(";")) {
       markersUrl = markersUrl.substring(0, markersUrl.length - 1);
     }
-
-    // console.log(markersUrl.substring(0, this.markersValue.length - 1))
-
-    // console.log(markersUrl);
-
     fetch(
-      // `https://api.mapbox.com/directions/v5/mapbox/cycling/${markersUrl}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
-
-      // `https://api.mapbox.com/optimized-trips/v1/mapbox/cycling/${markersUrl}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
-
       `https://api.mapbox.com/optimized-trips/v1/mapbox/cycling/${markersUrl}?source=first&roundtrip=true&steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
-
       { method: 'GET' }
     )
-      .then(response => response.json())
-      .then(json => {
-        const route = json.trips[0].geometry.coordinates;
-        console.log(json)
-        const geojson = {
-          type: 'Feature',
-          properties: {},
-          geometry: {
-            type: 'LineString',
-            coordinates: route
-          }
-        };
-        if (this.map.getSource('route')) {
-          this.map.getSource('route').setData(geojson);
-        } else {
-          this.map.addLayer({
-            id: 'route',
-            type: 'line',
-            source: {
-              type: 'geojson',
-              data: geojson
-            },
-            layout: {
-              'line-join': 'round',
-              'line-cap': 'round'
-            },
-            paint: {
-              'line-color': '#3887be',
-              'line-width': 5,
-              'line-opacity': 0.75
-            }
-          });
+    .then(response => response.json())
+    .then(json => {
+      const route = json.trips[0].geometry.coordinates;
+      console.log(json)
+      const geojson = {
+        type: 'Feature',
+        properties: {},
+        geometry: {
+          type: 'LineString',
+          coordinates: route
         }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-
-
+      };
+      if (this.map.getSource('route')) {
+        this.map.getSource('route').setData(geojson);
+      } else {
+        this.map.addLayer({
+          id: 'route',
+          type: 'line',
+          source: {
+            type: 'geojson',
+            data: geojson
+          },
+          layout: {
+            'line-join': 'round',
+            'line-cap': 'round'
+          },
+          paint: {
+            'line-color': '#3887be',
+            'line-width': 5,
+            'line-opacity': 0.75
+          }
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   }
 
 

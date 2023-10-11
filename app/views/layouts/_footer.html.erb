@@ -1,0 +1,26 @@
+<div class="navbar-down fixed-bottom">
+    <ul class="navbar-down d-flex justify-content", id="down">
+      <%= link_to dashboards_path, class: "nav-item active navbar-titre" do%>
+        <li>
+          <i class="fa-solid fa-user"></i>
+          <p class= "navbar-titre" style= "margin: 0", id= "romain">Mon Profil</p>
+        </li>
+      <% end %>
+        <div class="vl"></div>
+
+        <%= link_to new_travel_path, class: "nav-item active navbar-titre" do%>
+        <li>
+          <i class="fa-regular fa-map"></i>
+          <p class= "navbar-titre" style= "margin: 0", id= "romain">Nouveau Voyage</p>
+        </li>
+        <% end %>
+        <div class="vl"></div>
+
+        <%= link_to new_place_path, class: "nav-item active navbar-titre" do%>
+        <li>
+              <i class="fa-solid fa-plus"></i>
+            <p class= "navbar-titre" style= "margin: 0", id= "romain">Secret Spot</p>
+        </li>
+          <% end %>
+    </ul>
+</div>

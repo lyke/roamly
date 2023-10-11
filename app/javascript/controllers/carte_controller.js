@@ -1,8 +1,4 @@
 import { Controller } from "@hotwired/stimulus"
-// import mapboxgl from "mapbox-gl";
-// import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-// Connects to data-controller="carte"
-
 
 export default class extends Controller {
   static values = {
@@ -80,17 +76,16 @@ export default class extends Controller {
 
       // Create a custom marker using HTML and CSS
       var marker = document.createElement('div');
-      marker.style.background = '#FF0000'; // Red color
+      marker.style.background = '#FF0000';
       marker.style.width = '16px';
       marker.style.height = '16px';
-      marker.style.borderRadius = '50%'; // Round shape
+      marker.style.borderRadius = '50%';
 
 
       var marker = document.createElement('div');
       marker.className = 'marker';
-      marker.innerHTML = '<span class="beacon"></span>';  // marker.innerHTML = '<span class="beacon"></span>';
+      marker.innerHTML = '<span class="beacon"></span>';
 
-      // <span class="beacon"></span>
       // Add the custom marker at the user's position
       new mapboxgl.Marker({ element: marker })
         .setLngLat([position.coords.longitude, position.coords.latitude])
@@ -101,20 +96,18 @@ export default class extends Controller {
 
 
 
-    console.log("coucou");
     carte.on('touchstart', (event) => {
       console.log(this.latitudeTarget.value);
       this.marker?.remove();
       this.latitudeTarget.value = event.lngLat.lng;
       this.longitudeTarget.value = event.lngLat.lat;
-      this.addressTarget.value = "*** Secret ***";
+      // this.addressTarget.value = "*** Secret ***";
       console.log(this.latitudeTarget.value);
       this.marker = new mapboxgl.Marker()
         .setLngLat([ event.lngLat.lng, event.lngLat.lat ])
         .addTo(carte)
     });
 
-    console.log("coucouc 2");
     carte.addControl(geocoder);
   }
 }

@@ -13,27 +13,32 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-           <li class="nav-itam">
-           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu", crop: :fill %>
-          <% end %>
-          </a>
+
+          <li class="nav-itam">
+            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu", crop: :fill %>
+            <% end %>
+            </a>
           </li>
+
           <li class="nav-itam active", id="normal">
-          <i class="fa-solid fa-house nav-icon"></i>
+            <i class="fa-solid fa-house nav-icon"></i>
             <%= link_to "Accueil", dashboards_path, class: "nav-link" %>
           </li>
+
           <li class="nav-itam", id="normal">
             <i class="fa-solid fa-user-secret nav-icon"></i>
             <%= link_to "Secret Spot", secret_spots_path, class: "nav-link" %>
           </li>
+
           <% if current_user.admin? %>
             <li class="nav-itam", id="normal">
-              <i class="fa-solid fa-user-secret nav-icon"></i>
+              <i class="fa-solid fa-check nav-icon"></i>
               <%= link_to "Places en attente de validation", places_path, class: "nav-link" %>
             </li>
           <% end %>
+
           <li class="nav-itam", id="normal">
             <i class="fa-solid fa-arrow-right-from-bracket nav-icon">
             </i> <%= button_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link" %>

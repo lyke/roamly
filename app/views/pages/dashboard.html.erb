@@ -1,5 +1,3 @@
-<div class="container"></div>
-<div class="container_chocolat"></div>
 <div class="d-flex">
   <%= link_to dashboards_path, class: "btn-voyage" do %>
   Mes voyages
@@ -9,14 +7,10 @@
   <% end %>
 </div>
 
-
-<%# <h6>À venir</h6>
-<h6 class ="passés"> Passés</h6> %>
 <% @future_travels.each do |travel| %>
   <%= link_to travel_path(travel), class: "travel-card" do %>
     <div class="rectangle">
       <% if travel.places.first != nil %>
-      <%# <img src="https://images.partir.com/g6_T5RzFIxc2VZcftQeoyIw8sgg=/750x/filters:sharpen(0.3,0.3,true)/incontournables/italie-milan-duomo.jpg" alt="Image 1"> %>
         <%= cl_image_tag travel.places.first.photos.first.key, height: 350, width: 450, crop: :fill %>
       <% else %>
         <%= image_tag "https://res.cloudinary.com/dwl5s1v4k/image/upload/v1688474864/photo-non-disponible-1_do68va.jpg", height: 350, width: 450, crop: :fill %>
@@ -28,25 +22,8 @@
           <strong><%= travel.beginning_date %></strong>  -  <strong><%= travel.ending_date %></strong>
         </div>
         Prix : <strong><%= travel.places.sum(&:price) %> €</strong>
-        <%# total_price = places_to_filter.sum(&:price) %>
       </div>
     </div>
   <% end %>
 <% end %>
 
-
-  <%# <div class="rectangle">
-    <img src="https://images.adsttc.com/media/images/5d44/14fa/284d/d1fd/3a00/003d/large_jpg/eiffel-tower-in-paris-151-medium.jpg?1564742900" alt="Image 2">
-    <div>
-      <h2>Paris</h2>
-      <p>Mon week-end à Paris 🥖 🇫🇷</p>
-    </div>
-  </div>
-
-  <div class="rectangle">
-    <img src="https://a.cdn-hotels.com/gdcs/production40/d811/5e89ad90-8f10-11e8-b6b0-0242ac110007.jpg?impolicy=fcrop&w=800&h=533&q=medium" alt="Image 3">
-    <div>
-      <h2>Rome</h2>
-      <p>Mon séjour à Rome 🍝 🇮🇹</p>
-    </div>
-  </div> %>
